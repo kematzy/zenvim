@@ -50,6 +50,204 @@ M.global = {
    { "<A-k>", ":m '<-2<CR>gv=gv", mode = "x", desc = "Move selection up" },
 }
 
+-- Snacks.nvim keymaps
+M.snacks = {
+   -- Core functionality
+   {
+      "<leader>e",
+      function()
+         Snacks.explorer()
+      end,
+      desc = "Explorer",
+   },
+   {
+      "<leader>z",
+      function()
+         Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
+   },
+   {
+      "<leader>Z",
+      function()
+         Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+   },
+
+   -- Scratch buffers
+   {
+      "<leader>.",
+      function()
+         Snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+   },
+   {
+      "<leader>S",
+      function()
+         Snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+   },
+
+   -- Notifications
+   {
+      "<leader>n",
+      function()
+         Snacks.notifier.show_history()
+      end,
+      desc = "Notification History",
+   },
+   {
+      "<leader>un",
+      function()
+         Snacks.notifier.hide()
+      end,
+      desc = "Dismiss All Notifications",
+   },
+
+   -- Buffer management
+   {
+      "<leader>bd",
+      function()
+         Snacks.bufdelete()
+      end,
+      desc = "Delete Buffer",
+   },
+
+   -- File operations
+   {
+      "<leader>cR",
+      function()
+         Snacks.rename.rename_file()
+      end,
+      desc = "Rename File",
+   },
+
+   -- Git integration
+   {
+      "<leader>gB",
+      function()
+         Snacks.gitbrowse()
+      end,
+      desc = "Git Browse",
+   },
+   {
+      "<leader>gb",
+      function()
+         Snacks.git.blame_line()
+      end,
+      desc = "Git Blame Line",
+   },
+   {
+      "<leader>gf",
+      function()
+         Snacks.lazygit.log_file()
+      end,
+      desc = "Lazygit Current File History",
+   },
+   {
+      "<leader>gg",
+      function()
+         Snacks.lazygit()
+      end,
+      desc = "Lazygit",
+   },
+   {
+      "<leader>gl",
+      function()
+         Snacks.lazygit.log()
+      end,
+      desc = "Lazygit Log (cwd)",
+   },
+
+   -- Terminal
+   {
+      "<c-/>",
+      function()
+         Snacks.terminal()
+      end,
+      desc = "Toggle Terminal",
+   },
+   {
+      "<c-_>",
+      function()
+         Snacks.terminal()
+      end,
+      desc = "which_key_ignore",
+   },
+
+   -- Word navigation
+   {
+      "]]",
+      function()
+         Snacks.words.jump(vim.v.count1)
+      end,
+      desc = "Next Reference",
+      mode = { "n", "t" },
+   },
+   {
+      "[[",
+      function()
+         Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = "Prev Reference",
+      mode = { "n", "t" },
+   },
+
+   -- Picker (fuzzy finder)
+   {
+      "<leader>ff",
+      function()
+         Snacks.picker.files()
+      end,
+      desc = "Find Files",
+   },
+   {
+      "<leader>fg",
+      function()
+         Snacks.picker.grep()
+      end,
+      desc = "Grep",
+   },
+   {
+      "<leader>fb",
+      function()
+         Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+   },
+   {
+      "<leader>fh",
+      function()
+         Snacks.picker.help()
+      end,
+      desc = "Help",
+   },
+   {
+      "<leader>fr",
+      function()
+         Snacks.picker.recent()
+      end,
+      desc = "Recent Files",
+   },
+   {
+      "<leader>fc",
+      function()
+         Snacks.picker.command_history()
+      end,
+      desc = "Command History",
+   },
+   {
+      "<leader>:",
+      function()
+         Snacks.picker.commands()
+      end,
+      desc = "Commands",
+   },
+}
+
 -- Function to apply global keymaps
 function M.setup_global_keymaps()
    -- print("Setting up global keymaps")
