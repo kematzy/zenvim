@@ -272,6 +272,18 @@ M.snacks = {
    },
 }
 
+-- Conform.nvim keymaps
+M.conform = {
+   {
+      "<leader>f",
+      function()
+         require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = { "n", "v" },
+      desc = "Format buffer",
+   },
+}
+
 -- Function to apply global keymaps
 function M.setup_global_keymaps()
    -- print("Setting up global keymaps")
