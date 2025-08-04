@@ -50,6 +50,30 @@ M.global = {
    { "<A-k>", ":m '<-2<CR>gv=gv", mode = "x", desc = "Move selection up" },
 }
 
+-- LSP keymaps (applied on LspAttach)
+M.lsp = {
+   { "gD", vim.lsp.buf.declaration, desc = "Go to declaration" },
+   { "gd", vim.lsp.buf.definition, desc = "Go to definition" },
+   { "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
+   { "gr", vim.lsp.buf.references, desc = "Go to references" },
+   { "K", vim.lsp.buf.hover, desc = "Hover documentation" },
+   { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature help" },
+   { "<leader>rn", vim.lsp.buf.rename, desc = "Rename symbol" },
+   { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action", mode = { "n", "v"} },
+
+   -- { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action", mode = "v" },
+   { "<leader>D", vim.lsp.buf.type_definition, desc = "Type definition" },
+   { "<leader>wa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
+   { "<leader>wr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+   {
+      "<leader>wl",
+      function()
+         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end,
+      desc = "List workspace folders",
+   },
+}
+
 -- Snacks.nvim keymaps
 M.snacks = {
    -- Core functionality
@@ -267,6 +291,25 @@ function M.setup_global_keymaps()
    end
 end
 
+-- Function to apply LSP keymaps (called in LspAttach autocmd)
+function M.setup_lsp_keymaps(bufnr)
+   -- print("Setting up LSP keymaps for buffer: " .. bufnr)
+   for _, keymap in ipairs(M.lsp) do
+      local key = keymap[1]
+      local cmd = keymap[2]
+      local mode = keymap.mode or "n"
+      local modes = type(mode) == "string" and { mode } or mode
+      local opts = {
+         desc = keymap.desc,
+         buffer = bufnr,
+         noremap = keymap.noremap ~= false,
+         silent = keymap.silent ~= false,
+      }
+
+      -- print("Setting LSP keymap: " .. key .. " with mode: " .. vim.inspect(modes) .. " with opts: " .. vim.inspect(opts))
+      vim.keymap.set(modes, key, cmd, opts)
+   end
+end
 
 return M
 
