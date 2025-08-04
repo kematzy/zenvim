@@ -10,6 +10,21 @@
 local keymaps = require("zenvim.config.keymaps")
 
 return {
+   -- Replaces the UI for messages, cmdline and the popupmenu.
+   -- DOCS: https://github.com/folke/noice.nvim
+   {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      dependencies = {
+         "MunifTanjim/nui.nvim",
+      },
+      opts = {
+         cmdline = {
+            enabled = true,
+            view = "cmdline_popup",
+         },
+      },
+   },
    -- WhichKey helps you remember your Neovim keymaps, by showing
    -- available keybindings in a popup as you type.
    -- DOCS: https://github.com/folke/which-key.nvim
