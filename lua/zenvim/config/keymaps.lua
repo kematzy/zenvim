@@ -284,6 +284,17 @@ M.conform = {
    },
 }
 
+-- LazyDocker keymaps
+M.lazydocker = {
+   {
+      "<leader>ld",
+      function()
+         require("lazydocker").toggle()
+      end,
+      desc = "Toggle LazyDocker",
+   },
+}
+
 -- Which-key group definitions
 M.which_key_groups = {
    { "<leader>c", group = "Code" },
