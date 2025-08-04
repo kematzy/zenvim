@@ -1,6 +1,24 @@
 {
   "words": [
     "nvim",
+    "mapleader",
+    "maplocalleader",
+    "relativenumber",
+    "expandtab",
+    "keymaps",
+    "bufnr",
+    "autocmd",
+    "noremap",
+    "gitbrowse",
+    "bufdelete",
+    "setloclist",
+    "nohlsearch",
+    "Netrw",
     "ZENVIM",
+    "stdpath",
+    "getchar",
+    "popupmenu",
+    "folke",
+    "getcwd"
   ]
 }
