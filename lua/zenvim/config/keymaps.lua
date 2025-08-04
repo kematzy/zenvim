@@ -284,6 +284,19 @@ M.conform = {
    },
 }
 
+-- Which-key group definitions
+M.which_key_groups = {
+   { "<leader>c", group = "Code" },
+   { "<leader>f", group = "File/Find" },
+   { "<leader>g", group = "Git" },
+   { "<leader>s", group = "Search" },
+   { "<leader>u", group = "UI" },
+   { "<leader>w", group = "Windows/Workspace" },
+   { "<leader>x", group = "Diagnostics/Quickfix" },
+   { "<leader>b", group = "Buffers" },
+   { "<leader>t", group = "Toggle/Terminal" },
+}
+
 -- Function to apply global keymaps
 function M.setup_global_keymaps()
    -- print("Setting up global keymaps")
