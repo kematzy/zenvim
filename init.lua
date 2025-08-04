@@ -13,5 +13,15 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- load the keymaps configurations
+local keymaps = require("zenvim.config.keymaps")
 
 require("zenvim.options")
+require("zenvim.lazy")
+
+-- Setup global keymaps
+keymaps.setup_global_keymaps()
+
+require("zenvim.autocommands")
+
+-- cSpell:words autocommands
