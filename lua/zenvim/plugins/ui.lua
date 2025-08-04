@@ -39,6 +39,45 @@ return {
          spec = keymaps.which_key_groups,
       },
    },
+   -- Telescope is a highly extendable fuzzy finder over lists, centered around
+   -- modularity, allowing for easy customization.
+   -- DOCS: https://github.com/nvim-telescope/telescope.nvim
+   {
+      "nvim-telescope/telescope.nvim",
+      dependencies = {
+         "nvim-lua/plenary.nvim",
+         {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = "make",
+            cond = function()
+               return vim.fn.executable("make") == 1
+            end,
+         },
+         { "nvim-telescope/telescope-ui-select.nvim" },
+
+         -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
+         {
+           "nvim-tree/nvim-web-devicons",
+           enabled = vim.g.have_nerd_font
+         },
+      },
+      event = "VimEnter",
+      branch = "0.1.x",
+      config = function()
+         require("telescope").setup({
+            extensions = {
+               ["ui-select"] = {
+                  require("telescope.themes").get_dropdown(),
+               },
+            },
+         })
+
+         pcall(require("telescope").load_extension, "fzf")
+         pcall(require("telescope").load_extension, "ui-select")
+      end,
+      -- add keymaps
+      keys = keymaps.telescope,
+   },
    -- A Neovim plugin to persist and toggle multiple terminals during an editing session
    -- DOCS: https://github.com/akinsho/toggleterm.nvim
    {
@@ -82,3 +121,4 @@ return {
    },
 }
 
+-- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada

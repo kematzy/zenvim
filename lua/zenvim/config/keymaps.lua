@@ -272,6 +272,52 @@ M.snacks = {
    },
 }
 
+-- Telescope keymaps (fallback/advanced features)
+M.telescope = {
+   {
+      "<leader>sh",
+      function()
+         require("telescope.builtin").help_tags()
+      end,
+      desc = "Search Help",
+   },
+   {
+      "<leader>sk",
+      function()
+         require("telescope.builtin").keymaps()
+      end,
+      desc = "Search Keymaps",
+   },
+   {
+      "<leader>ss",
+      function()
+         require("telescope.builtin").builtin()
+      end,
+      desc = "Search Select Telescope",
+   },
+   {
+      "<leader>sw",
+      function()
+         require("telescope.builtin").grep_string()
+      end,
+      desc = "Search current Word",
+   },
+   {
+      "<leader>sd",
+      function()
+         require("telescope.builtin").diagnostics()
+      end,
+      desc = "Search Diagnostics",
+   },
+   {
+      "<leader>sr",
+      function()
+         require("telescope.builtin").resume()
+      end,
+      desc = "Search Resume",
+   },
+}
+
 -- Conform.nvim keymaps
 M.conform = {
    {
