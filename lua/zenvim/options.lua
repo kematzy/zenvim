@@ -33,25 +33,25 @@ vim.opt.colorcolumn = "-20,-40,+1"
 vim.opt.list = true
 -- Characters used to visually show hidden characters
 vim.opt.listchars = {
-  -- 2 - 3 characters to show a tab. The 3rd character is optional.
-  tab = "→ ",
-  -- character to show at the end of each line.
-  -- when omitted, there is no extra character at the end of the line.
-  eol = "↲",
-  -- character to show for a non-breakable space character
-  nbsp = "␣",
-  -- character to show for a space.
-  space = "·",
-  -- character to show for leading spaces.
-  lead = "·",
-  -- character to show for trailing spaces.
-  trail = "•",
-  -- character to show in the last column, when 'wrap' is off and
-  -- the line continues beyond the right of the screen.
-  extends = "⟩",
-  -- character to show in the first visible column of the physical line,
-  -- when there is text prec ding the character visible in the first column.
-  precedes = "⟨",
+   -- 2 - 3 characters to show a tab. The 3rd character is optional.
+   tab = "→ ",
+   -- character to show at the end of each line.
+   -- when omitted, there is no extra character at the end of the line.
+   eol = "↲",
+   -- character to show for a non-breakable space character
+   nbsp = "␣",
+   -- character to show for a space.
+   space = "·",
+   -- character to show for leading spaces.
+   lead = "·",
+   -- character to show for trailing spaces.
+   trail = "•",
+   -- character to show in the last column, when 'wrap' is off and
+   -- the line continues beyond the right of the screen.
+   extends = "⟩",
+   -- character to show in the first visible column of the physical line,
+   -- when there is text prec ding the character visible in the first column.
+   precedes = "⟨",
 }
 -- string to put at the start of lines that have been wrapped.
 vim.opt.showbreak = "↪ "
@@ -77,6 +77,5 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 -- time in milliseconds for CursorHold events and swap file writing
 vim.opt.updatetime = 50
-
 
 -- cSpell:words shiftwidth smartindent textwidth listchars colorcolumn showbreak showmode swapfile undofile hlsearch incsearch termguicolors scrolloff signcolumn updatetime cursorline
