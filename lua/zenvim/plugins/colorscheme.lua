@@ -22,6 +22,15 @@ return {
                treesitter = true,
                which_key = true,
             },
+            custom_highlights = function(colors)
+               return {
+                  -- Noice.nvim changes
+                  -- NoiceCmdlinePopup = { fg = colors.text, bg = colors.base },
+                  -- NoiceCmdlinePopupBorder = { fg = colors.peach, bg = colors.base },
+                  NoiceCmdlinePopup = { fg = colors.text },
+                  NoiceCmdlinePopupBorder = { fg = colors.peach },
+               }
+            end,
          })
          vim.cmd.colorscheme("catppuccin")
       end,
@@ -44,4 +53,4 @@ return {
    },
 }
 
--- cSpell:words gitsigns tokyonight
+-- cSpell:words gitsigns tokyonight Noice Cmdline
