@@ -18,10 +18,23 @@ return {
       dependencies = {
          "MunifTanjim/nui.nvim",
       },
+      ---@class NoiceConfig
       opts = {
          cmdline = {
             enabled = true,
             view = "cmdline_popup",
+            format = {
+               cmdline = { pattern = "^:", icon = "❯", lang = "vim", title = " Command " },
+            },
+         },
+         ---@type NoiceConfigViews
+         views = {
+            cmdline_popup = {
+               border = {
+                  style = "rounded",
+                  padding = { 0, 1 }, -- { vertical, horizontal }
+               },
+            },
          },
       },
    },

@@ -32,8 +32,6 @@ return {
             custom_highlights = function(colors)
                return {
                   -- Noice.nvim changes
-                  -- NoiceCmdlinePopup = { fg = colors.text, bg = colors.base },
-                  -- NoiceCmdlinePopupBorder = { fg = colors.peach, bg = colors.base },
                   NoiceCmdlinePopup = { fg = colors.text },
                   NoiceCmdlinePopupBorder = { fg = colors.peach },
                }
