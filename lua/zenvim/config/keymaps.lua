@@ -207,7 +207,6 @@ M.conform = {
    },
 }
 
--- LazyDocker keymaps
 -- akinsho/toggleterm.nvim keymaps
 M.toggleterm = {
    {
@@ -217,13 +216,13 @@ M.toggleterm = {
    },
 }
 
+-- mgierada/lazydocker.nvim keymaps
 M.lazydocker = {
    {
-      "<leader>ld",
-      function()
-         require("lazydocker").toggle()
-      end,
-      desc = "Toggle LazyDocker",
+      "<leader>td",
+      "<cmd>Lazydocker<cr>",
+      -- function() require("lazydocker").toggle() end,
+      desc = "LazyDocker",
    },
 }
 

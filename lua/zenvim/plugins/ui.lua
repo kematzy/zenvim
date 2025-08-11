@@ -309,19 +309,6 @@ return {
          })
       end,
    },
-   -- lazydocker.nvim is a plugin that allows you to manage your Docker
-   -- environment without leaving Neovim.
-   -- DOCS: https://github.com/mgierada/lazydocker.nvim
-   {
-      "mgierada/lazydocker.nvim",
-      dependencies = { "akinsho/toggleterm.nvim" },
-      config = function()
-         require("lazydocker").setup({})
-      end,
-      event = "BufRead",
-      -- add keymaps
-      keys = keymaps.lazydocker,
-   },
 }
 
--- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada
+-- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada globalstatus fileformat
