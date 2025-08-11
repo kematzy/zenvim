@@ -77,5 +77,9 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 -- time in milliseconds for CursorHold events and swap file writing
 vim.opt.updatetime = 50
+-- Adds 2px of vertical padding per line. Only works in GUIs, not terminals
+vim.opt.linespace = 2
+-- Adds "visual margin" when scrolling
+vim.opt.scrolloff = 5
 
--- cSpell:words shiftwidth smartindent textwidth listchars colorcolumn showbreak showmode swapfile undofile hlsearch incsearch termguicolors scrolloff signcolumn updatetime cursorline
+-- cSpell:words shiftwidth smartindent textwidth cursorline colorcolumn listchars prec showbreak  showmode swapfile  undofile hlsearch  incsearch termguicolors signcolumn  updatetime linespace scrolloff
