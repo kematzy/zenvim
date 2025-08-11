@@ -34,6 +34,37 @@ return {
                   -- Noice.nvim changes
                   NoiceCmdlinePopup = { fg = colors.text },
                   NoiceCmdlinePopupBorder = { fg = colors.peach },
+
+                  -- FloatBorder = { fg = colors.surface1 },
+                  -- Lualine.nvim changes
+                  TabLine = { bg = colors.purple, fg = colors.blue },
+                  -- TabLineFill = { bg = colors.blue },
+                  --
+                  --
+                  -- SNACKS.nvim
+                  SnacksDashboardHeader = { fg = "#566886" },
+                  SnacksDashboardStartup = { fg = colors.green },
+                  SnacksDashboardFooter = { fg = "#566886" },
+                  SnacksDashboardSpecial = { fg = "#5F7AA8" },
+                  SnacksDashboardTitle = { fg = "#566886" },
+                  SnacksDashboardDesc = { fg = "#4B6BA3" },
+                  SnacksDashboardIcon = { fg = colors.overlay1 },
+
+                  SnacksPicker = { fg = colors.text, bg = colors.base },
+                  SnacksPickerTitle = { fg = colors.blue, bg = colors.base },
+                  SnacksPickerInput = { fg = colors.text, bg = colors.base },
+                  SnacksPickerBorder = { fg = colors.base, bg = colors.base },
+
+                  ToggleTerm1Border = { fg = colors.text, bg = colors.peach },
+                  -- mikavilpas/yazi.nvim
+                  YaziFloatBorder = { fg = colors.peach, bg = colors.base },
+                  -- kdheepak/lazygit.nvim
+                  LazyGitBorder = { fg = colors.peach, bg = colors.base },
+
+                  -- Comment = { fg = colors.flamingo },
+                  -- TabLineSel = { bg = colors.pink },
+                  -- CmpBorder = { fg = colors.surface2 },
+                  -- Pmenu = { bg = colors.none },
                }
             end,
          })
@@ -58,4 +89,4 @@ return {
    },
 }
 
--- cSpell:words gitsigns tokyonight Noice Cmdline
+-- cSpell:words gitsigns tokyonight Noice Cmdline kdheepak mikavilpas
