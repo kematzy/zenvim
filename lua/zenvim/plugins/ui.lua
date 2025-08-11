@@ -99,4 +99,4 @@ return {
    },
 }
 
--- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons
+-- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada globalstatus fileformat
