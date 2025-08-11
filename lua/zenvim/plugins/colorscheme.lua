@@ -19,6 +19,13 @@ return {
             integrations = {
                cmp = true,
                gitsigns = true,
+               snacks = {
+                  enabled = true,
+                  indent_scope_color = "gray",
+               },
+               telescope = {
+                  enabled = true,
+               },
                treesitter = true,
                which_key = true,
             },
