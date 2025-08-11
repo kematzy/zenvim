@@ -233,6 +233,28 @@ M.lazygit = {
    { "<leader>tG", "<cmd>LazyGitConfig<cr>", desc = "LazyGit Config" },
 }
 
+-- mikavilpas/yazi.nvim keymaps
+M.yazi = {
+   -- Open with the current file focused
+   {
+      "<leader>ty",
+      "<cmd>Yazi<cr>",
+      desc = "Yazi (Current File)",
+      mode = { "n", "v" },
+   },
+   {
+      -- Open in the current working directory
+      "<leader>tY",
+      "<cmd>Yazi cwd<cr>",
+      desc = "Yazi (Working directory)",
+   },
+   {
+      "<c-up>",
+      "<cmd>Yazi toggle<cr>",
+      desc = "Resume the last yazi session",
+   },
+}
+
 -- folke/which-key.nvim keymaps /  group definitions
 M.which_key_groups = {
    { "<leader>c", group = "Code" },
