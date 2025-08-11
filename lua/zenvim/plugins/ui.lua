@@ -8,8 +8,6 @@
 
 -- load the keymaps configurations
 local keymaps = require("zenvim.config.keymaps")
--- load Zen colors and styles
-local Zen = require("zenvim.config.zen")
 
 return {
    -- Replaces the UI for messages, cmdline and the popupmenu.

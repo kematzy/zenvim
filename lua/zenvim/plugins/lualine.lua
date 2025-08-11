@@ -6,6 +6,9 @@
 --      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
 --
 
+-- load Zen colors and styles
+local Zen = require("zenvim.config.zen")
+
 return {
    -- A blazing fast and easy to configure neovim statusline plugin written.
    -- DOCS: https://github.com/nvim-lualine/lualine.nvim
