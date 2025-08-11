@@ -203,7 +203,7 @@ return {
             },
             tabline = {
                lualine_a = {
-                  TablineItems.project(),
+                  "buffers",
                },
                lualine_b = {},
                lualine_c = {
@@ -213,7 +213,7 @@ return {
                lualine_x = {},
                lualine_y = {},
                lualine_z = {
-                  "buffers",
+                  TablineItems.project(),
                },
             },
          })
