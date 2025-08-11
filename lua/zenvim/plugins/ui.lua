@@ -58,20 +58,24 @@ return {
    {
       "nvim-telescope/telescope.nvim",
       dependencies = {
-         "nvim-lua/plenary.nvim",
          {
+            -- DOCS: https://github.com/nvim-lua/plenary.nvim
+            "nvim-lua/plenary.nvim",
+         },
+         {
+            -- DOCS: https://github.com/nvim-telescope/telescope-fzf-native.nvim
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
-            cond = function()
-               return vim.fn.executable("make") == 1
-            end,
+            cond = function() return vim.fn.executable("make") == 1 end,
          },
-         { "nvim-telescope/telescope-ui-select.nvim" },
-
-         -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
          {
-           "nvim-tree/nvim-web-devicons",
-           enabled = vim.g.have_nerd_font
+            -- DOCS: https://github.com/nvim-telescope/telescope-ui-select.nvim
+            "nvim-telescope/telescope-ui-select.nvim",
+         },
+         {
+            -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
+            "nvim-tree/nvim-web-devicons",
+            enabled = vim.g.have_nerd_font,
          },
       },
       event = "VimEnter",
