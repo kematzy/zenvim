@@ -226,6 +226,13 @@ M.lazydocker = {
    },
 }
 
+-- kdheepak/lazygit.nvim keymaps
+M.lazygit = {
+   { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+   { "<leader>tg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+   { "<leader>tG", "<cmd>LazyGitConfig<cr>", desc = "LazyGit Config" },
+}
+
 -- folke/which-key.nvim keymaps /  group definitions
 M.which_key_groups = {
    { "<leader>c", group = "Code" },
