@@ -19,6 +19,14 @@
     "getchar",
     "popupmenu",
     "folke",
-    "getcwd"
+    "getcwd",
+    "statusline",
+    "lualine",
+    "tabline",
+    "winblend",
+    "Yazi",
+    "keymap",
+    "autocmds",
+    "qflist"
   ]
 }
