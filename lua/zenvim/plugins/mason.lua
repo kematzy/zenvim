@@ -8,15 +8,17 @@
 
 return {
    -- Mason (must load first)
+   -- Package manager to install & manage LSP servers, DAP servers, linters, and formatters.
+   -- DOCS: https://github.com/mason-org/mason.nvim
    {
-      "williamboman/mason.nvim",
+      "mason-org/mason.nvim",
       config = true,
    },
-
-   -- Mason LSP Config
+   -- Mason LSP Config makes it easier to use `lspconfig` with `mason.nvim`.
+   -- DOCS: https://github.com/mason-org/mason-lspconfig.nvim
    {
-      "williamboman/mason-lspconfig.nvim",
-      dependencies = { "williamboman/mason.nvim" },
+      "mason-org/mason-lspconfig.nvim",
+      dependencies = { "mason-org/mason.nvim" },
       config = function()
          require("mason-lspconfig").setup({
             ensure_installed = {
@@ -36,12 +38,11 @@ return {
          })
       end,
    },
-
-   -- Mason Tool Installer
+   -- Mason Tool Installer - Install and upgrade third party tools automatically
    -- DOCS: https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
    {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
-      dependencies = { "williamboman/mason.nvim" },
+      dependencies = { "mason-org/mason.nvim" },
       config = function()
          require("mason-tool-installer").setup({
             ensure_installed = {
@@ -59,5 +60,4 @@ return {
    },
 }
 
-
--- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt
+-- cSpell:words lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt luacheck
