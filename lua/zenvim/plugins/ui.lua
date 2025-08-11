@@ -97,13 +97,9 @@ return {
       -- add keymaps
       keys = keymaps.telescope,
    },
-   -- A Neovim plugin to persist and toggle multiple terminals during an editing session
-   -- DOCS: https://github.com/akinsho/toggleterm.nvim
    -- A blazing fast and easy to configure neovim statusline plugin written.
    -- DOCS: https://github.com/nvim-lualine/lualine.nvim
    {
-      "akinsho/toggleterm.nvim",
-      version = "*",
       "nvim-lualine/lualine.nvim",
       dependencies = {
          {
@@ -120,23 +116,6 @@ return {
          },
       },
       config = function()
-         require("toggleterm").setup({
-            size = 20,
-            open_mapping = [[<c-\>]],
-            hide_numbers = true,
-            shade_terminals = true,
-            start_in_insert = true,
-            insert_mappings = true,
-            persist_size = true,
-            direction = "float",
-            close_on_exit = true,
-            shell = vim.o.shell,
-            float_opts = {
-               border = "curved",
-               winblend = 0,
-               highlights = {
-                  border = "Normal",
-                  background = "Normal",
          local fn = {}
 
          local __center__ = "%="

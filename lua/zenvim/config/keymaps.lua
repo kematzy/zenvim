@@ -208,6 +208,15 @@ M.conform = {
 }
 
 -- LazyDocker keymaps
+-- akinsho/toggleterm.nvim keymaps
+M.toggleterm = {
+   {
+      "<leader>tt",
+      "<cmd>ToggleTerm size=40 dir=. direction=float name=' Terminal '<cr>",
+      desc = "Terminal",
+   },
+}
+
 M.lazydocker = {
    {
       "<leader>ld",
