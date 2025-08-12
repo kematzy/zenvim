@@ -60,26 +60,27 @@ return {
             end,
             -- Tabline C
             symbol = function()
-               return {
-                  "TODO: symbols",
-               }
-               -- local trouble = require("trouble")
-
-               -- local symbols = trouble.statusline({
-               --    mode = "lsp_document_symbols",
-               --    groups = {},
-               --    title = false,
-               --    filter = { range = true },
-               --    format = "{kind_icon:StatusBarSegmentFaded}{symbol.name:StatusBarSegmentFaded} ",
-               --    hl_group = "StatusBarSegmentFaded",
-               -- })
-
                -- return {
-               --    symbols and symbols.get,
-               --    cond = function()
-               --       return vim.b.trouble_lualine ~= false and symbols.has()
-               --    end,
+               --    "TODO: symbols",
                -- }
+               local trouble = require("trouble")
+
+               local symbols = trouble.statusline({
+                  mode = "lsp_document_symbols",
+                  groups = {},
+                  title = false,
+                  filter = { range = true },
+                  format = "{kind_icon:StatusBarSegmentFaded}{symbol.name:StatusBarSegmentFaded} ",
+                  hl_group = "StatusBarSegmentFaded",
+               })
+
+               return {
+                  symbols and symbols.get,
+                  cond = function()
+                     --
+                     return vim.b.trouble_lualine ~= false and symbols.has()
+                  end,
+               }
             end,
          }
 
