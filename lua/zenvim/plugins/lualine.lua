@@ -50,9 +50,11 @@ return {
                   padding = { left = 2, right = 3 },
                   color = function()
                      return {
-                        fg = "#566886",
+                        fg = "#888888",
+                        -- fg = "#566886",
+                        bg = "#323F56",
                         -- fg = Zen.palette.bar_text,
-                        bg = Zen.palette.bar_bg,
+                        -- bg = Zen.palette.bar_bg,
                         -- gui = "bold",
                      }
                   end,
@@ -207,7 +209,47 @@ return {
             },
             tabline = {
                lualine_a = {
-                  "buffers",
+                  {
+                     "buffers",
+                     color = function()
+                        return {
+                           fg = Zen.palette.bar_faded_text,
+                           bg = Zen.palette.bar_bg,
+                           -- bg = "",
+                        }
+                     end,
+                     -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+                     filetype_names = {
+                        TelescopePrompt = "Telescope",
+                        dashboard = "Dashboard",
+                        packer = "Packer",
+                        fzf = "FZF",
+                        alpha = "Alpha",
+                        lazygit = "LazyGit",
+                        yazi = "Yazi",
+                        picker = "Snacks Picker",
+                        explorer = "Explorer",
+                     },
+
+                     -- Automatically updates active buffer color to match color of other components (will be overidden if buffers_color is set)
+                     use_mode_colors = false,
+
+                     -- buffers_color = {
+                     --    -- Same values as the general color option can be used here.
+                     --    active = "lualine_{section}_normal", -- Color for active buffer.
+                     --    inactive = "lualine_{section}_inactive", -- Color for inactive buffer.
+                     -- },
+
+                     symbols = {
+                        -- 󰜳   󰜲  󰜱  󱞢    󰆓    󰳻  󱙃      󰴓         󰁎  󱞶
+                        -- shown when the buffer is modified
+                        modified = " ",
+                        -- identifying previous edited file
+                        alternate_file = "󱞶 ",
+                        -- shown when the buffer is a directory
+                        directory = "",
+                     },
+                  },
                },
                lualine_b = {},
                lualine_c = {
