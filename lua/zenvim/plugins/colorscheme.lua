@@ -16,12 +16,16 @@ return {
          require("catppuccin").setup({
             flavour = "mocha",
             transparent_background = false,
+            float = {
+               transparent = false, -- enable transparent floating windows
+               solid = false, -- use solid styling for floating windows, see |winborder|
+            },
             integrations = {
                cmp = true,
                gitsigns = true,
                snacks = {
                   enabled = true,
-                  indent_scope_color = "gray",
+                  indent_scope_color = "blue",
                },
                telescope = {
                   enabled = true,
@@ -31,17 +35,15 @@ return {
             },
             custom_highlights = function(colors)
                return {
-                  -- Noice.nvim changes
+                  -- folke/noice.nvim
                   NoiceCmdlinePopup = { fg = colors.text },
                   NoiceCmdlinePopupBorder = { fg = colors.peach },
 
-                  -- FloatBorder = { fg = colors.surface1 },
-                  -- Lualine.nvim changes
-                  TabLine = { bg = colors.purple, fg = colors.blue },
+                  -- nvim-lualine/lualine.nvim
+                  TabLine = { bg = colors.lavender, fg = colors.blue },
                   -- TabLineFill = { bg = colors.blue },
-                  --
-                  --
-                  -- SNACKS.nvim
+
+                  -- folke/snacks.nvim
                   SnacksDashboardHeader = { fg = "#566886" },
                   SnacksDashboardStartup = { fg = colors.green },
                   SnacksDashboardFooter = { fg = "#566886" },
@@ -49,22 +51,18 @@ return {
                   SnacksDashboardTitle = { fg = "#566886" },
                   SnacksDashboardDesc = { fg = "#4B6BA3" },
                   SnacksDashboardIcon = { fg = colors.overlay1 },
-
+                  --
                   SnacksPicker = { fg = colors.text, bg = colors.base },
                   SnacksPickerTitle = { fg = colors.blue, bg = colors.base },
                   SnacksPickerInput = { fg = colors.text, bg = colors.base },
                   SnacksPickerBorder = { fg = colors.base, bg = colors.base },
 
+                  -- akinsho/toggleterm.nvim
                   ToggleTerm1Border = { fg = colors.text, bg = colors.peach },
                   -- mikavilpas/yazi.nvim
                   YaziFloatBorder = { fg = colors.peach, bg = colors.base },
                   -- kdheepak/lazygit.nvim
                   LazyGitBorder = { fg = colors.peach, bg = colors.base },
-
-                  -- Comment = { fg = colors.flamingo },
-                  -- TabLineSel = { bg = colors.pink },
-                  -- CmpBorder = { fg = colors.surface2 },
-                  -- Pmenu = { bg = colors.none },
                }
             end,
          })
@@ -76,13 +74,10 @@ return {
    -- DOCS: https://github.com/folke/tokyonight.nvim
    {
       "folke/tokyonight.nvim",
+      lazy = false,
       priority = 1000,
+      opts = {},
       config = function()
-         require("tokyonight").setup({
-            style = "night",
-            transparent = false,
-            terminal_colors = true,
-         })
          -- Uncomment to use tokyonight instead
          -- vim.cmd.colorscheme "tokyonight"
       end,
