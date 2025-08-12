@@ -95,6 +95,24 @@ return {
       -- add keymaps
       keys = keymaps.telescope,
    },
+   -- Clipboard manager neovim plugin with telescope integration
+   -- DOCS: https://github.com/AckslD/nvim-neoclip.lua
+   {
+      "AckslD/nvim-neoclip.lua",
+      dependencies = {
+         {
+            -- SQLite LuaJIT binding with a very simple API
+            -- DOCS: https://github.com/kkharji/sqlite.lua
+            "kkharji/sqlite.lua",
+            module = "sqlite",
+         },
+         {
+            -- DOCS: https://github.com/nvim-telescope/telescope.nvim
+            "nvim-telescope/telescope.nvim",
+         },
+      },
+      config = function() require("neoclip").setup({}) end,
+   },
 }
 
--- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada globalstatus fileformat
+-- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada globalstatus fileformat AckslD neoclip kkharji
