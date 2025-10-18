@@ -13,5 +13,18 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # See: https://github.com/luarocks/lua-style-guide
+# Configuration files
+[*.json,*.yml,*.yaml,*.toml]
+indent_size = 2
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# Lua files (consistent with project style)
 [*.lua]
-indent_size = 3
+indent_size = 2
+
+# Ignore special files
+[{tmp.*,.*.tmp}]
+indent_style = ignore

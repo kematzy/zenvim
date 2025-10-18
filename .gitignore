@@ -1,1 +1,35 @@
+# Plugin dependencies
 lazy-lock.json
+
+# Plugin installation
+lazy/
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Session files
+Session.vim
+*.vim
+
+# Temporary files
+tmp.*
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local configuration
+local.lua
+local/
