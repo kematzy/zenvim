@@ -104,7 +104,7 @@ vim.opt.linespace = 2
 vim.opt.winborder = "rounded"
 
 -- Performance optimizations
-vim.opt.lazyredraw = true -- Don't redraw while executing macros
+-- vim.opt.lazyredraw = true -- Don't redraw while executing macros
 vim.opt.synmaxcol = 240 -- Only syntax highlight up to 240 columns
 vim.opt.timeoutlen = 500 -- Faster timeout for key sequences
 vim.opt.ttimeoutlen = 50 -- Faster timeout for terminal key sequences

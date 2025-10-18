@@ -127,13 +127,17 @@ function M.check()
       "dockerls",
    }
 
-   local mason_registry = require("mason-registry")
-   for _, server in ipairs(lsp_servers) do
-      if mason_registry.is_installed(server) then
-         health.ok(string.format("✅ LSP Server %s: installed", server))
-      else
-         health.warn(string.format("⚠️  LSP Server %s: not installed", server))
+   local ok, mason_registry = pcall(require, "mason-registry")
+   if ok then
+      for _, server in ipairs(lsp_servers) do
+         if mason_registry.is_installed(server) then
+            health.ok(string.format("✅ LSP Server %s: installed", server))
+         else
+            health.warn(string.format("⚠️  LSP Server %s: not installed", server))
+         end
       end
+   else
+      health.warn("Mason registry not available")
    end
 
    -- Check Treesitter parsers
