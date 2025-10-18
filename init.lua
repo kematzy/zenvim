@@ -5,6 +5,9 @@
 -- See: https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72
 --      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
 
+-- Performance monitoring - Start timing
+local start_time = vim.loop.hrtime()
+
 require("config.globals")
 require("config.options")
 -- load the keymaps configurations
@@ -16,5 +19,25 @@ require("config.autocmd")
 require("config.lazy")
 
 require("config.lsp")
+
+-- Load health check utilities
+require("config.health")
+
+-- Performance monitoring - End timing and log if slow
+vim.defer_fn(function()
+   local end_time = vim.loop.hrtime()
+   local startup_time = (end_time - start_time) / 1e6 -- Convert to milliseconds
+
+   if startup_time > 100 then -- Log if startup takes more than 100ms
+      vim.notify(
+         string.format("ZENVIM startup took %.0fms", startup_time),
+         vim.log.levels.WARN,
+         { title = "Performance" }
+      )
+   end
+
+   -- Set global variable for health checks
+   _G.ZENVIM_STARTUP_TIME = startup_time
+end, 0)
 
 -- cSpell:words autocmd

@@ -30,17 +30,20 @@ A minimal yet powerful Neovim configuration targeting **Neovim v0.11.3+**. This 
 ### Installation
 
 1. **Backup your existing configuration** (if you have one):
+
    ```bash
    mv ~/.config/nvim ~/.config/nvim.backup
    mv ~/.local/share/nvim ~/.local/share/nvim.backup
    ```
 
 2. **Clone the configuration**:
+
    ```bash
    git clone <repository-url> ~/.config/nvim
    ```
 
 3. **Start Neovim**:
+
    ```bash
    nvim
    ```
@@ -50,6 +53,7 @@ A minimal yet powerful Neovim configuration targeting **Neovim v0.11.3+**. This 
 ### First Launch
 
 The first time you start Neovim, Lazy.nvim will:
+
 - Install all configured plugins
 - Set up LSP servers automatically
 - Install Treesitter parsers
@@ -89,6 +93,7 @@ The first time you start Neovim, Lazy.nvim will:
 ### Language Support
 
 LSP support is configured for:
+
 - **Web**: HTML, CSS, JavaScript/TypeScript, JSON, YAML, TOML
 - **Backend**: Lua, Python, Go, PHP, Ruby, Bash
 - **DevOps**: Docker, SQL
@@ -100,12 +105,14 @@ LSP support is configured for:
 This configuration includes comprehensive keybindings:
 
 #### Navigation & Files
+
 - `<leader>ff` - Find files
 - `<leader>fg` - Live grep
 - `<leader>fb` - Browse buffers
 - `<leader>fr` - Recent files
 
 #### LSP
+
 - `gd` - Go to definition
 - `gr` - Go to references
 - `gI` - Go to implementation
@@ -113,11 +120,13 @@ This configuration includes comprehensive keybindings:
 - `<C-k>` - Signature help
 
 #### Git
+
 - `<leader>gg` - Open LazyGit
 - `<leader>gb` - Git blame
 - `<leader>gs` - Git status
 
 #### Editor
+
 - `<C-s>` - Save file
 - `<C-q>` - Quit Neovim
 - `<Esc>` - Clear search highlighting
@@ -180,24 +189,45 @@ M.global = {
 ### Common Issues
 
 1. **Plugin Installation Errors**:
+
    ```vim
    :Lazy health
    ```
 
 2. **LSP Server Issues**:
+
    ```vim
    :Mason
    :LspInfo
    ```
 
 3. **Keymap Conflicts**:
+
    ```vim
    :verbose map <key>
    ```
 
 4. **Performance Issues**:
+
    ```vim
    :checkhealth
+   ```
+
+5. **Configuration Validation**:
+
+   ```vim
+   :ZENVIMValidate
+   ```
+
+6. **ZENVIM Health Check**:
+
+   ```vim
+   :ZENVIMHealth
+   ```
+
+7. **Startup Performance**:
+   ```vim
+   :StartupTime
    ```
 
 ### Getting Help
@@ -229,6 +259,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 This configuration was created with assistance from:
+
 - [Claude Sonnet v4](https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72)
 - [Grok 3](https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897)
 

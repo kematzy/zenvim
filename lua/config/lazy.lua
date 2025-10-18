@@ -41,6 +41,71 @@ require("lazy").setup({
    install = { colorscheme = { "habamax" } },
    -- automatically check for plugin updates
    checker = { enabled = true },
+
+   -- Performance optimizations
+   performance = {
+      rtp = {
+         -- Disable some built-in plugins for better startup time
+         disabled_plugins = {
+            "gzip",
+            "matchit",
+            "matchparen",
+            "netrwPlugin",
+            "tarPlugin",
+            "tohtml",
+            "tutor",
+            "zipPlugin",
+            "man",
+            "shada_plugin",
+            "spellfile_plugin",
+         },
+      },
+   },
+
+   -- UI configuration
+   ui = {
+      -- The border to use for the UI window. Accepts same border values as nvim_open_win().
+      border = "rounded",
+      -- The backdrop opacity. 0 is fully opaque, 100 is fully transparent.
+      backdrop = 60,
+      icons = {
+         cmd = " ",
+         config = " ",
+         event = " ",
+         ft = " ",
+         init = " ",
+         import = " ",
+         keys = " ",
+         lazy = " ",
+         loaded = "●",
+         not_loaded = "○",
+         plugin = " ",
+         runtime = " ",
+         require = " ",
+         source = " ",
+         start = " ",
+         task = " ",
+         list = {
+            "●",
+            "➜",
+            "★",
+            "‒",
+         },
+      },
+   },
+
+   -- Debug settings
+   debug = false,
+   defaults = {
+      -- By default, only LazyVim plugins will be lazy-loaded.
+      -- Your default plugins will load at startup.
+      lazy = false,
+      -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
+      -- have outdated releases, which may break your Neovim install.
+      version = nil,
+      -- default = `false`, will use the default branch of the plugin
+      branch = "stable",
+   },
 })
 
 -- cSpell:words lazypath lazyrepo habamax

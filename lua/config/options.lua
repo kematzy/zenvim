@@ -97,11 +97,40 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 -- Adds 2px of vertical padding per line. Only works in GUIs, not terminals
 vim.opt.linespace = 2
--- Adds "visual margin" when scrolling
-vim.opt.scrolloff = 5
+-- Adds "visual margin" when scrolling (consolidated with above)
+-- vim.opt.scrolloff = 5 -- Already set to 8 above
 
 -- Set the default border for all floating windows
 vim.opt.winborder = "rounded"
+
+-- Performance optimizations
+vim.opt.lazyredraw = true -- Don't redraw while executing macros
+vim.opt.synmaxcol = 240 -- Only syntax highlight up to 240 columns
+vim.opt.timeoutlen = 500 -- Faster timeout for key sequences
+vim.opt.ttimeoutlen = 50 -- Faster timeout for terminal key sequences
+
+-- Memory optimizations
+vim.opt.history = 1000 -- Reduce command history size
+vim.opt.sidescrolloff = 8 -- Keep context when scrolling horizontally
+vim.opt.undolevels = 1000 -- Reasonable undo levels
+
+-- Reduce file update checks for better performance
+vim.opt.updatetime = 300 -- Update time for swap files and CursorHold
+
+-- Optimize for large files
+vim.api.nvim_create_autocmd("BufReadPre", {
+   callback = function()
+      local size = vim.fn.getfsize(vim.fn.expand("%"))
+      if size > 1024 * 1024 then -- 1MB
+         vim.opt_local.wrap = false
+         vim.opt_local.number = false
+         vim.opt_local.relativenumber = false
+         vim.opt_local.signcolumn = "no"
+         vim.opt_local.cursorline = false
+      end
+   end,
+   desc = "Optimize for large files",
+})
 
 -- cSpell:words shiftwidth smartindent textwidth cursorline colorcolumn listchars prec showbreak softtabstop showmode
 -- cSpell:words swapfile undofile hlsearch incsearch termguicolors signcolumn updatetime linespace scrolloff breakindent smartindent winborder
