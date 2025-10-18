@@ -5,23 +5,16 @@
 -- See: https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72
 --      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
 
--- Disable Netrw to avoid interference
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- Set leader key early
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
+require("config.globals")
+require("config.options")
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
-
-require("zenvim.options")
-require("zenvim.lazy")
-
+local keymaps = require("config.keymap")
 -- Setup global keymaps
 keymaps.setup_global_keymaps()
 
-require("zenvim.autocommands")
+require("config.autocmd")
+require("config.lazy")
 
--- cSpell:words autocommands
+require("config.lsp")
+
+-- cSpell:words autocmd

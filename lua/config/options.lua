@@ -10,25 +10,13 @@
 vim.opt.number = true
 -- enable relative line numbers. Default: false
 vim.opt.relativenumber = true
--- expand tab to spaces
-vim.opt.expandtab = true
--- set indent width to n spaces
-vim.opt.shiftwidth = 2
--- set n spaces for tabs (prettier default)
-vim.opt.tabstop = 2
--- enable smart·auto-indenting·when·starting·a·new·line
-vim.opt.smartindent = true
--- disable line wrapping
-vim.opt.wrap = false
+
+-- when and how to display the sign column
+vim.opt.signcolumn = "yes"
+
 -- highlight the current cursor line
 vim.opt.cursorline = true
--- Maximum width of text that is being inserted.
--- A longer line will be broken after whitespace to get the width.
--- A zero value disables this.
-vim.opt.textwidth = 120
--- comma-separated list of highlighted screen columns used to align text.
--- makes screen redrawing slower
-vim.opt.colorcolumn = "-20,-40,+1"
+
 -- add support for showing hidden whitespace characters. Default: false
 vim.opt.list = true
 -- Characters used to visually show hidden characters
@@ -55,6 +43,40 @@ vim.opt.listchars = {
 }
 -- string to put at the start of lines that have been wrapped.
 vim.opt.showbreak = "↪ "
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+-- disable search result highlighting. Default: true
+vim.opt.hlsearch = false
+-- show matches while typing search pattern
+vim.opt.incsearch = true
+-- Preview substitutions
+vim.opt.inccommand = "split"
+
+-- disable line wrapping
+vim.opt.wrap = false
+
+vim.opt.breakindent = true
+
+-- expand tab to spaces
+vim.opt.expandtab = true
+-- set n spaces for tabs (prettier default)
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+-- set indent width to n spaces
+vim.opt.shiftwidth = 2
+
+-- enable smart·auto-indenting·when·starting·a·new·line
+vim.opt.smartindent = true
+-- Maximum width of text that is being inserted.
+-- A longer line will be broken after whitespace to get the width.
+-- A zero value disables this.
+vim.opt.textwidth = 119
+-- comma-separated list of highlighted screen columns used to align text.
+-- makes screen redrawing slower
+vim.opt.colorcolumn = "-21,-40,+1"
+
 -- confirm to save changes before exiting modified buffer
 vim.opt.confirm = true
 -- disable show mode if we have a status-line
@@ -65,16 +87,12 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 -- enable persistent undo across sessions
 vim.opt.undofile = true
--- disable search result highlighting. Default: true
-vim.opt.hlsearch = false
--- show matches while typing search pattern
-vim.opt.incsearch = true
+
 -- enable 24-bit RGB color in the terminal
 vim.opt.termguicolors = true
 -- minimum number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 8
--- when and how to display the sign column
-vim.opt.signcolumn = "yes"
+
 -- time in milliseconds for CursorHold events and swap file writing
 vim.opt.updatetime = 50
 -- Adds 2px of vertical padding per line. Only works in GUIs, not terminals
@@ -82,4 +100,8 @@ vim.opt.linespace = 2
 -- Adds "visual margin" when scrolling
 vim.opt.scrolloff = 5
 
--- cSpell:words shiftwidth smartindent textwidth cursorline colorcolumn listchars prec showbreak  showmode swapfile  undofile hlsearch  incsearch termguicolors signcolumn  updatetime linespace scrolloff
+-- Set the default border for all floating windows
+vim.opt.winborder = "rounded"
+
+-- cSpell:words shiftwidth smartindent textwidth cursorline colorcolumn listchars prec showbreak softtabstop showmode
+-- cSpell:words swapfile undofile hlsearch incsearch termguicolors signcolumn updatetime linespace scrolloff breakindent smartindent winborder
