@@ -29,6 +29,7 @@ local servers = {
    html = {},
    intelephense = {}, -- php
    jsonls = {},
+   lemminx = {},
    lua_ls = {
       settings = {
          Lua = {
@@ -45,6 +46,7 @@ local servers = {
    marksman = {}, -- markdown
    pyright = {}, -- python
    solargraph = {}, -- ruby
+   sqlls = {}, -- SQL
    tailwindcss = {},
    ts_ls = {}, -- javascript/typescript
    taplo = {}, -- toml
@@ -175,6 +177,9 @@ return {
                --  For example, in C this would take you to the header.
                map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
+               -- Show signature help for the function under cursor
+               map("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
                -- The following two autocommands are used to highlight references of the
                -- word under your cursor when your cursor rests there for a little while.
                --    See `:help CursorHold` for information about when this is executed
@@ -233,15 +238,34 @@ return {
             end,
          })
 
-         -- Change diagnostic symbols in the sign column (gutter)
-         -- if vim.g.have_nerd_font then
-         --   local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
-         --   local diagnostic_signs = {}
-         --   for type, icon in pairs(signs) do
-         --     diagnostic_signs[vim.diagnostic.severity[type]] = icon
-         --   end
-         --   vim.diagnostic.config { signs = { text = diagnostic_signs } }
-         -- end
+         -- Configure diagnostic settings for better performance and display
+         vim.diagnostic.config({
+            virtual_text = true,
+            signs = true,
+            update_in_insert = false,
+            underline = true,
+            severity_sort = true,
+            float = {
+               focusable = false,
+               style = "minimal",
+               border = "rounded",
+               source = "if_many",
+               header = "",
+               prefix = "",
+            },
+         })
+
+         -- Enable diagnostic signs with Nerd Font icons (if available)
+         if vim.g.have_nerd_font then
+            local signs = { ERROR = "", WARN = "", INFO = "", HINT = "" }
+            local diagnostic_signs = {}
+            for type, icon in pairs(signs) do
+               diagnostic_signs[vim.diagnostic.severity[type]] = icon
+            end
+            vim.diagnostic.config({
+               signs = { text = diagnostic_signs },
+            })
+         end
 
          -- LSP servers and clients are able to communicate to each other what features they support.
          --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -291,4 +315,4 @@ return {
    },
 }
 
--- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup solargraph dockerls intelephense
+-- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup solargraph dockerls intelephense lemminx
