@@ -40,6 +40,7 @@ return {
                "regex",
                "ruby",
                "scss",
+               "slim",
                "sql",
                "svelte",
                "vim",

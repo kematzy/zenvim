@@ -7,7 +7,7 @@
 --
 
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
+local keymaps = require("config.keymap")
 
 return {
    -- Calling `lazygit` from within Neovim.

@@ -7,9 +7,9 @@
 --
 
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
+local keymaps = require("config.keymap")
 -- load Zen colors and styles
-local Zen = require("zenvim.config.zen")
+local Zen = require("config.zen")
 
 return {
    -- Manage your Docker environment within Neovim.

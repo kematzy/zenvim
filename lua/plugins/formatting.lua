@@ -7,7 +7,7 @@
 --
 
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
+local keymaps = require("config.keymap")
 
 return {
    -- Lightweight yet powerful formatter plugin for Neovim

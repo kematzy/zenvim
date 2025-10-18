@@ -7,7 +7,7 @@
 --
 
 -- load Zen colors and styles
-local Zen = require("zenvim.config.zen")
+local Zen = require("config.zen")
 
 return {
    -- A blazing fast and easy to configure neovim statusline plugin written.
@@ -182,8 +182,8 @@ return {
             options = {
                theme = "catppuccin",
                -- component_separators = { left = '', right = '' },
-               component_separators = { left = "", right = "" },
                -- section_separators = { left = " ", right = " " },
+               component_separators = { left = "", right = "" },
                section_separators = { left = "", right = "" },
                --
                always_divide_middle = true,
@@ -218,7 +218,8 @@ return {
                            -- bg = "",
                         }
                      end,
-                     -- Shows specific buffer name for that filetype ( { `filetype` = `buffer_name`, ... } )
+                     -- Shows specific buffer name for that filetype
+                     -- ( { `filetype` = `buffer_name`, ... } )
                      filetype_names = {
                         TelescopePrompt = "Telescope",
                         dashboard = "Dashboard",

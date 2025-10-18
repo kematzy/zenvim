@@ -7,7 +7,7 @@
 --
 
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
+local keymaps = require("config.keymap")
 
 return {
    -- A Neovim Plugin for the `yazi` terminal file manage

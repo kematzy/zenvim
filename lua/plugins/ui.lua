@@ -7,7 +7,7 @@
 --
 
 -- load the keymaps configurations
-local keymaps = require("zenvim.config.keymaps")
+local keymaps = require("config.keymap")
 
 return {
    -- Replaces the UI for messages, cmdline and the popupmenu.
