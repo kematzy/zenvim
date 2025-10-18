@@ -24,6 +24,10 @@ return {
             ensure_installed = {
                "bashls",
                "cssls",
+               "css_variables",
+               -- "docker_compose_language_server",
+               "docker_language_server",
+               "dockerls",
                "gopls",
                "html",
                "intelephense",
