@@ -6,7 +6,7 @@
 -- This actually just enables the lsp servers.
 -- The configuration is found in the lsp folder inside the nvim config folder,
 -- so in ~.config/nvim/lsp/lua_ls.lua for lua_ls, for example.
-vim.lsp.enable("lua_ls")
+-- vim.lsp.enable("lua_ls")
 
 vim.api.nvim_create_autocmd("LspAttach", {
    callback = function(ev)

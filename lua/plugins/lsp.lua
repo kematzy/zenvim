@@ -9,8 +9,53 @@
 -- load the keymaps configurations
 local keymaps = require("config.keymap")
 
+-- Enable the following language servers
+--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
+--
+--  Add any additional override configuration in the following tables. Available keys are:
+--  - cmd (table): Override the default command used to start the server
+--  - filetypes (table): Override the default list of associated filetypes for the server
+--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
+--  - settings (table): Override the default settings passed when initializing the server.
+--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+-- See `:help lspconfig-all` for a list of all the pre-configured LSPs
 local servers = {
    bashls = {},
+   cspell_ls = {},
+   cssls = {},
+   css_variables = {},
+   docker_compose = {},
+   docker_language_server = {},
+   dockerls = {},
+   gopls = {}, -- go
+   html = {},
+   intelephense = {}, -- php
+   jsonls = {},
+   lua_ls = {
+      -- cmd = { ... },
+      -- filetypes = { ... },
+      -- capabilities = {},
+      settings = {
+         Lua = {
+            completion = {
+               callSnippet = "Replace",
+            },
+            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+            -- diagnostics = { disable = { 'missing-fields' } },
+         },
+      },
+   },
+   marksman = {}, -- markdown
+   pyright = {}, -- python
+   solargraph = {}, -- ruby
+   tailwindcss = {},
+   -- Some languages (like typescript) have entire language plugins that can be useful:
+   --    https://github.com/pmizio/typescript-tools.nvim
+   --
+   -- But for many setups, the LSP (`ts_ls`) will work just fine
+   ts_ls = {}, -- javascript/typeScript
+   taplo = {}, -- toml
+   yamlls = {},
 }
 
 return {
@@ -91,18 +136,14 @@ return {
                -- Jump to the definition of the word under your cursor.
                --  This is where a variable was first declared, or where a function is defined, etc.
                --  To jump back, press <C-t>.
-               map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+               map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 
                -- Find references for the word under your cursor.
-               map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+               map("gr", require("telescope.builtin").lsp_references, "Goto References")
 
                -- Jump to the implementation of the word under your cursor.
                --  Useful when your language has ways of declaring types without an actual implementation.
-               map(
-                  "gI",
-                  require("telescope.builtin").lsp_implementations,
-                  "[G]oto [I]mplementation"
-               )
+               map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 
                -- Jump to the type of the word under your cursor.
                --  Useful when you're not sure what type a variable is and you want to see
@@ -110,7 +151,7 @@ return {
                map(
                   "<leader>D",
                   require("telescope.builtin").lsp_type_definitions,
-                  "Type [D]efinition"
+                  "Type Definition"
                )
 
                -- Fuzzy find all the symbols in your current document.
@@ -118,7 +159,7 @@ return {
                map(
                   "<leader>ds",
                   require("telescope.builtin").lsp_document_symbols,
-                  "[D]ocument [S]ymbols"
+                  "Document Symbols"
                )
 
                -- Fuzzy find all the symbols in your current workspace.
@@ -126,20 +167,20 @@ return {
                map(
                   "<leader>ws",
                   require("telescope.builtin").lsp_dynamic_workspace_symbols,
-                  "[W]orkspace [S]ymbols"
+                  "Workspace Symbols"
                )
 
                -- Rename the variable under your cursor.
                --  Most Language Servers support renaming across files, etc.
-               map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+               map("<leader>rn", vim.lsp.buf.rename, "Rename")
 
                -- Execute a code action, usually your cursor needs to be on top of an error
                -- or a suggestion from your LSP for this to activate.
-               map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+               map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 
                -- WARN: This is not Goto Definition, this is Goto Declaration.
                --  For example, in C this would take you to the header.
-               map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+               map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
                -- The following two autocommands are used to highlight references of the
                -- word under your cursor when your cursor rests there for a little while.
@@ -193,7 +234,7 @@ return {
                            not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
                         )
                      end,
-                     "[T]oggle Inlay [H]ints"
+                     "Toggle Inlay Hints"
                   )
                end
             end,
@@ -220,45 +261,6 @@ return {
             -- require("blink.cmp").default_capabilities()
             require("blink.cmp").get_lsp_capabilities()
          )
-
-         -- Enable the following language servers
-         --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-         --
-         --  Add any additional override configuration in the following tables. Available keys are:
-         --  - cmd (table): Override the default command used to start the server
-         --  - filetypes (table): Override the default list of associated filetypes for the server
-         --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-         --  - settings (table): Override the default settings passed when initializing the server.
-         --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-         local servers = {
-            -- clangd = {},
-            -- gopls = {},
-            -- pyright = {},
-            -- rust_analyzer = {},
-            -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-            --
-            -- Some languages (like typescript) have entire language plugins that can be useful:
-            --    https://github.com/pmizio/typescript-tools.nvim
-            --
-            -- But for many setups, the LSP (`ts_ls`) will work just fine
-            -- ts_ls = {},
-            --
-
-            lua_ls = {
-               -- cmd = { ... },
-               -- filetypes = { ... },
-               -- capabilities = {},
-               settings = {
-                  Lua = {
-                     completion = {
-                        callSnippet = "Replace",
-                     },
-                     -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-                     -- diagnostics = { disable = { 'missing-fields' } },
-                  },
-               },
-            },
-         }
 
          -- Ensure the servers and tools above are installed
          --
@@ -313,17 +315,17 @@ return {
 --             bashls = {},
 --             cspell_ls = {},
 --             cssls = {},
---             gopls = {}, -- Go
+--             gopls = {}, -- go
 --             html = {},
---             intelephense = {}, -- PHP
+--             intelephense = {}, -- php
 --             jsonls = {},
 --             lua_ls = {},
---             marksman = {}, -- Markdown
---             pyright = {}, -- Python
---             solargraph = {}, -- Ruby
+--             marksman = {}, -- markdown
+--             pyright = {}, -- python
+--             solargraph = {}, -- ruby
 --             tailwindcss = {},
---             -- tsserver = {}, -- JavaScript/TypeScript
---             taplo = {}, -- TOML
+--             -- tsserver = {}, -- javascript/typescript
+--             taplo = {}, -- toml
 --             yamlls = {},
 --          }
 --
@@ -360,4 +362,4 @@ return {
 --    },
 -- }
 
--- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup
+-- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup solargraph dockerls intelephense
