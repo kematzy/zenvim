@@ -27,6 +27,22 @@
     "Yazi",
     "keymap",
     "autocmds",
-    "qflist"
+    "qflist",
+    "augroup",
+    "bufvalid",
+    "winvalid",
+    "wincall",
+    "bufcall",
+    "deepextend",
+    "lspconfig",
+    "bashls",
+    "jsonls",
+    "yamlls",
+    "cssls",
+    "dockerls"
+  ],
+  "userWords": [
+    "lazygit",
+    "Catppuccin"
   ]
 }
