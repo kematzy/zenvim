@@ -20,7 +20,7 @@ end
 
 -- Check if a plugin is loaded
 local function check_plugin_loaded(name)
-   local ok, plugin = pcall(require, name)
+   local ok, _ = pcall(require, name)
    if ok then
       return string.format("✅ Plugin %s: loaded", name)
    else
@@ -146,8 +146,8 @@ function M.check()
 
       -- Method 1: Check Mason registry (if available)
       if mason_available then
-         local ok, pkg = pcall(mason_registry.get_package, server)
-         if ok and pkg:is_installed() then installed = true end
+         local ok2, pkg = pcall(mason_registry.get_package, server)
+         if ok2 and pkg:is_installed() then installed = true end
       end
 
       -- Method 2: Check if server executable exists in Mason bin directory
@@ -239,7 +239,10 @@ function M.check()
          health.ok(string.format("✅ Startup time: %.0fms (good)", startup_time * 1000))
       elseif startup_time < 0.5 then
          health.warn(
-            string.format("⚠️ ️ Startup time: %.0fms (could be optimized)", startup_time * 1000)
+            string.format(
+               "⚠️ ️ Startup time: %.0fms (could be optimized)",
+               startup_time * 1000
+            )
          )
       else
          health.warn(string.format("❌ Startup time: %.0fms (slow)", startup_time * 1000))
@@ -337,4 +340,4 @@ vim.api.nvim_create_user_command("ZENVIMHealth", M.check, {
 
 return M
 
--- cSpell:words lazygit lspconfig intelephense lemminx solagraph sqlls taplo lua_ls bashls jsonls yamlls cssls dockerls langserver pyright gopls vimdoc checkhealth startuptime
+-- cSpell:words lazygit lspconfig intelephense lemminx solagraph sqlls taplo lua_ls bashls jsonls yamlls cssls dockerls langserver pyright gopls vimdoc maparg checkhealth startuptime
