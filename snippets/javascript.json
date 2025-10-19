@@ -1,0 +1,74 @@
+{
+  "Log to the console": {
+    "prefix": "log",
+    "body": ["console.log($1);", "$0"],
+    "description": "Log to the console"
+  },
+  "Log warning to console": {
+    "prefix": "warn",
+    "body": ["console.warn($1);", "$0"],
+    "description": "Log warning to the console"
+  },
+  "Log error to console": {
+    "prefix": "error",
+    "body": ["console.error($1);", "$0"],
+    "description": "Log error to the console"
+  },
+  "Throw Exception": {
+    "prefix": "throw",
+    "body": ["throw new Error(\"$1\");", "$0"],
+    "description": "Throw Exception"
+  },
+  "JSON.stringify(object) - (JS)": {
+    "prefix": "debug",
+    "scope": "javascript",
+    "body": ["JSON.stringify(${1:obj}, null, 2)"],
+    "description": "JSON.stringify(object) - (JS)"
+  },
+  "setInterval(() => {} - (JS/TS)": {
+    "prefix": "seti",
+    "scope": "javascript,typescript",
+    "body": [
+      "const ${1:interval} = setInterval(() => {",
+      "${2:console.log('beep')}",
+      "}, ${3:1000})$0"
+    ],
+    "description": "setInterval(() => {} - (JS/TS)"
+  },
+  "Object.keys(??).length === 0 - (JS)": {
+    "prefix": "obj-empty",
+    "scope": "javascript",
+    "body": ["Object.keys(${1:obj}).length === 0$0"],
+    "description": [
+      "Object.keys(??).length === 0 - (JS)",
+      "- tests if [object] returns an array of property names or if it is empty"
+    ]
+  },
+  "if (Object.keys(get(??).length === 0) {} else {} - (JS)": {
+    "prefix": "is-obj-empty",
+    "scope": "javascript",
+    "body": [
+      "if (Object.keys(get(${1:obj})).length === 0) {",
+      "  // store object is empty",
+      "} else {",
+      "  // store object is not empty",
+      "}",
+      ""
+    ],
+    "description": [
+      "if (Object.keys(get(??).length === 0) {} else {} - (JS)",
+      "- simple way to test if an empty object"
+    ]
+  },
+  "const [obj] = Object.fromEntries([data].map((i) => [i.key, i.value])) - (JS)": {
+    "prefix": "arrObj",
+    "scope": "javascript",
+    "body": [
+      "const ${2:obj} = Object.fromEntries(${1:data.settings}.map((i) => [i.key, i.value]))"
+    ],
+    "description": [
+      "const [obj] = Object.fromEntries([data].map((i) => [i.key, i.value])) - (JS)",
+      "- converts an array of { key, value } object into a single object with keys"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "<pre>JSON.stringify()</pre> debug - Vue - (JS)": {
+    "prefix": "debug",
+    "body": ["<pre>{JSON.stringify(${1:obj}, null, 2)}</pre>"],
+    "description": "<pre>JSON.stringify()</pre> debug - Vue - (JS)"
+  }
+}

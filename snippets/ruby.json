@@ -1,0 +1,93 @@
+{
+  "spell-checker: disable": "true",
+
+  "frozen_string_literal: true - (Ruby)": {
+    "prefix": "fro",
+    "body": ["# frozen_string_literal: true\n$0"],
+    "description": "Frozen String Literal - (Ruby)"
+  },
+
+  "Disable Comment - Rubocop - (Ruby)": {
+    "prefix": "rubo",
+    "body": ["# rubocop:disable ${1:Layout/LineLength} $0"],
+    "description": "Disable Comment - Rubocop - (Ruby)"
+  },
+
+  "Enable Comment - Rubocop - (Ruby)": {
+    "prefix": "rubo",
+    "body": ["# rubocop:enable ${1:Layout/LineLength} $0"],
+    "description": "Enable Comment - Rubocop - (Ruby)"
+  },
+
+  "describe block - RSpec/MiniTest - (Ruby)": {
+    "prefix": "des",
+    "body": ["describe '${1:description}' do", "  $0", "end", "# /$1", ""],
+    "description": "describe block - RSpec/MiniTest - (Ruby)"
+  },
+
+  "RSpec.describe block - RSpec - (Ruby)": {
+    "prefix": "desr",
+    "body": ["${2:RSpec.}describe '${1:description}' do", "  $0", "end", "# /$1", ""],
+    "description": "RSpec.describe block - RSpec - (Ruby)"
+  },
+
+  "context block - RSpec - (Ruby)": {
+    "prefix": "ctx",
+    "body": ["context '${1:description}' do", "  $0", "end", "# /$1", ""],
+    "description": "context block - RSpec - (Ruby)"
+  },
+
+  "let() { block } - RSpec - (Ruby)": {
+    "prefix": "let",
+    "body": ["let(:${1:obj}) { $2 }$0"],
+    "description": "let() { block } - RSpec - (Ruby)"
+  },
+
+  "it() block - RSpec - (Ruby)": {
+    "prefix": "it-",
+    "body": ["it('${1:description}') do", "  expect(${2:@obj}${3:.method})).to $0", "end"],
+    "description": "it() block - RSpec - (Ruby)"
+  },
+
+  "it 'block' - MiniTest - (Ruby)": {
+    "prefix": "it-",
+    "body": ["it '${1:description}' do", "  _(${2:@obj}${3:.method})).must_$0", "end", ""],
+    "description": "it 'block' - MiniTest - (Ruby)"
+  },
+
+  "expect {}.to output().to_stdout test block - RSpec - (Ruby)": {
+    "prefix": "tstd",
+    "body": ["expect { ${1:something} }.to output(${2:'anything'}).to_stdout"],
+    "description": "expect {}.to output().to_stdout test block - RSpec - (Ruby)"
+  },
+
+  "expect {}.to output([]).to_stdout test block - RSpec - (Ruby)": {
+    "prefix": "tstd",
+    "body": ["expect { ${1:something} }.to output([", "  ${2:'anything'}", "].join).to_stdout"],
+    "description": "expect {}.to output([]).to_stdout test with block text- RSpec - (Ruby)"
+  },
+
+  "expect {}.to output().to_stderr test - RSpec - (Ruby)": {
+    "prefix": "tste",
+    "body": ["expect { ${1:something} }.to output(${2:'anything'}).to_stderr"],
+    "description": "expect {}.to output().to_stderr test - RSpec - (Ruby)"
+  },
+
+  "expect {}.to output([]).to_stderr test block - RSpec - (Ruby)": {
+    "prefix": "tstd",
+    "body": ["expect { ${1:something} }.to output([", "  ${2:'anything'}", "].join).to_stderr"],
+    "description": "expect {}.to output([]).to_stderr test with block text- RSpec - (Ruby)"
+  },
+
+  "before() block - RSpec/MiniTest - (Ruby)": {
+    "prefix": "b4e",
+    "body": ["before${2:(${1::each|all})} do", "  ${3:@obj} = ${4:something}", "end"],
+    "description": "before() block - RSpec/MiniTest - (Ruby)"
+  },
+
+  "after() block - RSpec/MiniTest - (Ruby)": {
+    "prefix": "a4e",
+    "body": ["after${2:(${1::each|all})} do", "  ${3:@obj} = ${4:something}", "end"],
+    "description": "after() block - RSpec/MiniTest - (Ruby)"
+  }
+}

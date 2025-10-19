@@ -1,0 +1,1831 @@
+{
+  "spell-checker: disable": "true",
+  "<?php ?> tags - (PHP)": {
+    "prefix": "php",
+    "body": ["<?php $0?>"],
+    "description": "PHP open tag"
+  },
+  "PHP open tag - (PHP)": {
+    "prefix": "po",
+    "body": ["<?php"],
+    "description": "PHP open tag"
+  },
+  "PHP close tag - (PHP)": {
+    "prefix": "pc",
+    "body": ["?>"],
+    "description": "PHP close tag"
+  },
+  "PHP echo short tag - (PHP)": {
+    "prefix": "peco",
+    "body": ["<?= \\$${1:variable} ?>"],
+    "description": "PHP echo short tag"
+  },
+
+  "PHP CONTROLS": "comment",
+  "If ... endif - (PHP)": {
+    "prefix": "ifen",
+    "body": ["if (${1:condition}):", "\t${0:# code...}", "endif;"],
+    "description": "If endif block"
+  },
+  "If ... else ... endif - (PHP)": {
+    "prefix": "ifelen",
+    "body": [
+      "if (${1:condition}):",
+      "\t${2:# code...}",
+      "else:",
+      "\t${0:# code...}",
+      "endif;"
+    ],
+    "description": "If else endif block"
+  },
+  "If ... elseif ... else ... endif - (PHP)": {
+    "prefix": "ifelifen",
+    "body": [
+      "if (${1:condition}):",
+      "\t${2:# code...}",
+      "elseif (${3:condition}):",
+      "\t${4:# code...}",
+      "else:",
+      "\t${0:# code...}",
+      "endif;"
+    ],
+    "description": "If elseif else endif block"
+  },
+  "If block - (PHP)": {
+    "prefix": "ifb",
+    "body": ["if (${1:condition}) {", "\t${0:# code...}", "}"],
+    "description": "If  block"
+  },
+  "If ... else - (PHP)": {
+    "prefix": "ifel",
+    "body": [
+      "if (${1:condition}) {",
+      "\t${2:# code...}",
+      "} else {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "If else block"
+  },
+  "If ... elseif ... else - (PHP)": {
+    "prefix": "ifelif",
+    "body": [
+      "if (${1:condition}) {",
+      "\t${2:# code...}",
+      "} elseif (${3:condition}) {",
+      "\t${4:# code...}",
+      "} else {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "If elseif else block"
+  },
+  "Switch block - (PHP)": {
+    "prefix": "sw",
+    "body": [
+      "switch (\\$${1:variable}) {",
+      "\tcase '${2:label}':",
+      "\t\t${3:# code...}",
+      "\t\tbreak;",
+      "\tcase '${4:label}':",
+      "\t\t${5:# code...}",
+      "\t\tbreak;$6",
+      "\tdefault:",
+      "\t\t${0:# code...}",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Switch block"
+  },
+  "Case statement - (PHP)": {
+    "prefix": "cs",
+    "body": ["case '${1:label}':", "\t${2:# code...}", "\tbreak;"],
+    "description": "Case addon block"
+  },
+  "Ternary operator - (PHP)": {
+    "prefix": "tern",
+    "body": ["${1:condition} ? ${2:if_true} : ${3:if_false};"],
+    "description": "Ternary statement - (PHP)"
+  },
+
+  "PHP FUNCTIONS": "comment",
+  "Function - (PHP)": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:func_name}(${2:Type} \\$${3:args}): ${4:void} {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Function block - (PHP)"
+  },
+  "Anonymous function - (PHP)": {
+    "prefix": "fna",
+    "body": [
+      "function (${1:Type} \\$${2:args}): ${3:void} {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Anonymous function block - (PHP)"
+  },
+  "Anonymous function ... use - (PHP)": {
+    "prefix": "fnu",
+    "body": [
+      "function (${1:Type} \\$${2:args}) use (\\$${3:vars}): ${4:void} {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Anonymous function with use block - (PHP)"
+  },
+  "Foreach loop - (PHP)": {
+    "prefix": "fore",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:item}) {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Foreach as $item block - (PHP)"
+  },
+  "Foreach ... key ... item - (PHP)": {
+    "prefix": "forek",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:key} => \\$${3:item}) {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Foreach as $key => $item block - (PHP)"
+  },
+  "Foreach ... end - (PHP)": {
+    "prefix": "foren",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:item}):",
+      "\t${0:# code...}",
+      "endforeach;"
+    ],
+    "description": "Foreach end as $item block - (PHP)"
+  },
+  "Foreach ... key ... item ... end - (PHP)": {
+    "prefix": "forenk",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:key} => \\$${3:item}):",
+      "\t${0:# code...}",
+      "endforeach;"
+    ],
+    "description": "Foreach end as $key => $item block - (PHP)"
+  },
+  "For loop - (PHP)": {
+    "prefix": "forl",
+    "body": [
+      "for (\\$${1:i} = ${2:0}; \\$${1:i} < \\$${3:limit}; \\$${1:i}++) {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "For loop - (PHP)"
+  },
+  "For ... end - (PHP)": {
+    "prefix": "forlen",
+    "body": [
+      "for (\\$${1:i} = ${2:0}; \\$${1:i} < \\$${3:limit}; \\$${1:i}++):",
+      "\t${0:# code...}",
+      "endfor;"
+    ],
+    "description": "For end loop - (PHP)"
+  },
+  "While loop - (PHP)": {
+    "prefix": "wl",
+    "body": [
+      "while (\\$${1:variable} ${2:<=} \\$${3:limit}) {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "While loop - (PHP)"
+  },
+  "While ... end - (PHP)": {
+    "prefix": "wlen",
+    "body": [
+      "while (\\$${1:variable} ${2:<=} \\$${3:limit}):",
+      "\t${0:# code...}",
+      "endwhile;"
+    ],
+    "description": "While end loop - (PHP)"
+  },
+  "Do ... while - (PHP)": {
+    "prefix": "dowl",
+    "body": [
+      "do {",
+      "\t${0:# code...}",
+      "} while (\\$${1:variable} ${2:<=} \\$${3:limit});"
+    ],
+    "description": "Do while loop - (PHP)"
+  },
+  "Class - (PHP)": {
+    "prefix": "cl",
+    "body": ["class ${1:ClassName}", "{", "\t${0:# code...}", "}"],
+    "description": "PHP Class block - (PHP)"
+  },
+  "Class extends - (PHP)": {
+    "prefix": "clx",
+    "body": [
+      "class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP Class extends block - (PHP)"
+  },
+  "Class implements - (PHP)": {
+    "prefix": "cli",
+    "body": [
+      "class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP Class implements block - (PHP)"
+  },
+  "Class extends implements - (PHP)": {
+    "prefix": "clxi",
+    "body": [
+      "class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "class extends and implements block - (PHP)"
+  },
+  "Abstract class - (PHP)": {
+    "prefix": "acl",
+    "body": ["abstract class ${1:ClassName}", "{", "\t${0:# code...}", "}"],
+    "description": "abstract Class block - (PHP)"
+  },
+  "Abstract class extends - (PHP)": {
+    "prefix": "aclx",
+    "body": [
+      "abstract class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP abstract Class extends block - (PHP)"
+  },
+  "Abstract class implements - (PHP)": {
+    "prefix": "acli",
+    "body": [
+      "abstract class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP abstract Class implements block - (PHP)"
+  },
+  "Abstract class extends implements - (PHP)": {
+    "prefix": "aclxi",
+    "body": [
+      "abstract class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "abstract Class extends and implements block - (PHP)"
+  },
+  "Final class - (PHP)": {
+    "prefix": "fcl",
+    "body": ["final class ${1:ClassName}", "{", "\t${0:# code...}", "}"],
+    "description": "PHP final Class block - (PHP)"
+  },
+  "Final class extends - (PHP)": {
+    "prefix": "fclx",
+    "body": [
+      "final class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP final Class extends block - (PHP)"
+  },
+  "Final class implements - (PHP)": {
+    "prefix": "fcli",
+    "body": [
+      "final class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP final Class implements block - (PHP)"
+  },
+  "Final class extends implements - (PHP)": {
+    "prefix": "fclxi",
+    "body": [
+      "final class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP final Class extends and implements block - (PHP)"
+  },
+  "Interface - (PHP)": {
+    "prefix": "in",
+    "body": ["interface ${1:InterfaceName}", "{", "\t${0:# code...}", "}"],
+    "description": "PHP Interface block - (PHP)"
+  },
+  "Interface extends - (PHP)": {
+    "prefix": "inx",
+    "body": [
+      "interface ${1:InterfaceName} extends ${2:Interfaces}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "PHP Interface extends block - (PHP)"
+  },
+  "Trait - (PHP)": {
+    "prefix": "trt",
+    "body": ["trait ${1:TraitName}", "{", "\t${0:# code...}", "}"],
+    "description": "PHP Trait block - (PHP)"
+  },
+  "Class constructor - (PHP)": {
+    "prefix": "pubc",
+    "body": [
+      "public function __construct(${1:Type} \\$${2:args})",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Class public constructor block - (PHP)"
+  },
+  "Class private constructor - (PHP)": {
+    "prefix": "pric",
+    "body": [
+      "private function __construct(${1:Type} \\$${2:args})",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Class private constructor block - (PHP)"
+  },
+  "Class protected constructor - (PHP)": {
+    "prefix": "proc",
+    "body": [
+      "protected function __construct(${1:Type} \\$${2:args})",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Class protected constructor block - (PHP)"
+  },
+  "Private method - (PHP)": {
+    "prefix": "prif",
+    "body": [
+      "private function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Private method block - (PHP)"
+  },
+  "Private static method - (PHP)": {
+    "prefix": "prisf",
+    "body": [
+      "private static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Private static method block - (PHP)"
+  },
+  "Final private method - (PHP)": {
+    "prefix": "fprif",
+    "body": [
+      "final private function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final private method block - (PHP)"
+  },
+  "Final private static method - (PHP)": {
+    "prefix": "fprisf",
+    "body": [
+      "final private static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final private static method block - (PHP)"
+  },
+  "Protected method - (PHP)": {
+    "prefix": "prof",
+    "body": [
+      "protected function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Protected method block - (PHP)"
+  },
+  "Protected static method - (PHP)": {
+    "prefix": "prosf",
+    "body": [
+      "protected static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Protected static method block - (PHP)"
+  },
+  "Final protected method - (PHP)": {
+    "prefix": "fprof",
+    "body": [
+      "final protected function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final protected method block - (PHP)"
+  },
+  "Final protected static method - (PHP)": {
+    "prefix": "fprosf",
+    "body": [
+      "final protected static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final protected static method block - (PHP)"
+  },
+  "Abstract protected method - (PHP)": {
+    "prefix": "aprof",
+    "body": [
+      "abstract protected function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void};"
+    ],
+    "description": "Abstract protected method statement - (PHP)"
+  },
+  "Abstract protected static method - (PHP)": {
+    "prefix": "aprosf",
+    "body": [
+      "abstract protected static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void};"
+    ],
+    "description": "Abstract protected static method statement - (PHP)"
+  },
+  "Public method - (PHP)": {
+    "prefix": "pubf",
+    "body": [
+      "public function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Public method block - (PHP)"
+  },
+  "Public static method - (PHP)": {
+    "prefix": "pubsf",
+    "body": [
+      "public static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Public static method block - (PHP)"
+  },
+  "Final public method - (PHP)": {
+    "prefix": "fpubf",
+    "body": [
+      "final public function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final public method block - (PHP)"
+  },
+  "Final public static method - (PHP)": {
+    "prefix": "fpubsf",
+    "body": [
+      "final public static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void}",
+      "{",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Final public static method block - (PHP)"
+  },
+  "Abstract public method - (PHP)": {
+    "prefix": "apubf",
+    "body": [
+      "abstract public function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void};"
+    ],
+    "description": "Abstract public method statement - (PHP)"
+  },
+  "Abstract public static method - (PHP)": {
+    "prefix": "apubsf",
+    "body": [
+      "abstract public static function ${1:methodName}(${2:Type} \\$${3:args}): ${4:void};"
+    ],
+    "description": "Abstract public static method statement - (PHP)"
+  },
+  "GLOBAL array - (PHP)": {
+    "prefix": "gglob",
+    "body": ["\\$GLOBALS[\"${1:key}\"]"],
+    "description": "$GLOBALS array - (PHP)"
+  },
+  "SERVER array - (PHP)": {
+    "prefix": "gser",
+    "body": ["\\$_SERVER[\"${1:key}\"]"],
+    "description": "$_SERVER array - (PHP)"
+  },
+  "REQUEST array - (PHP)": {
+    "prefix": "greq",
+    "body": ["\\$_REQUEST[\"${1:key}\"]"],
+    "description": "$_REQUEST array - (PHP)"
+  },
+  "POST array - (PHP)": {
+    "prefix": "gpost",
+    "body": ["\\$_POST[\"${1:key}\"]"],
+    "description": "$_POST array - (PHP)"
+  },
+  "GET array - (PHP)": {
+    "prefix": "gget",
+    "body": ["\\$_GET[\"${1:key}\"]"],
+    "description": "$_GET array - (PHP)"
+  },
+  "FILES array - (PHP)": {
+    "prefix": "gfile",
+    "body": ["\\$_FILES['${1:userfile}']['${2:key}']"],
+    "description": "$_FILES array - (PHP)"
+  },
+  "ENV array - (PHP)": {
+    "prefix": "genv",
+    "body": ["\\$_ENV[\"${1:key}\"]"],
+    "description": "$_ENV array - (PHP)"
+  },
+  "COOKIE array - (PHP)": {
+    "prefix": "gcook",
+    "body": ["\\$_COOKIE[\"${1:key}\"]"],
+    "description": "$_COOKIE array - (PHP)"
+  },
+  "SESSION array - (PHP)": {
+    "prefix": "gss",
+    "body": ["\\$_SESSION[\"${1:key}\"]"],
+    "description": "$_SESSION array - (PHP)"
+  },
+  "Try ... catch - (PHP)": {
+    "prefix": "tryc",
+    "body": [
+      "try {",
+      "\t${1:# code...}",
+      "} catch (${2:\\Throwable} \\$${3:e}) {",
+      "\t${4:# code...}",
+      "}"
+    ],
+    "description": "Try catch block - (PHP)"
+  },
+  "Try ... catch ... finally - (PHP)": {
+    "prefix": "tryf",
+    "body": [
+      "try {",
+      "\t${1:# code...}",
+      "} catch (${2:\\Throwable} \\$${3:e}) {",
+      "\t${4:# code...}",
+      "}$5 finally {",
+      "\t${0:# code...}",
+      "}"
+    ],
+    "description": "Try catch finally block - (PHP)"
+  },
+  "Catch - (PHP)": {
+    "prefix": "cat",
+    "body": ["catch (${1:\\Throwable} \\$${2:e}) {", "\t${3:# code...}", "}"],
+    "description": "Catch block - (PHP)"
+  },
+  "Finally - (PHP)": {
+    "prefix": "fy",
+    "body": ["finally {", "\t${0:# code...}", "}"],
+    "description": "Finally block - (PHP)"
+  },
+  "Throw new Exception - (PHP)": {
+    "prefix": "thr",
+    "body": ["throw new ${1:Some}Exception(\"${2:Error statement}\");"],
+    "description": "Throw new exception statement - (PHP)"
+  },
+  "Array - (PHP)": {
+    "prefix": "arr",
+    "body": ["[${1:value}, ${2:value}, $3];"],
+    "description": "Array [] block - (PHP)"
+  },
+  "Array key ... value - (PHP)": {
+    "prefix": "ark",
+    "body": [
+      "[",
+      "\t'${1:key}' => ${2:value},",
+      "\t'${3:key}' => ${4:value},$5",
+      "]"
+    ],
+    "description": "Array [] key => value block - (PHP)"
+  },
+  "Key ... value - (PHP)": {
+    "prefix": "kv",
+    "body": ["'${1:key}' => ${2:value},"],
+    "description": "key => value statement - (PHP)"
+  },
+  "Array ... value - (PHP)": {
+    "prefix": "va",
+    "body": ["${1:value}, "],
+    "description": "Array value statement - (PHP)"
+  },
+  "define - (PHP)": {
+    "prefix": "df",
+    "body": ["define(\"${1:CONSTANT}\", \"${2:value}\");"],
+    "description": "'define' call - (PHP)"
+  },
+  "include - (PHP)": {
+    "prefix": "inc",
+    "body": ["include ${1:__DIR__.}'${2:path_to_filename}';"],
+    "description": "'include' statement - (PHP)"
+  },
+  "include_once - (PHP)": {
+    "prefix": "inco",
+    "body": ["include_once ${1:__DIR__.}'${2:path_to_filename}';"],
+    "description": "'include_once' statement - (PHP)"
+  },
+  "require - (PHP)": {
+    "prefix": "rqr",
+    "body": ["require ${1:__DIR__.}'${2:path_to_filename}';"],
+    "description": "'require' statement - (PHP)"
+  },
+  "require_once - (PHP)": {
+    "prefix": "rqro",
+    "body": ["require_once ${1:__DIR__.}'${2:path_to_filename}';"],
+    "description": "'require_once' statement - (PHP)"
+  },
+  "echo - (PHP)": {
+    "prefix": "eco",
+    "body": ["echo \"${1:text}\";"],
+    "description": "'echo' statement - (PHP)"
+  },
+  "print_r - (PHP)": {
+    "prefix": "pr",
+    "body": ["print_r(\\$${1:variable});"],
+    "description": "'print_r' call - (PHP)"
+  },
+  "var_dump - (PHP)": {
+    "prefix": "vd",
+    "body": ["var_dump(\\$${1:variable});"],
+    "description": "'var_dump' call - (PHP)"
+  },
+  "var_export - (PHP)": {
+    "prefix": "vx",
+    "body": ["var_export(\\$${1:variable});"],
+    "description": "'var_export' call - (PHP)"
+  },
+
+  "describe() - Pest - (PHP)": {
+    "prefix": "des",
+    "body": ["describe('${1:}', function (): void {", "\t\t// pte$0", "});\n"],
+    "description": "describe() - Pest - (PHP)"
+  },
+
+  "test() - Pest - (PHP)": {
+    "prefix": "pte",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "});",
+      ""
+    ],
+    "description": "test() - Pest - (PHP)"
+  },
+
+  "it() - Pest - (PHP)": {
+    "prefix": "pit",
+    "body": [
+      "it('${1:}', function (): void {",
+      "\t\t\t// expect(${2:})->$0",
+      "});\n"
+    ],
+    "description": "it() - Pest - (PHP)"
+  },
+
+  "test()->throws() - Pest - (PHP)": {
+    "prefix": "ptet",
+    "body": [
+      "test('${1:}', function (): void {",
+      "\t\t\texpect(${2:})->$0",
+      "})->throws(${3:Exception});\n"
+    ],
+    "description": "test()->throws() - Pest - (PHP)"
+  },
+
+  "it()->throws(fn() =>) - Pest - (PHP)": {
+    "prefix": "pit",
+    "body": [
+      "it('${1:}', function (): void {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->throws(${3:Exception});\n"
+    ],
+    "description": "it()->throws(fn() =>) - Pest - (PHP)"
+  },
+
+  "test()->throwsIf() - Pest - (PHP)": {
+    "prefix": "ptet",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->throwsIf($0);\n"
+    ],
+    "description": "test()->throwsIf() - Pest - (PHP)"
+  },
+
+  "it()->throwsIf() - Pest - (PHP)": {
+    "prefix": "pit",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->throwsIf();\n"
+    ],
+    "description": "it()->throwsIf(fn() =>) - Pest - (PHP)"
+  },
+
+  "test(fn())->skip() - Pest - (PHP)": {
+    "prefix": "pte",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->skip();\n"
+    ],
+    "description": "test()->skip() - Pest - (PHP)"
+  },
+
+  "it(fn() )->skip() - Pest - (PHP)": {
+    "prefix": "pit",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->skip();\n"
+    ],
+    "description": "it(fn() )->skip() - Pest - (PHP)"
+  },
+
+  "test()->skip('wip') - Pest - (PHP)": {
+    "prefix": "pte",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->skip('wip');\n"
+    ],
+    "description": "test()->skip('wip') - Pest - (PHP)"
+  },
+
+  "it(fn() )->skip('wip') - Pest - (PHP)": {
+    "prefix": "pit",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->skip('wip');\n"
+    ],
+    "description": "t(fn() )->skip('wip') - Pest - (PHP)"
+  },
+
+  "test(fn() )->only() - Pest - (PHP)": {
+    "prefix": "pteo",
+    "body": [
+      "test('${1:}', function () {",
+      "\t// expect(${2:})->$0",
+      "})->only();\n"
+    ],
+    "description": "test()->only() - Pest - (PHP)"
+  },
+
+  "it(fn() )->only() - Pest - (PHP)": {
+    "prefix": "pito",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->only();\n"
+    ],
+    "description": "it()->only() - Pest - (PHP)"
+  },
+
+  "test(fn() )->group() - Pest - (PHP)": {
+    "prefix": "pteg",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->group('${3:name}');\n"
+    ],
+    "description": "test()->group() - Pest - (PHP)"
+  },
+
+  "it()->group() - Pest - (PHP)": {
+    "prefix": "pitg",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->group('${3:name}');\n"
+    ],
+    "description": "it()->group() - Pest - (PHP)"
+  },
+
+  "test()->with([Dataset]) - Pest - (PHP)": {
+    "prefix": "pted",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->with([${3:}]);\n"
+    ],
+    "description": "test()->with([Dataset]) - Pest - (PHP)"
+  },
+
+  "it()->with([Dataset]) - Pest - (PHP)": {
+    "prefix": "pitd",
+    "body": [
+      "it('${1:}', function () {",
+      "\t\t\t// expect(${2:})->$0",
+      "})->with([${3:}]);\n"
+    ],
+    "description": "it()->with([Dataset)] - Pest - (PHP)"
+  },
+
+  "test()->with(Lazy Dataset) - Pest - (PHP)": {
+    "prefix": "pteld",
+    "body": [
+      "test('${1:}', function () {",
+      "\t\t\t// expect(${2:})->",
+      "})->with(function () {",
+      "\tyield '${3:}';",
+      "});\n"
+    ],
+    "description": "it()->with(Lazy Dataset) - Pest - (PHP)"
+  },
+
+  "PestItFunctionWithLazyDataset - Pest - (PHP)": {
+    "prefix": "pitld",
+    "body": [
+      "it('${1:}', function () {",
+      "\t// expect(${2:})->",
+      "})->with(function () {",
+      "\tyield '${3:}';",
+      "});\n"
+    ],
+    "description": "it()->with(Lazy Dataset) - Pest - (PHP)"
+  },
+
+  "beforeEach() - Pest - (PHP)": {
+    "prefix": "pbe",
+    "body": ["beforeEach(function (): void {", "\t// $0", "});\n"],
+    "description": "beforeEach() - Pest - (PHP)"
+  },
+
+  "beforeAll() - Pest - (PHP)": {
+    "prefix": "pba",
+    "body": ["beforeAll(function (): void {", "\t// $0", "});\n"],
+    "description": "beforeAll() - Pest - (PHP)"
+  },
+
+  "afterEach() - Pest - (PHP)": {
+    "prefix": "pae",
+    "body": ["afterEach(function (): void {", "\t// $0", "});\n"],
+    "description": "afterEach() - Pest - (PHP)"
+  },
+
+  "afterAll() - Pest - (PHP)": {
+    "prefix": "paa",
+    "body": ["afterAll(function (): void {", "\t// $0", "});\n"],
+    "description": "afterAll() - Pest - (PHP)"
+  },
+
+  "expect() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["expect()"],
+    "description": "expect() - Pest - (PHP)"
+  },
+
+  "->toBe() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBe($0);\n"],
+    "description": "->toBe() - Pest - (PHP)"
+  },
+
+  "->toBeEmpty() - Pest - (PHP)": {
+    "prefix": "p2be",
+    "body": ["${1:->}toBeEmpty();\n"],
+    "description": "->toBeEmpty() - Pest - (PHP)"
+  },
+
+  "->toBeTrue() - Pest - (PHP)": {
+    "prefix": "p2bt",
+    "body": ["${1:->}toBeTrue();\n"],
+    "description": "->toBeTrue() - Pest - (PHP)"
+  },
+
+  "->toBeTruthy() - Pest - (PHP)": {
+    "prefix": "p2bt",
+    "body": ["${1:->}toBeTruthy();\n"],
+    "description": "->toBeTruthy() - Pest - (PHP)"
+  },
+
+  "->toBeFalse() - Pest - (PHP)": {
+    "prefix": "p2bf",
+    "body": ["${1:->}toBeFalse();\n"],
+    "description": "->toBeFalse() - Pest - (PHP)"
+  },
+
+  "->toBeFalsy() - Pest - (PHP)": {
+    "prefix": "p2bf",
+    "body": ["${1:->}toBeFalsy();\n"],
+    "description": "->toBeFalsy() - Pest - (PHP)"
+  },
+
+  "->toBeGreaterThan() - Pest - (PHP)": {
+    "prefix": "p2bg",
+    "body": ["${1:->}toBeGreaterThan($0);\n"],
+    "description": "->toBeGreaterThan() - Pest - (PHP)"
+  },
+
+  "->toBeGreaterThanOrEqual() - Pest - (PHP)": {
+    "prefix": "p2bg",
+    "body": ["${1:->}toBeGreaterThanOrEqual($0);\n"],
+    "description": "->toBeGreaterThanOrEqual() - Pest - (PHP)"
+  },
+
+  "->toBeLessThan() - Pest - (PHP)": {
+    "prefix": "p2bl",
+    "body": ["${1:->}toBeLessThan($0);\n"],
+    "description": "->toBeLessThan() - Pest - (PHP)"
+  },
+
+  "->toBeLessThanOrEqual() - Pest - (PHP)": {
+    "prefix": "p2bl",
+    "body": ["${1:->}toBeLessThanOrEqual($0);\n"],
+    "description": "->toBeLessThanOrEqual() - Pest - (PHP)"
+  },
+
+  "->toContain() - Pest - (PHP)": {
+    "prefix": "p2c",
+    "body": ["${1:->}toContain($0);\n"],
+    "description": "->toContain() - Pest - (PHP)"
+  },
+
+  "->toMatchArray() - Pest - (PHP)": {
+    "prefix": "p2m",
+    "body": ["${1:->}toMatchArray($0);\n"],
+    "description": "->toMatchArray() - Pest - (PHP)"
+  },
+
+  "->toMatchObject() - Pest - (PHP)": {
+    "prefix": "p2m",
+    "body": ["${1:->}toMatchObject($0);\n"],
+    "description": "->toMatchObject() - Pest - (PHP)"
+  },
+
+  "->toEqual() - Pest - (PHP)": {
+    "prefix": "p2e",
+    "body": ["${1:->}toEqual($0);\n"],
+    "description": "->toEqual() - Pest - (PHP)"
+  },
+
+  "->toEqualCanonicalizing() - Pest - (PHP)": {
+    "prefix": "p2ec",
+    "body": ["${1:->}toEqualCanonicalizing($0);\n"],
+    "description": "->toEqualCanonicalizing() - Pest - (PHP)"
+  },
+
+  "->toEqualWithDelta() - Pest - (PHP)": {
+    "prefix": "p2ed",
+    "body": ["${1:->}toEqualWithDelta($0);\n"],
+    "description": "->toEqualWithDelta() - Pest - (PHP)"
+  },
+
+  "->toBeIn() - Pest - (PHP)": {
+    "prefix": "p2bi",
+    "body": ["${1:->}toBeIn();\n"],
+    "description": "->toBeIn() - Pest - (PHP)"
+  },
+
+  "->toBeInfinite() - Pest - (PHP)": {
+    "prefix": "p2bi",
+    "body": ["${1:->}toBeInfinite();\n"],
+    "description": "->toBeInfinite() - Pest - (PHP)"
+  },
+
+  "->toBeInstanceOf() - Pest - (PHP)": {
+    "prefix": "p2bi",
+    "body": ["${1:->}toBeInstanceOf($0);\n"],
+    "description": "->toBeInstanceOf() - Pest - (PHP)"
+  },
+  "->toBeBool() - Pest - (PHP)": {
+    "prefix": "p2bb",
+    "body": ["${1:->}toBeBool();\n"],
+    "description": "->toBeBool() - Pest - (PHP)"
+  },
+
+  "->toBeNull() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeNull();\n"],
+    "description": "->toBeNull() - Pest - (PHP)"
+  },
+
+  "->toBeCallable() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeCallable();\n"],
+    "description": "->toBeCallable() - Pest - (PHP)"
+  },
+
+  "->toBeFloat() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeFloat();\n"],
+    "description": "->toBeFloat() - Pest - (PHP)"
+  },
+
+  "->toBeInt() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeInt();\n"],
+    "description": "->toBeInt() - Pest - (PHP)"
+  },
+
+  "->toBeIterable() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeIterable();\n"],
+    "description": "->toBeIterable() - Pest - (PHP)"
+  },
+
+  "->toBeNumeric() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeNumeric();\n"],
+    "description": "->toBeNumeric() - Pest - (PHP)"
+  },
+
+  "->toBeObject() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeObject();\n"],
+    "description": "->toBeObject() - Pest - (PHP)"
+  },
+
+  "->toBeResource() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeResource();\n"],
+    "description": "->toBeResource() - Pest - (PHP)"
+  },
+
+  "->toBeScalar() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeScalar();\n"],
+    "description": "->toBeScalar() - Pest - (PHP)"
+  },
+
+  "->toBeString() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeString();\n"],
+    "description": "->toBeString() - Pest - (PHP)"
+  },
+
+  "->toBeJson() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeJson();\n"],
+    "description": "->toBeJson() - Pest - (PHP)"
+  },
+
+  "->toBeNan() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeNan();\n"],
+    "description": "->toBeNan() - Pest - (PHP)"
+  },
+
+  "->toBeDirectory() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeDirectory();\n"],
+    "description": "->toBeDirectory - Pest - (PHP)"
+  },
+
+  "->toBeReadableDirectory() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeReadableDirectory();\n"],
+    "description": "->toBeReadableDirectory - Pest - (PHP)"
+  },
+
+  "->toBeWritableDirectory() - Pest - (PHP)": {
+    "prefix": "p2b",
+    "body": ["${1:->}toBeWritableDirectory();\n"],
+    "description": "->toBeWritableDirectory() - Pest - (PHP)"
+  },
+
+  "->toHaveKey() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveKey($0);\n"],
+    "description": "->toHaveKey() - Pest - (PHP)"
+  },
+
+  "->toHaveKeys() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveKeys($0);\n"],
+    "description": "->toHaveKeys() - Pest - (PHP)"
+  },
+
+  "->toHaveLength() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveLength();\n"],
+    "description": "->toHaveLength() - Pest - (PHP)"
+  },
+
+  "->toHaveCount() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveCount($0);\n"],
+    "description": "->toHaveCount() - Pest - (PHP)"
+  },
+
+  "->toHaveProperty() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveProperty($0);\n"],
+    "description": "->toHaveProperty() - Pest - (PHP)"
+  },
+
+  "->toHaveProperties() - Pest - (PHP)": {
+    "prefix": "p2h",
+    "body": ["${1:->}toHaveProperties($0);\n"],
+    "description": "->toHaveProperties() - Pest - (PHP)"
+  },
+
+  "->toStartWith() - Pest - (PHP)": {
+    "prefix": "p2sw",
+    "body": ["${1:->}toStartWith($0);\n"],
+    "description": "->toStartWith() - Pest - (PHP)"
+  },
+
+  "->toEndWith() - Pest - (PHP)": {
+    "prefix": "p2ew",
+    "body": ["${1:->}toEndWith($0);\n"],
+    "description": "->toEndWith() - Pest - (PHP)"
+  },
+
+  "->toMatch() - Pest - (PHP)": {
+    "prefix": "p2m",
+    "body": ["${1:->}toMatch($0);\n"],
+    "description": "->toMatch() - Pest - (PHP)"
+  },
+
+  "->toMatchConstraint() - Pest - (PHP)": {
+    "prefix": "p2m",
+    "body": ["${1:->}toMatchConstraint($0);\n"],
+    "description": "->toMatchConstraint() - Pest - (PHP)"
+  },
+
+  "->toThrow() - Pest - (PHP)": {
+    "prefix": "p2t",
+    "body": ["${1:->}toThrow($0);\n"],
+    "description": "->toThrow() - Pest - (PHP)"
+  },
+
+  "->json()-> - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}json()->\n"],
+    "description": "->json()-> - Pest - (PHP)"
+  },
+
+  "->match()-> - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}match()->\n"],
+    "description": "->match()-> - Pest - (PHP)"
+  },
+
+  "->dd() - Pest - (PHP)": {
+    "prefix": "pedd",
+    "body": ["${1:->}dd();\n"],
+    "description": "->dd() - Pest - (PHP)"
+  },
+
+  "->ray() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}ray();\n"],
+    "description": "->ray() - Pest - (PHP)"
+  },
+
+  "->and()-> - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}and($0)->\n"],
+    "description": "->and()-> - Pest - (PHP)"
+  },
+
+  "->not-> - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}not->\n"],
+    "description": "->not-> - Pest - (PHP)"
+  },
+
+  "->tap() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}tap($0)->\n"],
+    "description": "->tap()-> - Pest - (PHP)"
+  },
+
+  "->each() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}each($0)->\n"],
+    "description": "->each()-> - Pest - (PHP)"
+  },
+
+  "->sequence() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}sequence($0);\n"],
+    "description": "->sequence() - Pest - (PHP)"
+  },
+
+  "->when() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}when($0);\n"],
+    "description": "->when() - Pest - (PHP)"
+  },
+
+  "->unless() - Pest - (PHP)": {
+    "prefix": "pex",
+    "body": ["${1:->}unless($0);\n"],
+    "description": "->unless() - Pest - (PHP)"
+  },
+  "Laravel:Controller:Crud - Laravel - (PHP)": {
+    "prefix": "laconcrud",
+    "body": [
+      "namespace App\\Http\\Controllers;\n",
+      "use App\\Models\\\\${1:Model};\n",
+      "class $1sController extends Controller\n{",
+      "\t/**\n\t * Display a listing of the resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function index()\n\t{",
+      "\t\t$${2:models} = $1::all(); // TODO: reduce load if too many records",
+      "\t\treturn view('$2.index')->with('$2', \\$$2);",
+      "\t}\n",
+      "\t/**\n\t * Display the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function show($1 $${3:model})\n\t{",
+      "\t\treturn view('$2.show')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Show form for creating a new resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function create()\n\t{",
+      "\t\treturn view('$2.create');",
+      "\t}\n",
+      "\t/**\n\t * Stores the new resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function store()\n\t{",
+      "\t\t$1::create(\\$this->validate$1());",
+      "\t\treturn redirect(route('$2.index'));",
+      "\t}\n",
+      "\t/**\n\t * Show form for editing the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function edit($1 $$3)\n\t{",
+      "\t\treturn view('$2.edit')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Updates the persisted resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function update($1 $$3)\n\t{",
+      "\t\t$$3->update(\\$this->validate$1());",
+      "\t\treturn redirect(route('$2.show', $$3));",
+      "\t}\n",
+      "\t/**\n\t * Delete the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function destroy($1 $$3)\n\t{",
+      "\t\t$$3->delete();",
+      "\t\treturn redirect(route('$2.index'));",
+      "\t}\n\n",
+      "\t// Validation helper",
+      "\tprotected function validate$1()\n\t{",
+      "\t\treturn request()->validate([",
+      "\t\t\t// TODO: add validations here",
+      "\t\t\t// 'title' => 'required',",
+      "\t\t]);",
+      "\t}",
+      "}\n\n"
+    ],
+    "description": "Laravel Crud Controller scaffolding - Laravel - (PHP)"
+  },
+
+  "Laravel:Controller:AdminCrud - Laravel - (PHP)": {
+    "prefix": "laconadmincrud",
+    "body": [
+      "namespace App\\Http\\Controllers\\Admin;\n",
+      "use App\\Http\\Controllers\\Controller;",
+      "use App\\Models\\\\${1:Model};",
+      "use Illuminate\\Http\\Request;\n",
+      "class $1sController extends Controller\n{",
+      "\t/**\n\t * Display a listing of the resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function index()\n\t{",
+      "\t\t$${2:models} = $1::all(); // TODO: reduce load if too many records",
+      "\t\treturn view('admin.$2.index')->with('$2', \\$$2);",
+      "\t}\n",
+      "\t/**\n\t * Display the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function show($1 $${3:model})\n\t{",
+      "\t\treturn view('admin.$2.show')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Show form for creating a new resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function create()\n\t{",
+      "\t\treturn view('admin.$2.create');",
+      "\t}\n",
+      "\t/**\n\t * Stores the new resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function store()\n\t{",
+      "\t\t$1::create(\\$this->validate$1());",
+      "\t\treturn redirect(route('admin.$2.index'));",
+      "\t}\n",
+      "\t/**\n\t * Show form for editing the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function edit($1 $$3)\n\t{",
+      "\t\treturn view('admin.$2.edit')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Updates the persisted resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function update($1 $$3)\n\t{",
+      "\t\t$$3->update(\\$this->validate$1());",
+      "\t\treturn redirect(route('admin.$2.show', $$3));",
+      "\t}\n",
+      "\t/**\n\t * Delete the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function destroy($1 $$3)\n\t{",
+      "\t\t$$3->delete();",
+      "\t\treturn redirect(route('admin.$2.index'));",
+      "\t}\n\n",
+      "\t// Validation helper",
+      "\tprotected function validate$1()\n\t{",
+      "\t\treturn request()->validate([",
+      "\t\t\t// TODO: add validations here",
+      "\t\t\t// 'title' => 'required',",
+      "\t\t]);",
+      "\t}",
+      "}\n\n"
+    ],
+    "description": "Laravel Crud Controller scaffolding - Laravel - (PHP)"
+  },
+
+  "Laravel:Controller:API - Laravel - (PHP)": {
+    "prefix": "laconapi",
+    "body": [
+      "namespace App\\Http\\Controllers\\Api;\n",
+      "use App\\Http\\Controllers\\Controller;",
+      "use App\\Models\\\\${1:Model};",
+      "use Illuminate\\Http\\Request;\n",
+      "class $1sController extends Controller\n{",
+      "\t/**\n\t * Display a listing of the resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function index()\n\t{",
+      "\t\t$${2:models} = $1::all(); // TODO: reduce load if too many records",
+      "\t\treturn view('$2.index')->with('$2', \\$$2);",
+      "\t}\n",
+      "\t/**\n\t * Display the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function show($1 $${3:model})\n\t{",
+      "\t\treturn view('$2.show')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Stores the new resource.\n\t *",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function store()\n\t{",
+      "\t\t$1::create(\\$this->validate$1());",
+      "\t\treturn redirect(route('$2.index'));",
+      "\t}\n",
+      "\t/**\n\t * Show form for editing the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function edit($1 $$3)\n\t{",
+      "\t\treturn view('$2.edit')->with('$3', \\$$3);",
+      "\t}\n",
+      "\t/**\n\t * Updates the persisted resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function update($1 $$3)\n\t{",
+      "\t\t$$3->update(\\$this->validate$1());",
+      "\t\treturn redirect(route('$2.show', $$3));",
+      "\t}\n",
+      "\t/**\n\t * Delete the specified resource.\n\t *",
+      "\t * @param $1 $$3",
+      "\t * @return \\Iluminate\\Http\\Response\n\t */",
+      "\tpublic function destroy($1 $$3)\n\t{",
+      "\t\t$$3->delete();",
+      "\t\treturn response()->json(null, 204);",
+      "\t}\n\n",
+      "\t// Validation helper",
+      "\tprotected function validate$1()\n\t{",
+      "\t\treturn request()->validate([",
+      "\t\t\t// TODO: add validations here",
+      "\t\t\t// 'title' => 'required',",
+      "\t\t]);",
+      "\t}",
+      "}\n\n"
+    ],
+    "description": "Laravel Crud Controller scaffolding - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Index action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-index",
+    "body": [
+      "/**",
+      "  * Display a listing of the resource.",
+      "  *",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function index(Request \\$request)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-read'), 403);",
+      "",
+      "  \\$user = Auth::user();",
+      "  return Inertia::render('${4:admin/}${3:modelname}s/Index', [",
+      "    'can' => [",
+      "      'create' => \\$user->isAbleTo('$3-create'),",
+      "      'edit' => \\$user->isAbleTo('$3-update'),",
+      "      'update' => \\$user->isAbleTo('$3-update'),",
+      "      // 'delete' => \\$user->isAbleTo('$3-delete'),",
+      "      // 'restore' => \\$user->isAbleTo('$3-restore'),",
+      "    ],",
+      "    'filters' => \\$request->all('search', 'trashed'),",
+      "    '$3s' => ${3/(.*)/${1:/capitalize}/}::all()",
+      "                  ->filter(\\$request->only('search'))",
+      "                  ->paginate()",
+      "  ]);",
+      "}"
+    ],
+    "description": "zenCrud Controller Index action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Create action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-create",
+    "body": [
+      "/**",
+      "  * Show the form for creating a new resource.",
+      "  *",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function create()",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('${3:modelname}-create'), 403);",
+      "",
+      "  return Inertia::render('${4:admin/}$3s/Create', [",
+      "    '$3' => new ${3/(.*)/${1:/capitalize}/}(),",
+      "  ]);",
+      "}"
+    ],
+    "description": "zenCrud Controller Create action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Store action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-store",
+    "body": [
+      "/**",
+      " * Store a newly created resource in storage.",
+      " *",
+      " * @param \\Illuminate\\Http\\Request \\$request",
+      " * @param  \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      " * @return \\Illuminate\\Http\\Response",
+      " */",
+      "public function store(Request \\$request, ${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-create'), 403);",
+      "",
+      "  // TODO: Validation: Incomplete",
+      "  \\$request->validate([",
+      "      'name' => ['required', 'string', 'max:255'],",
+      "      // 'email' => ['required', 'string', 'email', 'max:255', 'unique:$3s'],",
+      "  ]);",
+      "",
+      "  \\$$3->create(\\$request->all());  // TODO: Security Risk: Mass Assignment of request data",
+      "",
+      "  return Redirect::route('${4:admin.}$3s.index')->with('success', '${3/(.*)/${1:/capitalize}/} successfully created');",
+      "}"
+    ],
+    "description": "zenCrud Controller Store action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Show action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-show",
+    "body": [
+      "/**",
+      " * Display the specified resource.",
+      " *",
+      " * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      " * @return \\Illuminate\\Http\\Response",
+      " */",
+      "public function show(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-read'), 403);",
+      "",
+      "  \\$user = Auth::user();",
+      "  ",
+      "  return Inertia::render('${4:admin/}$3s/Show', [",
+      "    'can' => [",
+      "      // 'create' => \\$user->isAbleTo('$3-create'),",
+      "      'update' => \\$user->isAbleTo('$3-update'),",
+      "      // 'read' => \\$user->isAbleTo('$3-read'),",
+      "      // 'delete' => \\$user->isAbleTo('$3-delete'),",
+      "    ],",
+      "    '$3' => \\$$3,",
+      "  ]);",
+      "}"
+    ],
+    "description": "zenCrud Controller Show action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Edit action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-edit",
+    "body": [
+      "/**",
+      "  * Show the form for editing the specified resource.",
+      "  *",
+      "  * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function edit(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-update'), 403);",
+      "",
+      "  return Inertia::render('${4:admin/}$3s/Edit', [",
+      "    'can' => [",
+      "      'delete' => Auth::user()->isAbleTo('$3-delete'),",
+      "    ],",
+      "    '$3' => \\$$3,",
+      "  ]);",
+      "}"
+    ],
+    "description": "zenCrud Controller Edit action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Update action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-update",
+    "body": [
+      "/**",
+      "  * Update the specified resource in storage.",
+      "  *",
+      "  * @param \\Illuminate\\Http\\Request \\$request",
+      "  * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function update(Request \\$request, ${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-update'), 403);",
+      "",
+      "  // TODO: Validation: Incomplete",
+      "  \\$request->validate([",
+      "    'name' => ['required', 'string', 'max:255'],",
+      "    // 'email' => ['required', 'string', 'email', 'max:255', 'unique:$3s'],",
+      "  ]);",
+      "",
+      "  \\$$3->update(\\$request->all());  // TODO: Security Risk: Mass Assignment of request data",
+      "",
+      "  return Redirect::route('${4:admin.}$3s.index')->with('success', '${3/(.*)/${1:/capitalize}/} successfully updated');",
+      "}"
+    ],
+    "description": "zenCrud Controller Update action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Destroy action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-destroy",
+    "body": [
+      "/**",
+      "  * Remove the specified resource from storage.",
+      "  *",
+      "  * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function destroy(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-delete'), 403);",
+      "",
+      "  \\$$3->delete();",
+      "",
+      "  return Redirect::route('${4:admin.}$3s.index')->with('success', '${3/(.*)/${1:/capitalize}/} successfully deleted');",
+      "}"
+    ],
+    "description": "zenCrud Controller Destroy action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller Restore action (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-restore",
+    "body": [
+      "/**",
+      "  * Restore the deleted resource from storage.",
+      "  *",
+      "  * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      "  * @return \\Illuminate\\Http\\Response",
+      "  */",
+      "public function restore(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  abort_unless(Auth::user()->isAbleTo('$3-restore'), 403);",
+      "",
+      "  \\$$3->restore();",
+      "",
+      "  return Redirect::route('${4:admin.}$3s.index')->with('success', '${3/(.*)/${1:/capitalize}/} successfully restored');",
+      "}"
+    ],
+    "description": "zenCrud Controller Restore action (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+
+  "zenCrud Controller (Laravel & InertiaJS) - Laravel - (PHP)": {
+    "prefix": "zcrud-controller",
+    "body": [
+      "",
+      "namespace App\\Http\\Controllers\\Admin;",
+      "",
+      "use App\\Http\\Controllers\\Controller;",
+      "use Illuminate\\Support\\Facades\\Redirect;",
+      "use Illuminate\\Support\\Facades\\Auth;",
+      "use Illuminate\\Validation\\Rule;",
+      "use Illuminate\\Http\\Request;",
+      "use Inertia\\Inertia;",
+      "use App\\Models\\\\${3/(.*)/${1:/capitalize}/};",
+      "",
+      "",
+      "class ${3/(.*)/${1:/capitalize}/}sController extends Controller",
+      "{",
+      "  /**",
+      "   * Display a listing of the resource.",
+      "   *",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function index(Request \\$request)",
+      "  {",
+      "    \\$current_user = Auth::user();",
+      "",
+      "    abort_unless(\\$current_user->isAbleTo('$3-read'), 403);",
+      "",
+      "    return Inertia::render('admin/$3/Index', [",
+      "      'can' => [",
+      "        'create' => \\$current_user->isAbleTo('$3-create'),",
+      "        'edit' => \\$current_user->isAbleTo('$3-update'),",
+      "        'update' => \\$current_user->isAbleTo('$3-update'),",
+      "        // 'delete' => \\$current_user->isAbleTo('$3-delete'),",
+      "        // 'restore' => \\$current_user->isAbleTo('$3-restore'),",
+      "      ],",
+      "      'filters' => \\$request->all('search', 'trashed'),",
+      "      '$3s' => ${3/(.*)/${1:/capitalize}/}::all()  // with('roles:id,display_name,description')",
+      "                      ->filter(\\$request->only('search'))",
+      "                      ->paginate()",
+      "    ]);",
+      "  }",
+      "",
+      "  /**",
+      "   * Show the form for creating a new resource.",
+      "   *",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function create()",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-create'), 403);",
+      "",
+      "    return Inertia::render('admin/$3s/Create', [",
+      "      '$3' => new ${3/(.*)/${1:/capitalize}/}(),",
+      "    ]);",
+      "  }",
+      "",
+      "  /**",
+      "   * Store a newly created resource in storage.",
+      "   *",
+      "   * @param \\Illuminate\\Http\\Request \\$request",
+      "   * @param  \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function store(Request \\$request, ${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-create'), 403);",
+      "",
+      "    // TODO: Validation: Incomplete",
+      "    \\$request->validate([",
+      "        'name' => ['required', 'string', 'max:255'],",
+      "        // 'email' => ['required', 'string', 'email', 'max:255', 'unique:$3s'],",
+      "    ]);",
+      "",
+      "    // TODO: Security Risk: Mass Assignment of request data",
+      "    \\$$3->create(\\$request->all());",
+      "",
+      "    return Redirect::route('admin.$3s.index')",
+      "                      ->with('success', '${3/(.*)/${1:/capitalize}/} successfully created');",
+      "  }",
+      "",
+      "  /**",
+      "   * Display the specified resource.",
+      "   *",
+      "   * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function show(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    \\$current_user = Auth::user();",
+      "",
+      "    abort_unless(\\$current_user->isAbleTo('$3-read'), 403);",
+      "",
+      "    return Inertia::render('admin/$3s/Show', [",
+      "      'can' => [",
+      "        // 'create' => \\$current_user->isAbleTo('$3-create'),",
+      "        'update' => \\$current_user->isAbleTo('$3-update'),",
+      "        // 'read' => \\$current_user->isAbleTo('$3-read'),",
+      "        // 'delete' => \\$current_user->isAbleTo('$3-delete'),",
+      "      ],",
+      "      '$3' => \\$$3,",
+      "    ]);",
+      "  }",
+      "",
+      "  /**",
+      "   * Show the form for editing the specified resource.",
+      "   *",
+      "   * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function edit(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-update'), 403);",
+      "",
+      "    return Inertia::render('admin/$3s/Edit', [",
+      "      'can' => [",
+      "        'delete' => Auth::user()->isAbleTo('$3-delete'),",
+      "      ],",
+      "      '$3' => \\$$3,",
+      "    ]);",
+      "  }",
+      "",
+      "  /**",
+      "   * Update the specified resource in storage.",
+      "   *",
+      "   * @param \\Illuminate\\Http\\Request \\$request",
+      "   * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function update(Request \\$request, ${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-update'), 403);",
+      "",
+      "    // TODO: Validation: Incomplete",
+      "    \\$request->validate([",
+      "      'name' => ['required', 'string', 'max:255'],",
+      "      // 'email' => ['required', 'string', 'email', 'max:255', 'unique:$3s'],",
+      "    ]);",
+      "",
+      "    // TODO: Security Risk: Mass Assignment of request data",
+      "    \\$$3->update(\\$request->all());",
+      "",
+      "    return Redirect::route('admin.$3s.index')",
+      "                      ->with('success', '${3/(.*)/${1:/capitalize}/} successfully updated');",
+      "  }",
+      "",
+      "  /**",
+      "   * Remove the specified resource from storage.",
+      "   *",
+      "   * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function destroy(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-delete'), 403);",
+      "",
+      "    \\$$3->delete();",
+      "",
+      "    return Redirect::route('admin.$3s.index')",
+      "                    ->with('success', '${3/(.*)/${1:/capitalize}/} successfully deleted');",
+      "  }",
+      "",
+      "  /**",
+      "   * Restore the deleted resource from storage.",
+      "   *",
+      "   * @param \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$$3",
+      "   * @return \\Illuminate\\Http\\Response",
+      "   */",
+      "  public function restore(${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "  {",
+      "    abort_unless(Auth::user()->isAbleTo('$3-restore'), 403);",
+      "",
+      "    \\$$3->restore();",
+      "",
+      "    return Redirect::route('admin.$3s.index')",
+      "                    ->with('success', '${3/(.*)/${1:/capitalize}/} successfully restored');",
+      "  }",
+      "}",
+      ""
+    ],
+    "description": "zenCrud Controller (Laravel & InertiaJS) - Laravel - (PHP)"
+  },
+  "Complex Example Snippet - Laravel - (PHP)": {
+    "prefix": "model-store",
+    "body": [
+      "/**",
+      " * Store a newly created resource in storage.",
+      " *",
+      " * @param \\Illuminate\\Http\\Request \\$request",
+      " * @param  \\App\\Models\\\\${3/(.*)/${1:/capitalize}/} \\$${3:modelname}",
+      " * @return \\Illuminate\\Http\\Response",
+      " */",
+      "public function store(Request \\$request, ${3/(.*)/${1:/capitalize}/} \\$$3)",
+      "{",
+      "  \\$request->validate([",
+      "      'name' => ['required', 'string', 'max:255'],",
+      "      'email' => ['required', 'string', 'email', 'max:255', 'unique:$3s'],",
+      "  ]);",
+      "",
+      "  \\$$3->create(\\$request->all());  // NOTE: Security Risk: Mass Assignment",
+      "",
+      "  return Redirect::route('$3s.index')->with('success', '${3/(.*)/${1:/capitalize}/} successfully created');",
+      "}"
+    ],
+    "description": "Complex Example Snippet - Laravel - (PHP)"
+  }
+}
