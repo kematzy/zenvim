@@ -51,6 +51,11 @@ return {
                   SnacksDashboardTitle = { fg = "#566886" },
                   SnacksDashboardDesc = { fg = "#4B6BA3" },
                   SnacksDashboardIcon = { fg = colors.overlay1 },
+                  SnacksDashboardTerminal = { fg = colors.overlay1, bg = colors.base },
+                  -- SnacksDashboardTerminalBorder = { fg = colors.green, bg = colors.base },
+                  SnacksDashboardBorderTerminal = { fg = colors.green, bg = colors.base },
+                  -- SnacksDashboardItemBorder = { fg = colors.green, bg = colors.base },
+                  SnacksDashboardBorder = { fg = colors.green, bg = colors.base },
                   --
                   SnacksPicker = { fg = colors.text, bg = colors.base },
                   SnacksPickerTitle = { fg = colors.blue, bg = colors.base },
@@ -84,4 +89,4 @@ return {
    },
 }
 
--- cSpell:words gitsigns tokyonight Noice Cmdline kdheepak mikavilpas
+-- cSpell:words winborder gitsigns tokyonight Noice Cmdline kdheepak mikavilpas akinsho toggleterm
