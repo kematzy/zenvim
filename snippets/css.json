@@ -14,7 +14,7 @@
 
   "var(--zen-); - (CSS)": {
     "scope": "css,scss,tailwindcss",
-    "prefix": "-vv",
+    "prefix": "vv",
     "body": "var(--zen-$1);",
     "description": "var(--zen-something); - (CSS)"
   },
@@ -76,7 +76,7 @@
   },
 
   "@media XL (min: 1280px) - (CSS)": {
-    "prefix": "@media-xl",
+    "prefix": "media-xl",
     "scope": "css,postcss,scss",
     "body": [
       "// xl: > '1280px'",

@@ -1,5 +1,4 @@
 {
-  "svelte-store": "comment",
   "import { writable } from 'svelte/store' - Svelte - (JS/TS)": {
     "prefix": "imp-store-writable",
     "scope": "javascript, typescript",
