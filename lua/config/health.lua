@@ -115,29 +115,88 @@ function M.check()
    -- Check LSP servers
    health.start("LSP Servers")
    local lsp_servers = {
-      "lua_ls",
       "bashls",
-      "jsonls",
-      "yamlls",
-      "html",
+      "cspell_ls",
       "cssls",
-      "ts_ls",
-      "pyright",
-      "gopls",
+      "css_variables",
       "dockerls",
+      "gopls",
+      "html",
+      "intelephense",
+      "jsonls",
+      "lemminx",
+      "lua_ls",
+      "marksman",
+      "pyright",
+      "solagraph",
+      "sqlls",
+      "tailwindcss",
+      "ts_ls",
+      "taplo",
+      "yamlls",
    }
 
+   -- Check Mason registry first
+   local mason_available = false
    local ok, mason_registry = pcall(require, "mason-registry")
-   if ok then
-      for _, server in ipairs(lsp_servers) do
-         if mason_registry.is_installed(server) then
-            health.ok(string.format("✅ LSP Server %s: installed", server))
-         else
-            health.warn(string.format("⚠️  LSP Server %s: not installed", server))
+   if ok then mason_available = true end
+
+   for _, server in ipairs(lsp_servers) do
+      local installed = false
+
+      -- Method 1: Check Mason registry (if available)
+      if mason_available then
+         local ok, pkg = pcall(mason_registry.get_package, server)
+         if ok and pkg:is_installed() then installed = true end
+      end
+
+      -- Method 2: Check if server executable exists in Mason bin directory
+      if not installed then
+         local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+         local executables = {
+            lua_ls = "lua-language-server",
+            bashls = "bash-language-server",
+            jsonls = "vscode-json-language-server",
+            yamlls = "yaml-language-server",
+            html = "vscode-html-language-server",
+            cssls = "vscode-css-language-server",
+            ts_ls = "typescript-language-server",
+            dockerls = "docker-langserver",
+            pyright = "pyright-langserver",
+            gopls = "gopls",
+         }
+
+         local exe_name = executables[server]
+         if exe_name then
+            local exe_path = mason_bin .. "/" .. exe_name
+            if vim.fn.executable(exe_path) == 1 then installed = true end
          end
       end
-   else
-      health.warn("Mason registry not available")
+
+      -- Method 3: Check if server is available in PATH
+      if not installed then
+         local executables = {
+            lua_ls = "lua-language-server",
+            bashls = "bash-language-server",
+            jsonls = "vscode-json-language-server",
+            yamlls = "yaml-language-server",
+            html = "vscode-html-language-server",
+            cssls = "vscode-css-language-server",
+            ts_ls = "typescript-language-server",
+            dockerls = "docker-langserver",
+            pyright = "pyright",
+            gopls = "gopls",
+         }
+
+         local exe_name = executables[server]
+         if exe_name and vim.fn.executable(exe_name) == 1 then installed = true end
+      end
+
+      if installed then
+         health.ok(string.format("✅ LSP Server %s: installed", server))
+      else
+         health.warn(string.format("⚠️  LSP Server %s: not installed", server))
+      end
    end
 
    -- Check Treesitter parsers
@@ -171,18 +230,22 @@ function M.check()
    -- Performance checks
    health.start("Performance")
 
-   -- Check startup time (rough estimate)
-   local startup_time = os.clock() - vim.v.startuptime
-   if startup_time < 0.1 then
-      health.ok(string.format("✅ Startup time: %.0fms (excellent)", startup_time * 1000))
-   elseif startup_time < 0.2 then
-      health.ok(string.format("✅ Startup time: %.0fms (good)", startup_time * 1000))
-   elseif startup_time < 0.5 then
-      health.warn(
-         string.format("⚠️  Startup time: %.0fms (could be optimized)", startup_time * 1000)
-      )
+   -- Check startup time (use measured startup time if available)
+   local startup_time = _G.ZENVIM_STARTUP_TIME and (_G.ZENVIM_STARTUP_TIME / 1000) or 0
+   if startup_time > 0 then
+      if startup_time < 0.1 then
+         health.ok(string.format("✅ Startup time: %.0fms (excellent)", startup_time * 1000))
+      elseif startup_time < 0.2 then
+         health.ok(string.format("✅ Startup time: %.0fms (good)", startup_time * 1000))
+      elseif startup_time < 0.5 then
+         health.warn(
+            string.format("⚠️ ️ Startup time: %.0fms (could be optimized)", startup_time * 1000)
+         )
+      else
+         health.warn(string.format("❌ Startup time: %.0fms (slow)", startup_time * 1000))
+      end
    else
-      health.warn(string.format("❌ Startup time: %.0fms (slow)", startup_time * 1000))
+      health.ok("✅ Startup time check not available")
    end
 
    -- Check memory usage
@@ -273,3 +336,5 @@ vim.api.nvim_create_user_command("ZENVIMHealth", M.check, {
 })
 
 return M
+
+-- cSpell:words lazygit lspconfig intelephense lemminx solagraph sqlls taplo lua_ls bashls jsonls yamlls cssls dockerls langserver pyright gopls vimdoc checkhealth startuptime

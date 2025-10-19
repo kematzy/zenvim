@@ -6,7 +6,7 @@
 --      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
 
 -- Performance monitoring - Start timing
-local start_time = vim.loop.hrtime()
+local start_time = vim.uv.hrtime()
 
 require("config.globals")
 require("config.options")
@@ -25,7 +25,7 @@ require("config.health")
 
 -- Performance monitoring - End timing and log if slow
 vim.defer_fn(function()
-   local end_time = vim.loop.hrtime()
+   local end_time = vim.uv.hrtime()
    local startup_time = (end_time - start_time) / 1e6 -- Convert to milliseconds
 
    if startup_time > 100 then -- Log if startup takes more than 100ms
