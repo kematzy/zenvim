@@ -4,7 +4,7 @@
     "body": [
       "// * begin: ${ZED_DIRECTORY/([^\\/]*\\/){2}(.*)/$2/}/${ZED_FILENAME} */",
       "",
-      "$0",
+      "${0:}",
       "",
       "// * /end: ${ZED_DIRECTORY/([^\\/]*\\/){2}(.*)/$2/}/${ZED_FILENAME} */",
       ""
@@ -12,73 +12,45 @@
     "description": "File document comment with name & location (SCSS)"
   },
   "import file - SCSS - (CSS)": {
-    "scope": "scss",
     "prefix": "zi",
     "body": ["@import \"${1:_variables}.scss\";"],
     "description": "Imports .scss file into SCSS file - (CSS)"
   },
   "$zen-variable - SCSS - (CSS)": {
-    "scope": "scss",
     "prefix": "zv",
     "body": ["\\$zen-${1:variable}: ${2:content}${3: !default};"],
     "description": "Adds a SCSS prefixed variable - SCSS - (CSS)"
   },
   "var(--zen-); - (CSS)": {
-    "scope": "css,scss,tailwindcss",
     "prefix": "vv",
-    "body": "var(--zen-$1);",
+    "body": "var(--zen-${:1});",
     "description": "var(--zen-something); - (CSS)"
   },
 
   "@media XS (max: 639px) - (CSS)": {
     "prefix": "@media-xs",
-    "scope": "css,postcss,scss",
-    "body": [
-      "// xs: < '639px'",
-      "@media screen and (max-width: 639px) {",
-      "\t$0",
-      "}",
-      "",
-      ""
-    ],
+    "body": ["// xs: < '639px'", "@media screen and (max-width: 639px) {", "\t${0:}", "}", "", ""],
     "description": "@media XS (max: 639px) - (CSS)"
   },
 
   "@media SM (min: 640px) - (CSS)": {
     "prefix": "@media-sm",
-    "scope": "css,postcss,scss",
-    "body": [
-      "// sm: > '640px'",
-      "@media screen and (min-width: 640px) {",
-      "\t$0",
-      "}",
-      "",
-      ""
-    ],
+    "body": ["// sm: > '640px'", "@media screen and (min-width: 640px) {", "\t${0:}", "}", "", ""],
     "description": "@media SM (min: 640px) - (CSS)"
   },
 
   "@media MD (min: 768px) - (CSS)": {
     "prefix": "@media-md",
-    "scope": "css,postcss,scss",
-    "body": [
-      "// md: > '768px'",
-      "@media screen and (min-width: 768px) {",
-      "\t$0",
-      "}",
-      "",
-      ""
-    ],
+    "body": ["// md: > '768px'", "@media screen and (min-width: 768px) {", "\t${0:}", "}", "", ""],
     "description": "@media MD (min: 768px) - (CSS)"
   },
 
   "@media LG (min: 1024px) - (CSS)": {
     "prefix": "@media-lg",
-    "scope": "css,postcss,scss",
     "body": [
       "// lg: > '1024px'",
       "@media screen and (min-width: 1024px) {",
-      "\t$0",
+      "\t${0:}",
       "}",
       "",
       ""
@@ -87,12 +59,11 @@
   },
 
   "@media XL (min: 1280px) - (CSS)": {
-    "prefix": "media-xl",
-    "scope": "css,postcss,scss",
+    "prefix": "@media-xl",
     "body": [
       "// xl: > '1280px'",
       "@media screen and (min-width: 1280px) {",
-      "\t$0",
+      "\t${0:}",
       "}",
       "",
       ""

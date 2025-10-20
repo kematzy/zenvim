@@ -1,7 +1,7 @@
 {
   "br tag - (MARKDOWN)": {
     "prefix": "br",
-    "body": ["---", " ", "<br>", "${1:br}$0"],
+    "body": ["---", " ", "<br>", "${1:br}${0:}"],
     "description": "add a br tag - (MARKDOWN)"
   }
 }
