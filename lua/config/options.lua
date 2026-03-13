@@ -38,7 +38,7 @@ vim.opt.listchars = {
    -- the line continues beyond the right of the screen.
    extends = "⟩",
    -- character to show in the first visible column of the physical line,
-   -- when there is text prec ding the character visible in the first column.
+   -- when there is text preceding the character visible in the first column.
    precedes = "⟨",
 }
 -- string to put at the start of lines that have been wrapped.
@@ -93,8 +93,6 @@ vim.opt.termguicolors = true
 -- minimum number of screen lines to keep above and below the cursor
 vim.opt.scrolloff = 8
 
--- time in milliseconds for CursorHold events and swap file writing
-vim.opt.updatetime = 50
 -- Adds 2px of vertical padding per line. Only works in GUIs, not terminals
 vim.opt.linespace = 2
 -- Adds "visual margin" when scrolling (consolidated with above)
@@ -115,7 +113,9 @@ vim.opt.sidescrolloff = 8 -- Keep context when scrolling horizontally
 vim.opt.undolevels = 1000 -- Reasonable undo levels
 
 -- Reduce file update checks for better performance
-vim.opt.updatetime = 300 -- Update time for swap files and CursorHold
+-- Note: updatetime affects CursorHold delay for document highlighting
+-- Lower values = faster response but more CPU usage
+vim.opt.updatetime = 250 -- Balance between responsiveness and performance
 
 -- Optimize for large files
 vim.api.nvim_create_autocmd("BufReadPre", {
