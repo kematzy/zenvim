@@ -8,19 +8,44 @@
 
 -- Highlight when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
-   desc = "Highlight when yanking (copying) text",
-   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-   callback = function() vim.highlight.on_yank() end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function() vim.highlight.on_yank() end,
 })
 
 -- Set filetype for .slim files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-   pattern = "*.slim",
-   desc = "Set filetype for Slim template files",
-   group = vim.api.nvim_create_augroup("slim-filetype", { clear = true }),
-   callback = function()
-      vim.bo.filetype = "slim"
-   end,
+  pattern = "*.slim",
+  desc = "Set filetype for Slim template files",
+  group = vim.api.nvim_create_augroup("slim-filetype", { clear = true }),
+  callback = function() vim.bo.filetype = "slim" end,
+})
+
+-- Auto-format on save for files with LSP formatting support
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("zenvim-format-on-save", { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end
+
+    -- Check if the LSP server supports formatting
+    if client:supports_method("textDocument/formatting") then
+      -- Create buffer-local autocmd for formatting on save
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        group = vim.api.nvim_create_augroup("zenvim-lsp-format-" .. args.buf, { clear = true }),
+        callback = function()
+          vim.lsp.buf.format({
+            bufnr = args.buf,
+            filter = function(c)
+              -- Only use the client that supports formatting
+              return c.id == client.id
+            end,
+          })
+        end,
+      })
+    end
+  end,
 })
 
 -- ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
