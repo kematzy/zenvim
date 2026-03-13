@@ -23,14 +23,11 @@ return {
             integrations = {
                cmp = true,
                gitsigns = true,
-               snacks = {
-                  enabled = true,
-                  indent_scope_color = "blue",
-               },
-               telescope = {
-                  enabled = true,
-               },
-               treesitter = true,
+                snacks = {
+                   enabled = true,
+                   indent_scope_color = "blue",
+                },
+                treesitter = true,
                which_key = true,
             },
             custom_highlights = function(colors)

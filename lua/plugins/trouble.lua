@@ -1,5 +1,5 @@
 return {
-   --  A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+   --  A pretty diagnostics, references, quickfix and location list to help you solve all the trouble your code is causing.
    -- DOCS: https://github.com/folke/trouble.nvim
    {
       "folke/trouble.nvim",

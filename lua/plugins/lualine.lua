@@ -220,17 +220,16 @@ return {
                      end,
                      -- Shows specific buffer name for that filetype
                      -- ( { `filetype` = `buffer_name`, ... } )
-                     filetype_names = {
-                        TelescopePrompt = "Telescope",
-                        dashboard = "Dashboard",
-                        packer = "Packer",
-                        fzf = "FZF",
-                        alpha = "Alpha",
-                        lazygit = "LazyGit",
-                        yazi = "Yazi",
-                        picker = "Snacks Picker",
-                        explorer = "Explorer",
-                     },
+                      filetype_names = {
+                         dashboard = "Dashboard",
+                         packer = "Packer",
+                         fzf = "FZF",
+                         alpha = "Alpha",
+                         lazygit = "LazyGit",
+                         yazi = "Yazi",
+                         picker = "Snacks Picker",
+                         explorer = "Explorer",
+                      },
 
                      -- Automatically updates active buffer color to match color of other components (will be overidden if buffers_color is set)
                      use_mode_colors = false,

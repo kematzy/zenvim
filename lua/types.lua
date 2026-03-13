@@ -46,7 +46,7 @@
 ---@field open_file_in_vertical_split? YaziKeymap # When a file is hovered, open it in a vertical split
 ---@field open_file_in_horizontal_split? YaziKeymap # When a file is hovered, open it in a horizontal split
 ---@field open_file_in_tab? YaziKeymap # When a file is hovered, open it in a new tab
----@field grep_in_directory? YaziKeymap # Close yazi and open a grep (default: telescope) narrowed to the directory yazi is in
+---@field grep_in_directory? YaziKeymap # Close yazi and open a grep narrowed to the directory yazi is in
 ---@field replace_in_directory? YaziKeymap # Close yazi and open a replacer (default: grug-far.nvim) narrowed to the directory yazi is in
 ---@field cycle_open_buffers? YaziKeymap # When Neovim has multiple splits open and visible, make yazi jump to the directory of the next one
 ---@field copy_relative_path_to_selected_files? YaziKeymap # Copy the relative paths of the selected files to the clipboard
