@@ -1,5 +1,284 @@
 ---@alias LazySpec table
----
+
+-- ============================================================================
+-- ZENVIM Type Definitions
+-- Type annotations for better LSP support and documentation
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- Lazy.nvim Plugin Specification Types
+-- ----------------------------------------------------------------------------
+
+---@class LazyPluginSpec
+---@field [1] string Plugin name (e.g., "folke/snacks.nvim")
+---@field name? string Alternative way to specify plugin name
+---@field dir? string Local directory path for the plugin
+---@field url? string Full git URL
+---@field dev? boolean Use local dev version
+---@field lazy? boolean Whether to lazy load
+---@field priority? number Plugin loading priority
+---@field dependencies? string[] | LazyPluginSpec[] Dependencies
+---@field init? fun() Initialize before loading
+---@field config? fun(opts: table, opts: table) | boolean Config function
+---@field opts? table | fun(): table Plugin options
+---@field event? string | string[] | LazyEventSpec Event to trigger loading
+---@field cmd? string | string[] Command to trigger loading
+---@field ft? string | string[] Filetype to trigger loading
+---@field keys? string | string[] | LazyKeySpec[] Keymaps to trigger loading
+---@field cond? boolean | fun(): boolean Condition to load
+---@field build? string | fun() Build command/script
+---@field branch? string Git branch to use
+---@field tag? string Git tag to use
+---@field commit? string Git commit to use
+---@field version? string | boolean Version constraint
+---@field pin? boolean Pin to current version
+---@field submodules? boolean Whether to clone submodules
+
+---@class LazyEventSpec
+---@field event string|string[]
+---@field pattern? string|string[]
+
+---@class LazyKeySpec
+---@field [1] string LHS (key combination)
+---@field [2] string|function RHS (command or function)
+---@field desc? string Description
+---@field mode? string|string[] Mode(s)
+---@field noremap? boolean
+---@field silent? boolean
+---@field nowait? boolean
+---@field expr? boolean
+---@field unique? boolean
+
+-- ----------------------------------------------------------------------------
+-- Snacks.nvim Types
+-- ----------------------------------------------------------------------------
+
+---@class SnacksConfig
+---@field bigfile? SnacksBigfileConfig
+---@field dashboard? SnacksDashboardConfig
+---@field explorer? SnacksExplorerConfig
+---@field indent? SnacksIndentConfig
+---@field input? SnacksInputConfig
+---@field notifier? SnacksNotifierConfig
+---@field picker? SnacksPickerConfig
+---@field quickfile? SnacksQuickfileConfig
+---@field scope? SnacksScopeConfig
+---@field scratch? SnacksScratchConfig
+---@field scroll? SnacksScrollConfig
+---@field statuscolumn? SnacksStatusColumnConfig
+---@field terminal? SnacksTerminalConfig
+---@field toggle? SnacksToggleConfig
+---@field words? SnacksWordsConfig
+---@field zen? SnacksZenConfig
+
+---@class SnacksPickerConfig
+---@field enabled? boolean
+---@field sources? table<string, SnacksPickerSource>
+---@field layout? SnacksPickerLayout
+---@field win? SnacksPickerWin
+
+---@class SnacksPickerSource
+---@field name string
+---@field cmd? string
+---@field format? string
+---@field preview? string|function
+
+---@class SnacksPickerLayout
+---@field preset? string
+---@field layout? table
+
+---@class SnacksPickerWin
+---@field input? table
+---@field list? table
+---@field preview? table
+
+---@class SnacksDashboardConfig
+---@field enabled? boolean
+---@field sections? SnacksDashboardSection[]
+---@field formats? table<string, function>
+
+---@class SnacksDashboardSection
+---@field section? string
+---@field pane? integer
+---@field enabled? boolean
+---@field padding? integer|integer[]
+---@field gap? integer
+---@field [string] any Additional section-specific options
+
+---@class SnacksBigfileConfig
+---@field enabled? boolean
+---@field notify? boolean
+---@field size? number Size in bytes
+---@field line_length? number
+
+---@class SnacksIndentConfig
+---@field enabled? boolean
+---@field indent? table
+---@field animate? table
+---@field scope? table
+---@field chunk? table
+
+---@class SnacksNotifierConfig
+---@field enabled? boolean
+---@field timeout? integer
+---@field width? table
+---@field icons? table
+
+---@class SnacksZenConfig
+---@field enabled? boolean
+---@field toggles? table
+---@field show? table
+---@field win? table
+
+-- ----------------------------------------------------------------------------
+-- LSP Configuration Types
+-- ----------------------------------------------------------------------------
+
+---@class LspServerConfig
+---@field cmd? string[] Override command
+---@field filetypes? string[] Override filetypes
+---@field capabilities? table Override capabilities
+---@field settings? table Server-specific settings
+---@field on_attach? fun(client: table, bufnr: integer) Callback on attach
+---@field root_dir? string|fun(filename: string, bufnr: integer): string
+---@field single_file_support? boolean
+---@field init_options? table
+---@field handlers? table<string, function>
+
+---@class LspDiagnosticsConfig
+---@field virtual_text? boolean|table
+---@field signs? boolean|table
+---@field underline? boolean
+---@field update_in_insert? boolean
+---@field severity_sort? boolean
+---@field float? table
+
+---@class LspCapabilities
+---@field textDocumentSync? table
+---@field completionProvider? table
+---@field hoverProvider? boolean
+---@field signatureHelpProvider? table
+---@field definitionProvider? boolean
+---@field referencesProvider? boolean
+---@field documentHighlightProvider? boolean
+---@field documentSymbolProvider? boolean
+---@field codeActionProvider? boolean
+---@field codeLensProvider? table
+---@field formattingProvider? boolean
+---@field renameProvider? boolean
+---@field inlayHintProvider? boolean
+
+-- ----------------------------------------------------------------------------
+-- Keymap Types
+-- ----------------------------------------------------------------------------
+
+---@class KeymapSpec
+---@field mode? string|string[] Vim mode(s)
+---@field lhs string Left-hand side (key combination)
+---@field rhs string|function Right-hand side (command or function)
+---@field desc? string Description for which-key
+---@field buffer? integer Buffer-local keymap
+---@field noremap? boolean (default: true)
+---@field silent? boolean (default: true)
+---@field nowait? boolean
+---@field expr? boolean
+---@field unique? boolean
+
+---@class KeymapGroup
+---@field prefix string Group prefix (e.g., "<leader>f")
+---@field name string Group name (e.g., "file/find")
+---@field icon? string Icon for which-key
+
+---@class KeymapConfig
+---@field global? KeymapSpec[] Global keymaps
+---@field lsp? KeymapSpec[] LSP-specific keymaps
+---@field snacks? KeymapSpec[] Snacks-specific keymaps
+---@field which_key_groups? KeymapGroup[] Which-key group definitions
+
+-- ----------------------------------------------------------------------------
+-- Health Check Types
+-- ----------------------------------------------------------------------------
+
+---@class HealthCheckResult
+---@field status "ok" | "warn" | "error"
+---@field message string
+
+---@class HealthCheck
+---@field name string Check name
+---@field check fun(): HealthCheckResult Check function
+---@field required? boolean Whether this check is required
+
+---@class HealthConfig
+---@field checks? HealthCheck[]
+---@field auto_run? boolean Auto-run on startup
+---@field notify_level? "error" | "warn" | "info" | "debug"
+
+-- ----------------------------------------------------------------------------
+-- Mason Types
+-- ----------------------------------------------------------------------------
+
+---@class MasonPackage
+---@field name string
+---@field category string
+---@field languages string[]
+---@field homepage? string
+---@field description? string
+
+---@class MasonConfig
+---@field ensure_installed? string[]|MasonPackage[]
+---@field automatic_installation? boolean
+---@field ui? table
+
+-- ----------------------------------------------------------------------------
+-- Completion Types
+-- ----------------------------------------------------------------------------
+
+---@class BlinkConfig
+---@field keymap? table
+---@field completion? table
+---@field sources? table
+---@field signature? table
+
+---@class BlinkSource
+---@field name string
+---@field module string
+---@field score_offset? integer
+---@field opts? table
+
+-- ----------------------------------------------------------------------------
+-- Treesitter Types
+-- ----------------------------------------------------------------------------
+
+---@class TreesitterConfig
+---@field ensure_installed? string[]
+---@field sync_install? boolean
+---@field ignore_install? string[]
+---@field auto_install? boolean
+---@field highlight? table
+---@field indent? table
+---@field incremental_selection? table
+
+-- ----------------------------------------------------------------------------
+-- ZENVIM Global Types
+-- ----------------------------------------------------------------------------
+
+---@class ZenvimConfig
+---@field startup_time? number Startup time in milliseconds
+---@field have_nerd_font? boolean Whether Nerd Font is available
+---@field mapleader? string Leader key
+---@field maplocalleader? string Local leader key
+
+-- Global variable definitions
+---@type number
+_G.ZENVIM_STARTUP_TIME = _G.ZENVIM_STARTUP_TIME or 0
+
+---@type ZenvimConfig
+vim.g.zenvim = vim.g.zenvim or {}
+
+-- ----------------------------------------------------------------------------
+-- Yazi Types (existing)
+-- ----------------------------------------------------------------------------
+
 ---@class (exact) YaziConfig
 ---@field public open_for_directories? boolean
 ---@field public chosen_file_path? string "the path to a temporary file that will be created by yazi to store the chosen file path"
