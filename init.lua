@@ -18,8 +18,6 @@ keymaps.setup_global_keymaps()
 require("config.autocmd")
 require("config.lazy")
 
-require("config.lsp")
-
 -- Load health check utilities
 require("config.health")
 
