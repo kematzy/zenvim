@@ -347,4 +347,6 @@ end, {
 
 return M
 
--- cSpell:words lazygit lspconfig intelephense lemminx sqlls taplo lua_ls bashls jsonls yamlls cssls dockerls langserver pyright gopls vimdoc maparg checkhealth startuptime
+-- cSpell:words lazygit lspconfig intelephense lemminx sqlls taplo lua_ls bashls jsonls
+-- cSpell:words solargraph yamlls cssls dockerls langserver pyright gopls vimdoc maparg
+-- cSpell:words checkhealth startuptime

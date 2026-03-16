@@ -133,4 +133,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
 })
 
 -- cSpell:words shiftwidth smartindent textwidth cursorline colorcolumn listchars prec showbreak softtabstop showmode
--- cSpell:words swapfile undofile hlsearch incsearch termguicolors signcolumn updatetime linespace scrolloff breakindent smartindent winborder
+-- cSpell:words swapfile undofile hlsearch incsearch termguicolors signcolumn updatetime linespace scrolloff breakindent
+-- cSpell:words smartindent winborder sidescrolloff getfsize undolevels ignorecase smartcase inccommand lazyredraw
+-- cSpell:words synmaxcol timeoutlen ttimeoutlen

@@ -45,4 +45,4 @@ return {
    },
 }
 
--- cSpell:words stevearc gofumpt
+-- cSpell:words stevearc gofumpt rubocop

@@ -315,4 +315,5 @@ return {
    },
 }
 
--- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup solargraph dockerls intelephense lemminx
+-- cSpell:words williamboman lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt augroup solargraph
+-- cSpell:words dockerls intelephense lemminx buftype luasnip autocommand lazydev sqlls hrsh autocommands

@@ -68,4 +68,5 @@ return {
    },
 }
 
--- cSpell:words lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt luacheck
+-- cSpell:words lspconfig cssls jsonls yamlls taplo bashls pyright gopls gofumpt luacheck intelephense
+-- cSpell:words rubocop shellcheck solargraph sqlls

@@ -283,4 +283,4 @@ end
 
 return M
 
--- cSpell:words loclist colorschemes akinsho toggleterm mgierada kdheepak mikavilpas
+-- cSpell:words loclist colorschemes akinsho toggleterm mgierada kdheepak mikavilpas lazydocker

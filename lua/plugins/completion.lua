@@ -76,4 +76,4 @@ return {
    },
 }
 
--- cSpell:words saghen rafamadriz
+-- cSpell:words saghen rafamadriz autosnippets luasnip jsregexp

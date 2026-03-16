@@ -108,4 +108,4 @@ require("lazy").setup({
    },
 })
 
--- cSpell:words lazypath lazyrepo habamax
+-- cSpell:words lazypath lazyrepo habamax matchit matchparen tohtml shada spellfile

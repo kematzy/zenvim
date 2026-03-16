@@ -332,3 +332,5 @@ vim.g.zenvim = vim.g.zenvim or {}
 ---@field send_to_quickfix_list? YaziKeymap # Send the selected files to the quickfix list for later processing
 ---@field change_working_directory? YaziKeymap # Change working directory to the directory opened by yazi
 ---@field open_and_pick_window? YaziKeymap # Pick a window to open the file in
+
+-- cSpell:words nowait grug quickfile statuscolumn keymappings zindex Renameable

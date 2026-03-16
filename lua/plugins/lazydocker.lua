@@ -47,4 +47,4 @@ return {
    },
 }
 
--- cSpell:words mgierada akinsho toggleterm guifg guibg
+-- cSpell:words mgierada akinsho toggleterm guifg guibg lazydocker

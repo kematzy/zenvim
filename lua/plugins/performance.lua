@@ -12,3 +12,5 @@ return {
     end,
   },
 }
+
+-- cSpell:words dstein64 startuptime

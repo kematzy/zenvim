@@ -54,4 +54,5 @@ return {
    },
 }
 
--- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend mgierada globalstatus fileformat AckslD neoclip kkharji
+-- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend
+-- cSpell:words mgierada globalstatus fileformat AckslD neoclip kkharji
