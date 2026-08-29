@@ -39,7 +39,7 @@ A minimal yet powerful Neovim configuration targeting **Neovim v0.11.3+**. This 
 2. **Clone the configuration**:
 
    ```bash
-   git clone <repository-url> ~/.config/nvim
+   git clone git@github.com:kematzy/zenvim.git ~/.config/zenvim
    ```
 
 3. **Start ZENVIM** (`NVIM_APPNAME=zenvim`; a `zenvim` alias is typical):
