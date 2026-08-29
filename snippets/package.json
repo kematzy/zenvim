@@ -1,0 +1,18 @@
+{
+  "name": "zenvim-snippets",
+  "contributes": {
+    "snippets": [
+      { "language": ["css"], "path": "./css.json" },
+      { "language": ["javascript", "javascriptreact", "typescript", "typescriptreact"], "path": "./javascript.json" },
+      { "language": ["lua"], "path": "./lua.json" },
+      { "language": ["markdown"], "path": "./markdown.json" },
+      { "language": ["php"], "path": "./php.json" },
+      { "language": ["ruby"], "path": "./ruby.json" },
+      { "language": ["scss"], "path": "./scss.json" },
+      { "language": ["svelte"], "path": "./svelte.json" },
+      { "language": ["vue"], "path": "./vue.json" },
+      { "language": ["javascript"], "path": "./cypress.json" },
+      { "language": ["sh", "bash"], "path": "./dotenv.json" }
+    ]
+  }
+}

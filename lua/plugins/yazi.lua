@@ -41,4 +41,3 @@ return {
    },
 }
 
--- cSpell:words mikavilpas keymappings

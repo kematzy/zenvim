@@ -73,7 +73,10 @@ return {
                { section = "startup", icon = "" },
             },
          },
-         explorer = { enabled = true },
+         explorer = {
+            enabled = true,
+            replace_netrw = false, -- do not open explorer when starting in a directory
+         },
          indent = { enabled = true },
          input = { enabled = true },
          lazygit = { enabled = true },
@@ -153,4 +156,3 @@ return {
    },
 }
 
--- cSpell:words conceallevel statuscolumn quickfile

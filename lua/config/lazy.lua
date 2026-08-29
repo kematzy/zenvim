@@ -48,16 +48,11 @@ require("lazy").setup({
          -- Disable some built-in plugins for better startup time
          disabled_plugins = {
             "gzip",
-            "matchit",
-            "matchparen",
             "netrwPlugin",
             "tarPlugin",
             "tohtml",
             "tutor",
             "zipPlugin",
-            "man",
-            "shada_plugin",
-            "spellfile_plugin",
          },
       },
    },
@@ -94,18 +89,10 @@ require("lazy").setup({
       },
    },
 
-   -- Debug settings
    debug = false,
    defaults = {
-      -- By default, only LazyVim plugins will be lazy-loaded.
-      -- Your default plugins will load at startup.
       lazy = false,
-      -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
-      -- have outdated releases, which may break your Neovim install.
-      version = nil,
-      -- default = `false`, will use the default branch of the plugin
-      branch = "stable",
+      version = false,
    },
 })
 
--- cSpell:words lazypath lazyrepo habamax matchit matchparen tohtml shada spellfile

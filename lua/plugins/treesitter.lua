@@ -1,68 +1,57 @@
--- ZENVIM - MINIMAL - SETUP
--- Started on: 31 July, 2025
--- Requires Neovim v0.11.3 and above
--- Assistance by Claude Sonnet v4 and Grok 3
--- See: https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72
---      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
---
+-- nvim-treesitter `main` is required for Neovim 0.12 (highlighter + queries).
+-- `master` is frozen for 0.11 and crashes the decoration provider on markdown previews.
+local parsers = {
+   "bash",
+   "comment",
+   "css",
+   "csv",
+   "diff",
+   "dockerfile",
+   "go",
+   "gitignore",
+   "html",
+   "ini",
+   "javascript",
+   "json",
+   "lua",
+   "luadoc",
+   "markdown",
+   "markdown_inline",
+   "php",
+   "phpdoc",
+   "python",
+   "regex",
+   "ruby",
+   "scss",
+   "slim",
+   "sql",
+   "svelte",
+   "tsx",
+   "typescript",
+   "vim",
+   "vimdoc",
+   "toml",
+   "tsv",
+   "xml",
+   "yaml",
+}
 
 return {
-   -- Nvim Treesitter configurations and abstraction layer
-   -- DOCS: https://github.com/nvim-treesitter/nvim-treesitter
    {
       "nvim-treesitter/nvim-treesitter",
+      branch = "main",
+      lazy = false,
       build = ":TSUpdate",
-
       config = function()
-         require("nvim-treesitter.configs").setup({
-            ensure_installed = {
-               "bash",
-               "comment", -- grammar for TODO, FIXME comments
-               "css",
-               "csv",
-               "desktop", -- parser for .desktop and .directory files
-               "diff",
-               "dockerfile",
-               "editorconfig",
-               "go",
-               "gitignore",
-               "html",
-               "ini",
-               "javascript",
-               "json",
-               "jsonc",
-               "lua",
-               "luadoc",
-               "markdown",
-               "php",
-               "phpdoc",
-               "python",
-               "regex",
-               "ruby",
-               "scss",
-               "slim",
-               "sql",
-               "svelte",
-               "vim",
-               "vimdoc",
-               "tmux",
-               "toml",
-               "tsv",
-               "xml",
-               "yaml",
-            },
-            sync_install = false,
-            auto_install = true,
-            highlight = {
-               enable = true,
-               additional_vim_regex_highlighting = false,
-            },
-            indent = {
-               enable = true,
-            },
+         require("nvim-treesitter").install(parsers)
+
+         vim.api.nvim_create_autocmd("FileType", {
+            group = vim.api.nvim_create_augroup("zenvim-treesitter", { clear = true }),
+            callback = function(args)
+               if not pcall(vim.treesitter.start, args.buf) then return end
+               vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
          })
       end,
    },
 }
-
--- cSpell:words vimdoc

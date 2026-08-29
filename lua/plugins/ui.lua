@@ -44,15 +44,9 @@ return {
    {
       "folke/which-key.nvim",
       event = "VeryLazy",
-      init = function()
-         vim.o.timeout = true
-         vim.o.timeoutlen = 300
-      end,
       opts = {
          spec = keymaps.which_key_groups,
       },
    },
 }
 
--- cSpell:words folke noice cmdline MunifTanjim timeoutlen devicons akinsho toggleterm winblend
--- cSpell:words mgierada globalstatus fileformat AckslD neoclip kkharji

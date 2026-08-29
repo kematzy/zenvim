@@ -26,7 +26,7 @@ vim.defer_fn(function()
    local end_time = vim.uv.hrtime()
    local startup_time = (end_time - start_time) / 1e6 -- Convert to milliseconds
 
-   if startup_time > 100 then -- Log if startup takes more than 100ms
+   if startup_time > 500 then
       vim.notify(
          string.format("ZENVIM startup took %.0fms", startup_time),
          vim.log.levels.WARN,
@@ -38,4 +38,3 @@ vim.defer_fn(function()
    _G.ZENVIM_STARTUP_TIME = startup_time
 end, 0)
 
--- cSpell:words autocmd

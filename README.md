@@ -42,10 +42,10 @@ A minimal yet powerful Neovim configuration targeting **Neovim v0.11.3+**. This 
    git clone <repository-url> ~/.config/nvim
    ```
 
-3. **Start Neovim**:
+3. **Start ZENVIM** (`NVIM_APPNAME=zenvim`; a `zenvim` alias is typical):
 
    ```bash
-   nvim
+   zenvim
    ```
 
 4. **Wait for plugins to install** - Lazy.nvim will automatically install all required plugins on first launch.
@@ -77,15 +77,16 @@ The first time you start Neovim, Lazy.nvim will:
 │   │   ├── autocmd.lua         # Autocommands
 │   │   └── lazy.lua            # Lazy.nvim bootstrap
 │   ├── plugins/                # Plugin specifications
-│   │   ├── lsp.lua             # LSP configuration
-│   │   ├── completion.lua      # Completion setup
+│   │   ├── mason.lua           # Mason + formatter/linter tools
+│   │   ├── lsp.lua             # LSP attach, diagnostics, ensure_installed
+│   │   ├── completion.lua      # Blink.cmp
 │   │   ├── snacks.lua          # Snacks.nvim configuration
 │   │   ├── colorscheme.lua     # Theme configuration
 │   │   ├── treesitter.lua      # Syntax highlighting
-│   │   ├── formatting.lua      # Code formatting
+│   │   ├── formatting.lua      # Conform (format-on-save)
 │   │   └── ...                 # Other plugin configurations
-│   └── types.lua               # Type definitions
-└── lsp/                        # LSP server configs
+│   └── config/health.lua       # :ZENVIMHealth
+└── snippets/                   # VSCode-format snippets (package.json)
 ```
 
 ## ⚡ Key Features
@@ -213,19 +214,13 @@ M.global = {
    :checkhealth
    ```
 
-5. **Configuration Validation**:
-
-   ```vim
-   :ZENVIMValidate
-   ```
-
-6. **ZENVIM Health Check**:
+5. **ZENVIM Health Check**:
 
    ```vim
    :ZENVIMHealth
    ```
 
-7. **Startup Performance**:
+6. **Startup Performance**:
    ```vim
    :StartupTime
    ```
@@ -238,6 +233,7 @@ M.global = {
 
 ## 📚 Documentation
 
+- [AGENTS.md](AGENTS.md) - Architecture and commands for coding agents
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 - [Changelog](CHANGELOG.md) - Version history and changes
 - [Neovim Documentation](https://neovim.io/doc/)

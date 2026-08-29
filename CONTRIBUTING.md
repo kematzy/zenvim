@@ -23,14 +23,9 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
 │   │   ├── keymap.lua        # Keymapping definitions
 │   │   ├── autocmd.lua       # Autocommands
 │   │   └── lazy.lua          # Lazy.nvim bootstrap
-│   ├── plugins/              # Plugin specifications
-│   │   ├── lsp.lua           # LSP configuration
-│   │   ├── completion.lua    # Completion setup
-│   │   ├── snacks.lua        # Snacks.nvim configuration
-│   │   └── ...               # Other plugins
-│   └── types.lua             # Type definitions
-├── lsp/                      # LSP server configs (if needed)
-└── tmp.css                   # Temporary CSS file
+│   └── plugins/              # Plugin specifications
+├── snippets/                 # VSCode-format snippets
+└── stylua.toml               # Lua formatter settings
 ```
 
 ## 🚀 Getting Started
@@ -48,9 +43,9 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
    git clone <repository-url> ~/.config/nvim
    ```
 
-2. Start Neovim:
+2. Start ZENVIM (`NVIM_APPNAME=zenvim`):
    ```bash
-   nvim
+   zenvim
    ```
 
 3. Lazy.nvim will automatically install all required plugins.
@@ -59,7 +54,7 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
 
 ### Code Style
 
-- Use 2 spaces for indentation
+- Follow `stylua.toml` (3-space indent, 100 columns)
 - Ensure files end with a newline
 - Trim trailing whitespace (except in Markdown files)
 - Follow Lua style conventions
@@ -73,8 +68,8 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
 
 ### Keymap Organization
 
-- Global keymaps go in `lua/config/keymap.lua`
-- Plugin-specific keymaps should be defined in the plugin spec
+- Global and plugin keys go in `lua/config/keymap.lua` and are consumed via Lazy `keys =`
+- LSP buffer maps belong in `lua/plugins/lsp.lua` on `LspAttach`
 - Use descriptive keymap descriptions
 - Follow consistent naming conventions
 

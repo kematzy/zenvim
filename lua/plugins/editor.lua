@@ -15,4 +15,3 @@ return {
    },
 }
 
--- cSpell:words gitsigns topdelete changedelete
