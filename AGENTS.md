@@ -9,6 +9,8 @@ Guidance for coding agents working in this Neovim configuration.
 - **Plugins**: `:Lazy`
 - **LSP servers / tools**: `:Mason`
 - **System diagnostics**: `:checkhealth`
+- **Quality checks** (from this repo root): `make check` or `./scripts/check.sh`
+- **Format Lua**: `make format` or `stylua .`
 
 Reload a sourced Lua file with `:source %`. Restart ZENVIM to load config changes that run at startup.
 

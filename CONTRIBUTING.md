@@ -75,9 +75,9 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
 
 ### LSP Configuration
 
-- LSP servers are configured in `lua/plugins/lsp.lua`
+- LSP servers are listed in `lua/plugins/lsp.lua` (`ensure_installed` + `vim.lsp.config`)
 - Use Mason for automatic server installation
-- Server-specific configurations go in separate files under `lsp/`
+- Do not add a second Mason setup or an LSP format-on-save autocmd
 
 ## 📝 Making Changes
 
@@ -92,7 +92,8 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
    - Update documentation as needed
 
 3. **Test your changes**:
-   - Start Neovim and ensure no errors
+   - Run `make check` (StyLua, luacheck, cspell, JSON, headless load)
+   - Start ZENVIM and ensure no errors
    - Test the specific functionality you've added
    - Check for plugin conflicts
 

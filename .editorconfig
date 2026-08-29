@@ -21,9 +21,9 @@ indent_size = 2
 [*.md]
 trim_trailing_whitespace = false
 
-# Lua files (consistent with project style)
+# Lua files (matches stylua.toml)
 [*.lua]
-indent_size = 2
+indent_size = 3
 
 # Ignore special files
 [{tmp.*,.*.tmp}]

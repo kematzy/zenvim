@@ -37,4 +37,3 @@ vim.defer_fn(function()
    -- Set global variable for health checks
    _G.ZENVIM_STARTUP_TIME = startup_time
 end, 0)
-

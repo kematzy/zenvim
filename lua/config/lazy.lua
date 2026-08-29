@@ -95,4 +95,3 @@ require("lazy").setup({
       version = false,
    },
 })
-

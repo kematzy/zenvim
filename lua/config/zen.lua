@@ -1,4 +1,4 @@
-Zen = {
+local Zen = {
    palette = {
       -- palette
       red = "#cc6666",

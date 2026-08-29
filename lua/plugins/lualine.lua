@@ -29,14 +29,7 @@ return {
          },
       },
       config = function()
-         local fn = {}
-
          local __center__ = "%="
-
-         function fn.should_ignore_filetype()
-            local ft = vim.bo.filetype
-            return ft == "noice"
-         end
 
          -- Tabline sections
          local TablineItems = {
@@ -267,4 +260,3 @@ return {
       end,
    },
 }
-

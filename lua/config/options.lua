@@ -50,4 +50,3 @@ vim.opt.ttimeoutlen = 50
 vim.opt.updatetime = 250
 vim.opt.history = 1000
 vim.opt.undolevels = 1000
-

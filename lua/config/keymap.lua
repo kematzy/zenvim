@@ -203,4 +203,3 @@ M.which_key_groups = {
 function M.setup_global_keymaps() apply(M.global) end
 
 return M
-
