@@ -1,5 +1,7 @@
 # ZENVIM - Minimal Neovim Configuration
 
+![ZENVIM Dashboard](.assets/zenvim-dashboard.jpg)
+
 [![Neovim](https://img.shields.io/badge/Neovim-0.11.3+-blue.svg)](https://neovim.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
