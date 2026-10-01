@@ -7,7 +7,14 @@ return {
       lazy = false,
       dependencies = { "rafamadriz/friendly-snippets" },
       opts = {
-         keymap = { preset = "default" },
+         -- Tab or Enter accepts the selected word and stays in insert mode,
+         -- so the next key keeps typing. Ctrl-e dismisses the menu.
+         keymap = {
+            preset = "default",
+            ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "fallback" },
+            ["<CR>"] = { "select_and_accept", "fallback" },
+         },
          appearance = {
             nerd_font_variant = "mono",
          },
@@ -16,6 +23,15 @@ return {
             default = { "lsp", "path", "snippets", "buffer" },
          },
          completion = {
+            -- Ghost text previews the word. auto_insert would put it in the
+            -- buffer early, so the next character restarts the match.
+            list = {
+               selection = {
+                  preselect = true,
+                  auto_insert = false,
+               },
+            },
+            ghost_text = { enabled = true },
             accept = {
                auto_brackets = { enabled = true },
             },
