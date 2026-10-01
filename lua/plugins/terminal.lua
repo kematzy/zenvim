@@ -13,6 +13,21 @@ return {
             },
          },
       },
+      config = function(_, opts)
+         require("toggleterm").setup(opts)
+         -- Buffer-local so Space is not delayed in every terminal.
+         vim.api.nvim_create_autocmd("TermOpen", {
+            group = vim.api.nvim_create_augroup("zenvim-toggleterm", { clear = true }),
+            pattern = "term://*#toggleterm#*",
+            callback = function(event)
+               vim.keymap.set("t", "<leader>tt", "<cmd>ToggleTerm<cr>", {
+                  buffer = event.buf,
+                  silent = true,
+                  desc = "Terminal",
+               })
+            end,
+         })
+      end,
       keys = keymaps.toggleterm,
    },
 }
