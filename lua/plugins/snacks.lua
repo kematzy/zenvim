@@ -88,6 +88,10 @@ return {
                width = 0.9,
             },
             sources = {
+               files = {
+                  hidden = true, -- Show dotfiles
+                  ignored = false, -- Hide gitignored files
+               },
                explorer = {
                   hidden = true, -- Show dotfiles
                   ignored = false, -- Hide gitignored files
