@@ -92,6 +92,7 @@
     "pathlib",
     "pcall",
     "popupmenu",
+    "PSR12",
     "pyright",
     "qflist",
     "quickfile",
