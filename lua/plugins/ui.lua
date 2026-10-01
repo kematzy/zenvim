@@ -36,6 +36,11 @@ return {
                },
             },
          },
+         -- Fidget draws LSP progress. Blink draws signature help.
+         lsp = {
+            progress = { enabled = false },
+            signature = { enabled = false },
+         },
       },
    },
    -- WhichKey helps you remember your Neovim keymaps, by showing
