@@ -33,6 +33,7 @@ vim.opt.smartindent = true
 vim.opt.textwidth = 119
 vim.opt.colorcolumn = "-21,-40,+1"
 
+vim.opt.clipboard = "unnamedplus"
 vim.opt.confirm = true
 vim.opt.showmode = false
 vim.opt.swapfile = false

@@ -131,6 +131,7 @@
     "tostring",
     "ttimeoutlen",
     "undofile",
+    "unnamedplus",
     "undolevels",
     "updatetime",
     "vimdoc",
