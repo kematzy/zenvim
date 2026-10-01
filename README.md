@@ -14,9 +14,10 @@ This configuration focuses on clean organization, modern features, and excellent
 - **Lazy.nvim** - Fast, modern plugin manager
 - **LSP Support** - Full Language Server Protocol with Mason
 - **Treesitter** - Advanced syntax highlighting and code understanding
-- **Intelligent Completion** - Blink.cmp with LSP integration
-- **Beautiful UI** - Custom themes, status line, and visual enhancements
-- **File Management** - Yazi file manager and integrated explorer
+- **Intelligent Completion** - Blink.cmp with LSP integration. `Tab` or `Enter` accepts the word and typing continues
+- **Beautiful UI** - Custom themes, status line with diagnostics, and visual enhancements
+- **Startup dashboard** - Recent files, projects, and git status
+- **File Management** - Yazi file manager and integrated explorer. Find-files and the explorer show dotfiles
 - **Git Integration** - Lazygit, gitsigns, and comprehensive git workflow
 - **Performance** - Optimized for speed and responsiveness
 - **Zen Mode** - Distraction-free writing environment
@@ -28,7 +29,7 @@ This configuration focuses on clean organization, modern features, and excellent
 
 ### Prerequisites
 
-- **Neovim v0.12+** - [Installation Guide](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- **Neovim v0.12+** - [Installation Guide](https://neovim.io/doc/install/)
 - **Git** - For plugin management and version control
 - [**Nerd Font**](https://www.nerdfonts.com/) (Optional but recommended) - For better UI icons
 
@@ -139,6 +140,7 @@ The first time you start Neovim, Lazy.nvim will:
 │   │   ├── autocmd.lua         # Autocommands
 │   │   ├── lazy.lua            # Lazy.nvim bootstrap
 │   │   ├── health.lua          # :ZENVIMHealth check
+│   │   ├── dashboard.lua       # Dashboard recent files, projects, and git status
 │   │   └── zen.lua             # Palette for lualine / terminal chrome
 │   └── plugins/                # Plugin specifications
 │       ├── colorscheme.lua     # Catppuccin theme
@@ -167,10 +169,49 @@ The first time you start Neovim, Lazy.nvim will:
 LSP support is configured for:
 
 - **Web**: HTML, CSS, JavaScript/TypeScript, JSON, YAML, TOML
-- **Backend**: Lua, Python, Go, PHP, Ruby, Bash
+- **Backend**: Lua, Python, Go, PHP, Ruby (ruby-lsp), Bash
 - **DevOps**: Docker, SQL
 - **Markup**: Markdown
 - **Templates**: Slim, ERB (ruby-lsp)
+
+---
+
+## Behavior
+
+### Startup dashboard
+
+An empty window opens the Snacks dashboard. Beside the key list (under it when the window is narrow):
+
+- **Recent Files** — files opened in ZENVIM. When that history is still short, files from your main Neovim history are listed too. Press the number key to open one.
+- **Projects** — git repositories, with the current one first. Press its key to switch to that project.
+- **Git Status** — the branch and changed files. Move onto a file and press `Enter` to open it.
+
+### Finding files
+
+- `<leader>ff` includes dotfiles. Paths ignored by git stay hidden. `Alt-h` toggles hidden files while the picker is open.
+- `<leader>e` opens the explorer with the same rule: dotfiles are visible, and paths ignored by git are not.
+- In the picker, `Alt-j` and `Alt-k` scroll the preview.
+
+### Completion
+
+Grey ghost text shows the selected word while the menu is open.
+
+- `Tab` or `Enter` accepts it. You stay in insert mode, so the next character continues the sentence.
+- `Ctrl-n` / `Ctrl-p`, or `Down` / `Up`, change the selection first.
+- `Ctrl-e` closes the menu. Press that, then `Enter`, when you want a newline while the menu is open.
+- After a snippet, `Tab` moves to the next placeholder and `Shift-Tab` moves back.
+- `Ctrl-k` shows signature help. LSP progress is drawn by Fidget.
+
+### Saving, clipboard, and references
+
+- Saving a buffer formats it with Conform. C and C++ are left alone. PHP uses PSR12 when the project has no php-cs-fixer config.
+- The unnamed register is the system clipboard, so yank and paste work with other programs.
+- Diagnostics appear in the statusline.
+- `]]` and `[[` jump between references of the symbol under the cursor. Those references are highlighted as you move.
+
+### Terminal
+
+`<leader>tt` opens the floating terminal. The same keys close it from inside the terminal.
 
 ---
 
@@ -181,7 +222,8 @@ This configuration includes comprehensive keybindings. `<leader>` is the `<Space
 ### Navigation & Files
 
 - `<leader>e` - Toggle file explorer
-- `<leader>ff` - Find files
+- `<leader>ff` - Find files (includes dotfiles; `Alt-h` toggles them)
+- `<A-j>` / `<A-k>` - Scroll the picker preview (inside the picker)
 - `<leader>fc` - Find config file
 - `<leader>fg` - Live grep
 - `<leader>fG` - Find git files
@@ -203,6 +245,14 @@ This configuration includes comprehensive keybindings. `<leader>` is the `<Space
 - `<leader>cr` - Rename symbol
 - `<leader>ca` - Code actions
 - `<C-k>` - Signature help (in insert mode)
+- `]]` / `[[` - Next / previous reference
+
+### Completion
+
+- `<Tab>` / `<Enter>` - Accept the selected word and keep typing
+- `<C-n>` / `<C-p>` - Next / previous completion
+- `<C-e>` - Dismiss the completion menu
+- `<S-Tab>` - Previous snippet placeholder
 
 ### Git
 
@@ -252,7 +302,7 @@ This configuration includes comprehensive keybindings. `<leader>` is the `<Space
 
 ### Terminal & Tools
 
-- `<leader>tt` - Floating terminal
+- `<leader>tt` - Floating terminal (also closes it from inside)
 - `<leader>td` - LazyDocker
 - `<leader>tg` - LazyGit
 - `<leader>ty` - Yazi (current file)
@@ -267,7 +317,7 @@ This configuration includes comprehensive keybindings. `<leader>` is the `<Space
 
 ### Editor
 
-- `<C-s>` - Save file
+- `<C-s>` - Save file (also formats the buffer, except C and C++)
 - `<C-q>` - Quit Neovim
 - `<Esc>` - Clear search highlighting
 - `<A-j>` / `<A-k>` - Move line/selection down/up
@@ -288,14 +338,14 @@ See `lua/config/keymap.lua` for the complete keymap list.
 
 ## Plugin Highlights
 
-- **Snacks.nvim** - Modern, feature-rich plugin collection
-- **Blink.cmp** - Fast completion engine
+- **Snacks.nvim** - Picker, explorer, dashboard, and other tools
+- **Blink.cmp** - Fast completion engine, themed with Catppuccin
 - **Mason.nvim** - LSP server management
 - **Yazi.nvim** - Modern file manager
 - **Gitsigns.nvim** - Git signs and integration
 - **LazyGit.nvim** - Git UI inside Neovim
 - **Conform.nvim** - Code formatting
-- **Lualine.nvim** - Status line
+- **Lualine.nvim** - Status line, including diagnostics
 - **Treesitter** - Syntax highlighting and code understanding
 
 ---
