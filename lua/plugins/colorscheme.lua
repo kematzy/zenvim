@@ -21,7 +21,7 @@ return {
                solid = false, -- use solid styling for floating windows, see |winborder|
             },
             integrations = {
-               cmp = true,
+               blink_cmp = true,
                gitsigns = true,
                snacks = {
                   enabled = true,

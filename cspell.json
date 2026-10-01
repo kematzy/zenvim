@@ -21,6 +21,7 @@
     "bufdelete",
     "bufnr",
     "buftype",
+    "blink_cmp",
     "bufvalid",
     "Catppuccin",
     "changedelete",
