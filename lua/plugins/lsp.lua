@@ -12,7 +12,7 @@ local servers = {
    "lua_ls",
    "marksman",
    "pyright",
-   "solargraph",
+   "ruby_lsp",
    "sqlls",
    "tailwindcss",
    "taplo",
