@@ -15,20 +15,22 @@ return {
    {
       "nvim-lualine/lualine.nvim",
       dependencies = {
-         {
-            -- DOCS: https://github.com/folke/noice.nvim
-            "folke/noice.nvim",
-         },
-         {
-            -- DOCS: https://github.com/folke/trouble.nvim
-            "folke/trouble.nvim",
-         },
-         {
-            -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
-            "nvim-tree/nvim-web-devicons",
-         },
+         -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
+         "nvim-tree/nvim-web-devicons",
       },
       config = function()
+         local function set_status_highlights()
+            vim.api.nvim_set_hl(0, "StatusBarSegmentFaded", {
+               fg = Zen.palette.bar_faded_text,
+               bg = Zen.palette.bar_bg,
+            })
+         end
+         set_status_highlights()
+         vim.api.nvim_create_autocmd("ColorScheme", {
+            group = vim.api.nvim_create_augroup("zenvim-status-hl", { clear = true }),
+            callback = set_status_highlights,
+         })
+
          local __center__ = "%="
 
          -- Tabline sections
@@ -55,25 +57,33 @@ return {
             end,
             -- Tabline C
             symbol = function()
-               -- return {
-               --    "TODO: symbols",
-               -- }
-               local trouble = require("trouble")
-
-               local symbols = trouble.statusline({
-                  mode = "lsp_document_symbols",
-                  groups = {},
-                  title = false,
-                  filter = { range = true },
-                  format = "{kind_icon:StatusBarSegmentFaded}{symbol.name:StatusBarSegmentFaded} ",
-                  hl_group = "StatusBarSegmentFaded",
-               })
+               local symbols
+               local function ensure()
+                  if symbols then return symbols end
+                  local ok, trouble = pcall(require, "trouble")
+                  if not ok then return nil end
+                  symbols = trouble.statusline({
+                     mode = "lsp_document_symbols",
+                     groups = {},
+                     title = false,
+                     filter = { range = true },
+                     format = "{kind_icon:StatusBarSegmentFaded}"
+                        .. "{symbol.name:StatusBarSegmentFaded} ",
+                     hl_group = "StatusBarSegmentFaded",
+                  })
+                  return symbols
+               end
 
                return {
-                  symbols and symbols.get,
+                  function()
+                     local current = ensure()
+                     if not current or not current.has() then return "" end
+                     return current.get()
+                  end,
                   cond = function()
-                     --
-                     return vim.b.trouble_lualine ~= false and symbols.has()
+                     if vim.b.trouble_lualine == false then return false end
+                     local current = ensure()
+                     return current ~= nil and current.has()
                   end,
                }
             end,
@@ -130,14 +140,6 @@ return {
                   color = function() return { fg = Zen.palette.bar_faded_text, bg = "" } end,
                }
             end,
-            -- Section C
-            diagnostics = function()
-               return {
-                  __center__,
-                  "diagnostics",
-               }
-            end,
-
             -- Sections X
             lazy_status = function()
                local status = require("lazy.status")
@@ -190,7 +192,10 @@ return {
                   Sections.diff(),
                   Sections.filename(),
                },
-               lualine_c = { Sections.diagnostics() },
+               lualine_c = {
+                  __center__,
+                  "diagnostics",
+               },
                lualine_x = {
                   Sections.lazy_status(),
                   Sections.filetype(),
