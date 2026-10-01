@@ -2,7 +2,7 @@
 
 ![ZENVIM Dashboard](.assets/zenvim-dashboard.jpg)
 
-[![Neovim](https://img.shields.io/badge/Neovim-0.11.3+-blue.svg)](https://neovim.io)
+[![Neovim](https://img.shields.io/badge/Neovim-0.12+-blue.svg)](https://neovim.io)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A minimal yet powerful Neovim configuration targeting **Neovim v0.12+**.
@@ -28,7 +28,7 @@ This configuration focuses on clean organization, modern features, and excellent
 
 ### Prerequisites
 
-- **Neovim v0.12++** - [Installation Guide](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- **Neovim v0.12+** - [Installation Guide](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - **Git** - For plugin management and version control
 - [**Nerd Font**](https://www.nerdfonts.com/) (Optional but recommended) - For better UI icons
 
@@ -170,7 +170,7 @@ LSP support is configured for:
 - **Backend**: Lua, Python, Go, PHP, Ruby, Bash
 - **DevOps**: Docker, SQL
 - **Markup**: Markdown
-- **Templates**: Slim, ERB, Handlebars
+- **Templates**: Slim, ERB (ruby-lsp)
 
 ---
 
@@ -309,8 +309,8 @@ Edit `lua/plugins/lsp.lua` and add to the `servers` table:
 ```lua
 local servers = {
    -- existing servers...
-   rust_analyzer = {},  -- Add Rust support
-   clangd = {},         -- Add C/C++ support
+   "rust_analyzer", -- Add Rust support
+   "clangd", -- Add C/C++ support
 }
 ```
 

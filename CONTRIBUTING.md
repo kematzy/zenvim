@@ -4,7 +4,7 @@ Thank you for your interest in contributing to this Neovim configuration! This g
 
 ## 📋 Overview
 
-ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+. It uses lazy.nvim for plugin management and focuses on a clean, organized structure.
+ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.12+. It uses lazy.nvim for plugin management and focuses on a clean, organized structure.
 
 ## 🏗️ Project Structure
 
@@ -32,7 +32,7 @@ ZENVIM is a minimal yet powerful Neovim configuration targeting Neovim v0.11.3+.
 
 ### Prerequisites
 
-- Neovim v0.11.3 or higher
+- Neovim v0.12 or higher
 - Git
 - Nerd Font (optional but recommended)
 
