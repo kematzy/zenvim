@@ -7,6 +7,7 @@
 --
 
 -- load the keymaps configurations
+local dashboard = require("config.dashboard")
 local keymaps = require("config.keymap")
 
 return {
@@ -57,19 +58,9 @@ return {
                   section = "projects",
                   indent = 2,
                   padding = 1,
+                  dirs = function() return dashboard.project_dirs(5) end,
                },
-               {
-                  pane = 2,
-                  icon = "  ",
-                  title = "Git Status",
-                  section = "terminal",
-                  enabled = function() return Snacks.git.get_root() ~= nil end,
-                  cmd = "git status --short --branch --renames",
-                  height = 5,
-                  padding = 1,
-                  ttl = 5 * 60,
-                  indent = 3,
-               },
+               dashboard.git_status,
                { section = "startup", icon = "" },
             },
          },
