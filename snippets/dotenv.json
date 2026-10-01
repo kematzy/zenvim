@@ -3,8 +3,8 @@
     "prefix": "la-db",
     "body": [
       "DB_CONNECTION=sqlite",
-      "DB_DATABASE=${TM_DIRECTORY/~/\\/home\\/kzen/}/dev.sqlite",
-      "# touch ${TM_DIRECTORY/~/\\/home\\/kzen/}/dev.sqlite"
+      "DB_DATABASE=${TM_DIRECTORY}/dev.sqlite",
+      "# touch ${TM_DIRECTORY}/dev.sqlite"
     ],
     "description": "Laravel: DB SQLite setup to .env file - (DotENV)"
   }

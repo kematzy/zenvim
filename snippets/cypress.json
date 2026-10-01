@@ -248,7 +248,7 @@
 
   "cy.artisan(Command, { attrs }) (Laravel) - Cypress - (JavaScript)": {
     "prefix": "cya",
-    "body": ["cy.artisan('${1:post:make}'}, {", "\t${2:'--title': 'My First Post',}", "})${0:}"],
+    "body": ["cy.artisan('${1:post:make}', {", "\t${2:'--title': 'My First Post',}", "})${0:}"],
     "description": "cy.artisan(Command, { attrs }) (Laravel) - Cypress - (JavaScript)"
   },
 

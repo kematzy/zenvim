@@ -16,7 +16,7 @@
   },
   "Throw Exception": {
     "prefix": "throw",
-    "body": ["throw new Error(\"${1:}}\");", "${0:}"],
+    "body": ["throw new Error(\"${1:message}\");", "${0:}"],
     "description": "Throw Exception"
   },
   "JSON.stringify(object) - (JS)": {

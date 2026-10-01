@@ -37,19 +37,19 @@
 
   "let() { block } - RSpec - (Ruby)": {
     "prefix": "let",
-    "body": ["let(:${1:obj}) { $2 }${0:}"],
+    "body": ["let(:${1:obj}) { ${2:value} }${0:}"],
     "description": "let() { block } - RSpec - (Ruby)"
   },
 
   "it() block - RSpec - (Ruby)": {
     "prefix": "it-",
-    "body": ["it('${1:description}') do", "  expect(${2:@obj}${3:.method})).to ${0:}", "end"],
+    "body": ["it('${1:description}') do", "  expect(${2:@obj}${3:.method}).to ${0:}", "end"],
     "description": "it() block - RSpec - (Ruby)"
   },
 
   "it 'block' - MiniTest - (Ruby)": {
     "prefix": "it-",
-    "body": ["it '${1:description}' do", "  _(${2:@obj}${3:.method})).must_${0:}", "end", ""],
+    "body": ["it '${1:description}' do", "  _(${2:@obj}${3:.method}).must_${0:}", "end", ""],
     "description": "it 'block' - MiniTest - (Ruby)"
   },
 

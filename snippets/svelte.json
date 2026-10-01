@@ -145,7 +145,7 @@
   },
   "if (hasContext(key)) {} - Svelte - (JS/TS)": {
     "prefix": "has-context",
-    "body": ["if (hasContext('${1:key}') {", "\t${2:// something}${0:}", "}"],
+    "body": ["if (hasContext('${1:key}')) {", "\t${2:// something}${0:}", "}"],
     "description": [
       "if (hasContext(key)) {} - Svelte - (JS/TS)",
       "- Checks whether a given key has been set in the context of a parent component.",
