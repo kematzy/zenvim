@@ -18,7 +18,6 @@ return {
             "php-cs-fixer",
             "prettier",
             "rubocop",
-            "shellcheck",
             "stylua",
          },
       },
