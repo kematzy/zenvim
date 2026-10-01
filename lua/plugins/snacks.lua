@@ -86,8 +86,8 @@ return {
             win = {
                input = {
                   keys = {
-                     ["<M-j>"] = "preview_scroll_up",
-                     ["<M-k>"] = "preview_scroll_down",
+                     ["<M-j>"] = "preview_scroll_down",
+                     ["<M-k>"] = "preview_scroll_up",
                   },
                },
             },
@@ -98,8 +98,8 @@ return {
             },
             sources = {
                explorer = {
-                  hidden = true, -- Show hidden files by default
-                  ignored = true, -- Respect .gitignore
+                  hidden = true, -- Show dotfiles
+                  ignored = false, -- Hide gitignored files
                   follow_file = true, -- Focus the current file
                   layout = {
                      layout = {
