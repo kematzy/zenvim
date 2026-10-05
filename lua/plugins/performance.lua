@@ -1,8 +1,11 @@
--- Performance Optimization Plugin
--- Optimizes Neovim startup and runtime performance
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- Performance: startup time profiler.
+--
 
 return {
-   -- Startup time profiler
+   -- vim-startuptime - Startup time profiler
+   -- DOCS: https://github.com/dstein64/vim-startuptime
    {
       "dstein64/vim-startuptime",
       cmd = "StartupTime",

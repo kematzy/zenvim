@@ -1,13 +1,11 @@
--- ZENVIM - MINIMAL - SETUP
--- Started on: 31 July, 2025
--- Requires Neovim v0.12 and above
--- Assistance by Claude Sonnet v4 and Grok 3
--- See: https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72
---      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Colorscheme: Catppuccin theme and highlight overrides.
 --
 
 return {
-   -- Catppuccin theme
+   -- Catppuccin theme - Soothing pastel theme for Neovim
+   -- DOCS: https://github.com/catppuccin/nvim
    {
       "catppuccin/nvim",
       name = "catppuccin",

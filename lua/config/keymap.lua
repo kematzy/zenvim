@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- Centralized global and plugin keybinding definitions.
+--
+
 -- Centralized keybinding configuration.
 -- LSP buffer maps live in lua/plugins/lsp.lua (LspAttach only).
 local M = {}

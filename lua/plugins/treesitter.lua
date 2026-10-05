@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- Treesitter: parsers and Neovim 0.12 highlighter setup.
+--
+
 -- nvim-treesitter `main` is required for Neovim 0.12 (highlighter + queries).
 -- `master` is frozen for 0.11 and crashes the decoration provider on markdown previews.
 local parsers = {
@@ -37,6 +42,8 @@ local parsers = {
 }
 
 return {
+   -- nvim-treesitter - Tree-sitter parsers and highlighting
+   -- DOCS: https://github.com/nvim-treesitter/nvim-treesitter
    {
       "nvim-treesitter/nvim-treesitter",
       branch = "main",

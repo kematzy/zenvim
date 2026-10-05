@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 18 October, 2025
+-- Global variables: leader keys, netrw disable and Nerd Font flag.
+--
+
 -- Disable Netrw to avoid interference
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

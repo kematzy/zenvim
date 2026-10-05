@@ -1,9 +1,6 @@
--- ZENVIM - MINIMAL - SETUP
--- Started on: 31 July, 2025
--- Requires Neovim v0.12 and above
--- Assistance by Claude Sonnet v4 and Grok 3
--- See: https://claude.ai/chat/077e450c-ab8a-4aeb-983b-a91f91b2ef72
---      https://grok.com/chat/cefa8717-0aee-4328-bcb6-7d1e1262d897
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Statusline: lualine with tabs, diagnostics and Zen colors.
 --
 
 -- load Zen colors and styles
@@ -15,8 +12,11 @@ return {
    {
       "nvim-lualine/lualine.nvim",
       dependencies = {
+         -- Nerd Font icons (glyphs) used by plugins
          -- DOCS: https://github.com/nvim-tree/nvim-web-devicons
-         "nvim-tree/nvim-web-devicons",
+         {
+            "nvim-tree/nvim-web-devicons",
+         },
       },
       config = function()
          local function set_status_highlights()

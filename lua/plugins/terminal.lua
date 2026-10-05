@@ -1,7 +1,14 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Terminal: toggleterm floating terminal integration.
+--
+
 local Zen = require("config.zen")
 local keymaps = require("config.keymap")
 
 return {
+   -- Toggleterm.nvim - Terminal management for Neovim
+   -- DOCS: https://github.com/akinsho/toggleterm.nvim
    {
       "akinsho/toggleterm.nvim",
       version = "*",

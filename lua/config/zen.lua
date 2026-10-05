@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- Zen palette and style values for lualine and terminal chrome.
+--
+
 local Zen = {
    palette = {
       -- palette

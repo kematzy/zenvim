@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 05 October, 2026
+-- LSP: lazydev, nvim-lspconfig, diagnostics and server overrides.
+--
+
 local servers = {
    "bashls",
    "cssls",
@@ -21,6 +26,8 @@ local servers = {
 }
 
 return {
+   -- LazyDev.nvim - Neovim API completions for Lua
+   -- DOCS: https://github.com/folke/lazydev.nvim
    {
       "folke/lazydev.nvim",
       ft = "lua",
@@ -31,12 +38,20 @@ return {
       },
    },
 
+   -- nvim-lspconfig - Default LSP client configurations
+   -- DOCS: https://github.com/neovim/nvim-lspconfig
    {
       "neovim/nvim-lspconfig",
       dependencies = {
          "mason-org/mason.nvim",
          "mason-org/mason-lspconfig.nvim",
+
+         -- Performant, batteries-included completion plugin
+         -- DOCS: https://github.com/saghen/blink.cmp
          "saghen/blink.cmp",
+
+         -- Fidget.nvim - LSP progress notifications
+         -- DOCS: https://github.com/j-hui/fidget.nvim
          { "j-hui/fidget.nvim", opts = {} },
       },
 

@@ -1,6 +1,13 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Formatting: conform.nvim formatters and format-on-save.
+--
+
 local keymaps = require("config.keymap")
 
 return {
+   -- Conform.nvim - Lightweight formatter runner
+   -- DOCS: https://github.com/stevearc/conform.nvim
    {
       "stevearc/conform.nvim",
       event = { "BufWritePre" },

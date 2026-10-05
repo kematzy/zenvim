@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Sidebar data provider for the Snacks dashboard.
+--
+
 -- Sidebar data for the Snacks dashboard.
 -- ZENVIM stores its own file history (NVIM_APPNAME), so a new install has no
 -- recent files. The main Neovim history is appended until this one fills in.

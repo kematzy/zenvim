@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 05 October, 2026
+-- Buffer-local cSpell (cspell_ls) attach/detach helpers.
+--
+
 -- Buffer-local cSpell (cspell_ls) attach/detach.
 local M = {}
 

@@ -1,11 +1,24 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 01 October, 2026
+-- Autocompletion: blink.cmp setup and keymaps.
+--
+
 return {
+   -- Blink.cmp - Autocompletion with prebuilt binaries
+   -- DOCS: https://github.com/saghen/blink.cmp
    {
       "saghen/blink.cmp",
       -- V2 (main) requires saghen/blink.lib and is still unstable.
       -- Pin to the v1 release line, which ships prebuilt binaries.
       version = "1.*",
       lazy = false,
-      dependencies = { "rafamadriz/friendly-snippets" },
+      dependencies = {
+         -- Friendly Snippets - Community collection of VSCode-style snippets
+         -- DOCS: https://github.com/rafamadriz/friendly-snippets
+         {
+            "rafamadriz/friendly-snippets",
+         },
+      },
       opts = {
          -- Tab or Enter accepts the selected word and stays in insert mode,
          -- so the next key keeps typing. Ctrl-e dismisses the menu.

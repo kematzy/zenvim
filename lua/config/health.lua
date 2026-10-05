@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- `:ZENVIMHealth` diagnostic checks for external tools.
+--
+
 local M = {}
 
 local function check_executable(name, required)

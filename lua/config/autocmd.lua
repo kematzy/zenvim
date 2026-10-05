@@ -1,3 +1,8 @@
+-- Zenvim - Minimal Neovim configuration
+-- Last updated: 29 August, 2026
+-- Autocommands: filetype rules and yank highlight.
+--
+
 vim.filetype.add({
    extension = { slim = "slim" },
 })
