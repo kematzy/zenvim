@@ -126,6 +126,11 @@ return {
 
                -- Create some toggle mappings
                Snacks.toggle.option("spell", { name = "spelling" }):map("<leader>us")
+               Snacks.toggle({
+                  name = "cSpell",
+                  get = function() return require("config.cspell").enabled() end,
+                  set = function(state) require("config.cspell").set(state) end,
+               }):map("<leader>uS")
                Snacks.toggle.option("wrap", { name = "wrap" }):map("<leader>uw")
                Snacks.toggle
                   .option("relativenumber", { name = "relative number" })

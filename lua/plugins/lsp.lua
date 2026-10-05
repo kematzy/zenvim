@@ -46,6 +46,11 @@ return {
             callback = function(event)
                if vim.bo[event.buf].buftype == "terminal" then return end
 
+               local client = vim.lsp.get_client_by_id(event.data.client_id)
+               if client and client.name == "cspell_ls" and vim.b[event.buf].cspell == false then
+                  vim.schedule(function() require("config.cspell").detach(event.buf) end)
+               end
+
                local map = function(keys, func, desc, mode)
                   vim.keymap.set(mode or "n", keys, func, {
                      buffer = event.buf,

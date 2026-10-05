@@ -140,6 +140,7 @@ The first time you start Neovim, Lazy.nvim will:
 │   │   ├── autocmd.lua         # Autocommands
 │   │   ├── lazy.lua            # Lazy.nvim bootstrap
 │   │   ├── health.lua          # :ZENVIMHealth check
+│   │   ├── cspell.lua          # Buffer-local cSpell toggle
 │   │   ├── dashboard.lua       # Dashboard recent files, projects, and git status
 │   │   └── zen.lua             # Palette for lualine / terminal chrome
 │   └── plugins/                # Plugin specifications
@@ -207,6 +208,7 @@ Grey ghost text shows the selected word while the menu is open.
 - Saving a buffer formats it with Conform. C and C++ are left alone. PHP uses PSR12 when the project has no php-cs-fixer config.
 - The unnamed register is the system clipboard, so yank and paste work with other programs.
 - Diagnostics appear in the statusline.
+- `<leader>uS` turns cSpell off or on for the current buffer. New files start with it on for the filetypes it covers. `<leader>us` is Neovim's built-in spelling.
 - `]]` and `[[` jump between references of the symbol under the cursor. Those references are highlighted as you move.
 
 ### Terminal
@@ -318,6 +320,8 @@ This configuration includes comprehensive keybindings. `<leader>` is the `<Space
 ### Editor
 
 - `<C-s>` - Save file (also formats the buffer, except C and C++)
+- `<leader>us` - Toggle Neovim spelling
+- `<leader>uS` - Toggle cSpell for this buffer
 - `<C-q>` - Quit Neovim
 - `<Esc>` - Clear search highlighting
 - `<A-j>` / `<A-k>` - Move line/selection down/up

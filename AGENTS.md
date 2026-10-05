@@ -28,6 +28,8 @@ Lazy.nvim plugin manager, modular Lua config.
 - `autocmd.lua` — yank highlight, filetype rules
 - `lazy.lua` — Lazy.nvim bootstrap
 - `health.lua` — `:ZENVIMHealth`
+- `cspell.lua` — buffer-local cSpell (`cspell_ls`) toggle
+- `dashboard.lua` — dashboard recent files, projects, git status
 - `zen.lua` — palette for lualine / terminal chrome
 
 **Plugins** (`lua/plugins/`):
@@ -59,4 +61,5 @@ Do not add a second Mason setup or an LSP `BufWritePre` format autocmd. Conform 
 
 - Launch with `zenvim` (`NVIM_APPNAME=zenvim`). This config targets Neovim 0.12+.
 - Spell dictionary lives in `cspell.json`, not inline `cSpell:words` comments.
+  Toggle cSpell for the current buffer with `<leader>uS`.
 - Snippets are VSCode-format under `snippets/` with `snippets/package.json`.
