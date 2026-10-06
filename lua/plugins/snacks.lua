@@ -62,7 +62,7 @@ return {
          },
          explorer = {
             enabled = true,
-            replace_netrw = false, -- do not open explorer when starting in a directory
+            replace_netrw = true, -- `zenvim some/dir` opens the explorer there
          },
          indent = { enabled = true },
          input = { enabled = true },

@@ -70,6 +70,7 @@ because the `zenvim` configuration is installed in **`~/.config/zenvim`**.
 
    ```bash
    zenvim
+   zenvim ~/.config/hypr   # open a directory in the explorer
    ```
 
 4. **Wait for plugins to install** - Lazy.nvim will automatically install all required plugins on first launch.
@@ -189,6 +190,7 @@ An empty window opens the Snacks dashboard. Beside the key list (under it when t
 
 ### Finding files
 
+- `zenvim some/dir` opens that directory: the working directory changes to it, and the explorer lists its files. Netrw is disabled; the Snacks explorer takes its place.
 - `<leader>ff` includes dotfiles. Paths ignored by git stay hidden. `Alt-h` toggles hidden files while the picker is open.
 - `<leader>e` opens the explorer with the same rule: dotfiles are visible, and paths ignored by git are not.
 - In the picker, `Alt-j` and `Alt-k` scroll the preview.

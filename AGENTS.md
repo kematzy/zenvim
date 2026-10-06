@@ -25,7 +25,7 @@ Lazy.nvim plugin manager, modular Lua config.
 - `globals.lua` — leader keys, netrw disable, nerd font flag
 - `options.lua` — `vim.opt` only
 - `keymap.lua` — global and plugin keymaps (LSP maps live in `lua/plugins/lsp.lua`)
-- `autocmd.lua` — yank highlight, filetype rules
+- `autocmd.lua` — yank highlight, filetype rules, directory-argument cwd
 - `lazy.lua` — Lazy.nvim bootstrap
 - `health.lua` — `:ZENVIMHealth`
 - `cspell.lua` — buffer-local cSpell (`cspell_ls`) toggle
@@ -40,7 +40,7 @@ Lazy.nvim plugin manager, modular Lua config.
 - `formatting.lua` — Conform.nvim (the only format-on-save path)
 - `treesitter.lua` — nvim-treesitter on `main` (Neovim 0.12 highlighter API)
 - `colorscheme.lua` — Catppuccin
-- `snacks.lua` — picker, explorer (`replace_netrw = false`), lazygit, notifier
+- `snacks.lua` — picker, explorer (`replace_netrw = true`), lazygit, notifier
 
 ## LSP and formatting
 
