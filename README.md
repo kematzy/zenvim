@@ -192,6 +192,7 @@ An empty window opens the Snacks dashboard. Beside the key list (under it when t
 
 - `zenvim some/dir` opens that directory: the working directory changes to it, and the explorer lists its files. Netrw is disabled; the Snacks explorer takes its place.
 - `<leader>ff` includes dotfiles. Paths ignored by git stay hidden. `Alt-h` toggles hidden files while the picker is open.
+- `<leader>ff` and `<leader>fg` give the preview two thirds of the width and the file list one third.
 - `<leader>e` opens the explorer with the same rule: dotfiles are visible, and paths ignored by git are not.
 - In the picker, `Alt-j` and `Alt-k` scroll the preview.
 

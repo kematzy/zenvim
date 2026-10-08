@@ -1,11 +1,27 @@
 -- Zenvim - Minimal Neovim configuration
--- Last updated: 05 October, 2026
+-- Last updated: 08 October, 2026
 -- Snacks: picker, explorer, dashboard, notifier and other QoL features.
 --
 
 -- load the keymaps configurations
 local dashboard = require("config.dashboard")
 local keymaps = require("config.keymap")
+
+-- Horizontal pickers: list ~1/3, preview ~2/3.
+local function preview_two_thirds(layout)
+   local function apply(box)
+      if type(box) ~= "table" then return end
+      if box.box == "horizontal" then
+         for _, child in ipairs(box) do
+            if child.win == "preview" then child.width = 0.66 end
+         end
+      end
+      for _, child in ipairs(box) do
+         apply(child)
+      end
+   end
+   apply(layout.layout)
+end
 
 return {
    -- Snacks.nvim - A collection of QoL plugins for Neovim
@@ -87,6 +103,10 @@ return {
                files = {
                   hidden = true, -- Show dotfiles
                   ignored = false, -- Hide gitignored files
+                  layout = { config = preview_two_thirds },
+               },
+               grep = {
+                  layout = { config = preview_two_thirds },
                },
                explorer = {
                   hidden = true, -- Show dotfiles
