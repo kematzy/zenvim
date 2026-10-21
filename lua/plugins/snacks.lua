@@ -78,7 +78,7 @@ return {
          },
          explorer = {
             enabled = true,
-            replace_netrw = true, -- `zenvim some/dir` opens the explorer there
+            replace_netrw = true, -- `:edit` a directory opens the explorer
          },
          indent = { enabled = true },
          input = { enabled = true },
